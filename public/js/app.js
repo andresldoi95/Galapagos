@@ -46993,8 +46993,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
