@@ -2682,7 +2682,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.post("http://127.0.0.1:8000" + "/oauth/token", {
         grant_type: "password",
         client_id: "2",
-        client_secret: "e5r9O4PAtu1C1RswSr0LoD8cWvdN2jiBSYy1RQYh",
+        client_secret: "1IHWP8G9cxSCC75GCf12QcknssoKrlUuPO4vCn52",
         username: this.form.username,
         password: this.form.password
       }).then(function (_ref) {
@@ -3146,7 +3146,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {//
+//
 //
 //
 //
@@ -3161,13 +3161,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      appName: process.env.MIX_APP_NAME,
-      appAuthor: process.env.MIX_APP_AUTHOR,
-      linkAuthor: process.env.MIX_LINK_AUTHOR
+      appName: "Galápagos",
+      appAuthor: "James Avila",
+      linkAuthor: "https://www.ucsg.edu.ec/"
     };
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -46993,8 +46992,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\avila\OneDrive\Documentos\GitHub\Galapagos\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\avila\OneDrive\Documentos\GitHub\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
