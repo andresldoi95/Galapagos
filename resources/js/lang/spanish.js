@@ -5,9 +5,12 @@ export default {
         logout: "Cerrar sesión",
         admin: "Panel de administración",
         perfil: "Editar cuenta",
-        recuperar: "Recuperar cuenta"
+        recuperar: "Recuperar cuenta",
+        declaracion_juramentada: 'Declaración juramentada'
     },
     message: {
+        confirmar_declaracion: 'Confirmar declaración juramentada',
+        declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
         email_inexistente:
             "El e-mail proporcionado no está registrado en el sistema",
         link_enviado:
@@ -44,7 +47,12 @@ export default {
         debe_seleccionar_roles: "Debe seleccionar al menos un rol",
         password_confirmation: "Confirmación de contraseña",
         password: "Contraseña",
-        token_invalido: "Token inválido"
+        token_invalido: "Token inválido",
+        si: 'Sí',
+        no: 'No',
+        lugares_concentracion: 'He estado en lugares de concentración de animales domésticos o silvestres, en las últimas 72 horas (granjas, zoológicos o áreas protegidas)',
+        alimentos_procesados: 'Traigo elementos procesados, frescos o cocidos, plantas, flores, frutos, semillas, yemas, bulbos, animales vivos, madera, artesanías, productos biológicos, tierra, arena, rocas o minerales',
+        equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
         login: "Iniciar sesión",
@@ -57,14 +65,29 @@ export default {
         edit_account: "Editar cuenta",
         recuperar_cuenta: "Recuperar cuenta",
         recuperar_cuenta_sub: "Recupera tu cuenta proporcionándonos tu email",
-        set_password: "Cambia tu contraseña"
+        set_password: "Cambia tu contraseña",
+        declaracion_juramentada: 'Declaración juramentada',
+        identificacion: 'Identificación',
+        declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        fecha: 'Fecha',
         username: "Nombre de usuario",
         password: "Contraseña",
         acciones: "Acciones",
         roles: "Roles",
-        modulos: "Módulos"
+        modulos: "Módulos",
+        numero_identificacion: "No. Cédula",
+        apellidos: 'Apellidos',
+        nombres: 'Nombres',
+        telefono: 'Teléfono',
+        correo_electronico: 'Correo electrónico',
+        lugar_residencia: 'Lugar de residencia',
+        nacionalidad: 'Nacionalidad',
+        direccion_domicilio: 'Dirección de domicilio',
+        linea_aerea: 'Línea aérea',
+        numero_vuelo: 'Número de vuelo',
+        aeropuerto_origen: 'Aeropuerto de origen'
     },
     button: {
         login: "Iniciar sesión",

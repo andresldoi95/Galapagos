@@ -5,9 +5,12 @@ export default {
         logout: "Logout",
         admin: "Admin panel",
         perfil: "Edit account",
-        recuperar: "Recover account"
+        recuperar: "Recover account",
+        declaracion_juramentada: 'AFFIDAVIT'
     },
     message: {
+        confirmar_declaracion: 'Confirm AFFIDAVIT',
+        declaracion_juramentada: 'Every person over 18 must fill in this document',
         email_inexistente: "The given e-mail is not registered in the system",
         link_enviado: "The reset link has been sent to your email address",
         derechosReservados: "All rights reserved",
@@ -40,7 +43,12 @@ export default {
         email: "E-mail",
         debe_seleccionar_roles: "You must select at least one role",
         password_confirmation: "Password confirmation",
-        password: "Password"
+        password: "Password",
+        si: 'Yes',
+        no: 'No',
+        alimentos_procesados: 'I am bringin processed, fresh or cooked foods, plants, flowers, fruits, seeds, buds, live animals, wood, handcrafts of plant or animal origin, biological products, soil, sand, rocks or minerals',
+        lugares_concentracion: 'I have been where there are concentrations of domestic or wild animas in the last 72 hours (farms, zoos or protected areas)',
+        equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
         login: "Login",
@@ -53,14 +61,29 @@ export default {
         edit_account: "Edit account",
         recuperar_cuenta: "Recover account",
         recuperar_cuenta_sub: "Recover your account by entering your email",
-        set_password: "Set your password"
+        set_password: "Set your password",
+        declaracion_juramentada: 'AFFIDAVIT',
+        identificacion: 'Identification',
+        declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        fecha: 'Date',
         username: "Username",
         password: "Password",
         modulos: "Modules",
         acciones: "Actions",
-        roles: "Roles"
+        roles: "Roles",
+        numero_identificacion: "Passport number",
+        apellidos: 'Last name',
+        nombres: 'Names',
+        telefono: 'Phone',
+        correo_electronico: 'E-mail',
+        lugar_residencia: 'Residence',
+        direccion_domicilio: 'Address',
+        linea_aerea: 'Airline',
+        numero_vuelo: 'Number flight',
+        nacionalidad: 'Nacionality',
+        aeropuerto_origen: 'Airport of origin'
     },
     button: {
         login: "Login",

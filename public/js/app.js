@@ -2261,6 +2261,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3146,7 +3147,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {//
+//
 //
 //
 //
@@ -3161,13 +3162,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      appName: process.env.MIX_APP_NAME,
-      appAuthor: process.env.MIX_APP_AUTHOR,
-      linkAuthor: process.env.MIX_LINK_AUTHOR
+      appName: "Galápagos",
+      appAuthor: "James Avila",
+      linkAuthor: "https://www.ucsg.edu.ec/"
     };
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -3180,6 +3180,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3531,6 +3552,310 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.submit();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        apellidos: "",
+        nombres: "",
+        numero_identificacion: "",
+        telefono: "",
+        correo_electronico: "",
+        lugar_residencia: "",
+        nacionalidad: "",
+        direccion_domicilio: "",
+        linea_aerea: "",
+        numero_vuelo: "",
+        aeropuerto_origen: "",
+        alimentos_procesados: "",
+        lugares_concentracion: "",
+        equipos_campamento: "",
+        fecha: new Date()
+      },
+      errores: {
+        apellidos: undefined,
+        nombres: undefined,
+        numero_identificacion: undefined,
+        telefono: undefined,
+        correo_electronico: undefined,
+        lugar_residencia: undefined,
+        nacionalidad: undefined,
+        direccion_domicilio: undefined,
+        linea_aerea: undefined,
+        numero_vuelo: undefined,
+        aeropuerto_origen: undefined
+      }
+    };
+  },
+  methods: {
+    confirmarDeclaracion: function confirmarDeclaracion() {},
+    clearDate: function clearDate() {
+      this.form.fecha = null;
+    }
   }
 });
 
@@ -22656,14 +22981,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "hero" }, [
     _c("div", { staticClass: "hero-body" }, [
+      _c("h1", { staticClass: "title" }, [
+        _vm._v(_vm._s(_vm.$t("title.roles")))
+      ]),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "container" },
         [
-          _c("h1", { staticClass: "title" }, [
-            _vm._v(_vm._s(_vm.$t("title.roles")))
-          ]),
-          _vm._v(" "),
           _c(
             "masterForm",
             {
@@ -23870,6 +24195,12 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
+          _c(
+            "b-navbar-item",
+            { attrs: { tag: "router-link", to: "/declaracion-juramentada" } },
+            [_vm._v(_vm._s(_vm.$t("link.declaracion_juramentada")))]
+          ),
+          _vm._v(" "),
           _c("b-navbar-item", { attrs: { tag: "router-link", to: "/" } }, [
             _vm._v(_vm._s(_vm.$t("link.home")))
           ]),
@@ -24303,6 +24634,697 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "hero is-small is-primary" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("h1", { staticClass: "title" }, [
+          _vm._v(_vm._s(_vm.$t("title.declaracion_juramentada")))
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "subtitle" }, [
+          _vm._v(_vm._s(_vm.$t("message.declaracion_juramentada")))
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("h3", { staticClass: "title" }, [
+          _vm._v("I. " + _vm._s(_vm.$t("title.identificacion")))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.numero_identificacion
+                        ? _vm.errores.numero_identificacion[0]
+                        : "",
+                      type: _vm.errores.numero_identificacion
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.numero_identificacion")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.numero_identificacion,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "numero_identificacion", $$v)
+                        },
+                        expression: "form.numero_identificacion"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.apellidos
+                        ? _vm.errores.apellidos[0]
+                        : "",
+                      type: _vm.errores.apellidos ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.apellidos")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.apellidos,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "apellidos", $$v)
+                        },
+                        expression: "form.apellidos"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nombres
+                        ? _vm.errores.nombres[0]
+                        : "",
+                      type: _vm.errores.nombres ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.nombres")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nombres,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "nombres", $$v)
+                        },
+                        expression: "form.nombres"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nacionalidad
+                        ? _vm.errores.nacionalidad[0]
+                        : "",
+                      type: _vm.errores.nacionalidad ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.nacionalidad")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nacionalidad,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "nacionalidad", $$v)
+                        },
+                        expression: "form.nacionalidad"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.telefono
+                        ? _vm.errores.telefono[0]
+                        : "",
+                      type: _vm.errores.telefono ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.telefono")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.telefono,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "telefono", $$v)
+                        },
+                        expression: "form.telefono"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.correo_electronico
+                        ? _vm.errores.correo_electronico[0]
+                        : "",
+                      type: _vm.errores.correo_electronico ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.correo_electronico")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.correo_electronico,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "correo_electronico", $$v)
+                        },
+                        expression: "form.correo_electronico"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.lugar_residencia
+                        ? _vm.errores.lugar_residencia[0]
+                        : "",
+                      type: _vm.errores.lugar_residencia ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.lugar_residencia")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.lugar_residencia,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "lugar_residencia", $$v)
+                        },
+                        expression: "form.lugar_residencia"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.direccion_domicilio
+                        ? _vm.errores.direccion_domicilio[0]
+                        : "",
+                      type: _vm.errores.direccion_domicilio ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.direccion_domicilio")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.direccion_domicilio,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "direccion_domicilio", $$v)
+                        },
+                        expression: "form.direccion_domicilio"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.linea_aerea
+                        ? _vm.errores.linea_aerea[0]
+                        : "",
+                      type: _vm.errores.linea_aerea ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.linea_aerea")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.linea_aerea,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "linea_aerea", $$v)
+                        },
+                        expression: "form.linea_aerea"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.numero_vuelo
+                        ? _vm.errores.numero_vuelo[0]
+                        : "",
+                      type: _vm.errores.numero_vuelo ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.numero_vuelo")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.numero_vuelo,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "numero_vuelo", $$v)
+                        },
+                        expression: "form.numero_vuelo"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.aeropuerto_origen
+                        ? _vm.errores.aeropuerto_origen[0]
+                        : "",
+                      type: _vm.errores.aeropuerto_origen ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.aeropuerto_origen")
+                    }
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.aeropuerto_origen,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "aeropuerto_origen", $$v)
+                        },
+                        expression: "form.aeropuerto_origen"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: _vm.$t("etiqueta.fecha") } },
+                  [
+                    _c("b-datepicker", {
+                      attrs: {
+                        icon: "calendar-today",
+                        placeholder: "DD/MM/YYYY",
+                        "trap-focus": "",
+                        locale: "es-ES"
+                      },
+                      model: {
+                        value: _vm.form.fecha,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "fecha", $$v)
+                        },
+                        expression: "form.fecha"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("h3", { staticClass: "title" }, [
+          _vm._v("II. " + _vm._s(_vm.$t("title.declaro_que")) + ":")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("section", { staticClass: "hero" }, [
+            _c("div", { staticClass: "hero-body" }, [
+              _c("div", { staticClass: "columns" }, [
+                _c("div", { staticClass: "column" }, [
+                  _c("p", [
+                    _vm._v(
+                      "1. " +
+                        _vm._s(_vm.$t("message.alimentos_procesados")) +
+                        "."
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c(
+                    "div",
+                    { staticClass: "block" },
+                    [
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "alimentos_procesados",
+                            "native-value": "S"
+                          },
+                          model: {
+                            value: _vm.form.alimentos_procesados,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "alimentos_procesados", $$v)
+                            },
+                            expression: "form.alimentos_procesados"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.si")) +
+                              "\n                  "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "alimentos_procesados",
+                            "native-value": "N"
+                          },
+                          model: {
+                            value: _vm.form.alimentos_procesados,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "alimentos_procesados", $$v)
+                            },
+                            expression: "form.alimentos_procesados"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.no")) +
+                              "\n                  "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "hero" }, [
+            _c("div", { staticClass: "hero-body" }, [
+              _c("div", { staticClass: "columns" }, [
+                _c("div", { staticClass: "column" }, [
+                  _c("p", [
+                    _vm._v(
+                      "2. " +
+                        _vm._s(_vm.$t("message.lugares_concentracion")) +
+                        "."
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c(
+                    "div",
+                    { staticClass: "block" },
+                    [
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "lugares_concentracion",
+                            "native-value": "S"
+                          },
+                          model: {
+                            value: _vm.form.lugares_concentracion,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "lugares_concentracion", $$v)
+                            },
+                            expression: "form.lugares_concentracion"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.si")) +
+                              "\n                  "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "lugares_concentracion",
+                            "native-value": "N"
+                          },
+                          model: {
+                            value: _vm.form.lugares_concentracion,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "lugares_concentracion", $$v)
+                            },
+                            expression: "form.lugares_concentracion"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.no")) +
+                              "\n                  "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "hero" }, [
+            _c("div", { staticClass: "hero-body" }, [
+              _c("div", { staticClass: "columns" }, [
+                _c("div", { staticClass: "column" }, [
+                  _c("p", [
+                    _vm._v(
+                      "3. " + _vm._s(_vm.$t("message.equipos_campamento")) + "."
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c(
+                    "div",
+                    { staticClass: "block" },
+                    [
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "equipos_campamento",
+                            "native-value": "S"
+                          },
+                          model: {
+                            value: _vm.form.equipos_campamento,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "equipos_campamento", $$v)
+                            },
+                            expression: "form.equipos_campamento"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.si")) +
+                              "\n                  "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-radio",
+                        {
+                          attrs: {
+                            name: "equipos_campamento",
+                            "native-value": "N"
+                          },
+                          model: {
+                            value: _vm.form.equipos_campamento,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "equipos_campamento", $$v)
+                            },
+                            expression: "form.equipos_campamento"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.$t("message.no")) +
+                              "\n                  "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("section", { staticClass: "hero" }, [
+        _c(
+          "div",
+          { staticClass: "hero-body" },
+          [
+            _c(
+              "b-button",
+              {
+                attrs: { type: "is-primary" },
+                on: { click: _vm.confirmarDeclaracion }
+              },
+              [
+                _vm._v(
+                  "\n          " +
+                    _vm._s(_vm.$t("message.confirmar_declaracion")) +
+                    "\n        "
+                )
+              ]
+            )
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -46602,6 +47624,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/publico/DeclaracionJuramentada.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/publico/DeclaracionJuramentada.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeclaracionJuramentada.vue?vue&type=template&id=f59feee2& */ "./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2&");
+/* harmony import */ var _DeclaracionJuramentada_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeclaracionJuramentada.vue?vue&type=script&lang=js& */ "./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeclaracionJuramentada_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/publico/DeclaracionJuramentada.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeclaracionJuramentada_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeclaracionJuramentada.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeclaracionJuramentada_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeclaracionJuramentada.vue?vue&type=template&id=f59feee2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeclaracionJuramentada_vue_vue_type_template_id_f59feee2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/lang/english.js":
 /*!**************************************!*\
   !*** ./resources/js/lang/english.js ***!
@@ -46618,9 +47709,12 @@ __webpack_require__.r(__webpack_exports__);
     logout: "Logout",
     admin: "Admin panel",
     perfil: "Edit account",
-    recuperar: "Recover account"
+    recuperar: "Recover account",
+    declaracion_juramentada: 'AFFIDAVIT'
   },
   message: {
+    confirmar_declaracion: 'Confirm AFFIDAVIT',
+    declaracion_juramentada: 'Every person over 18 must fill in this document',
     email_inexistente: "The given e-mail is not registered in the system",
     link_enviado: "The reset link has been sent to your email address",
     derechosReservados: "All rights reserved",
@@ -46653,7 +47747,12 @@ __webpack_require__.r(__webpack_exports__);
     email: "E-mail",
     debe_seleccionar_roles: "You must select at least one role",
     password_confirmation: "Password confirmation",
-    password: "Password"
+    password: "Password",
+    si: 'Yes',
+    no: 'No',
+    alimentos_procesados: 'I am bringin processed, fresh or cooked foods, plants, flowers, fruits, seeds, buds, live animals, wood, handcrafts of plant or animal origin, biological products, soil, sand, rocks or minerals',
+    lugares_concentracion: 'I have been where there are concentrations of domestic or wild animas in the last 72 hours (farms, zoos or protected areas)',
+    equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
   },
   title: {
     login: "Login",
@@ -46666,14 +47765,29 @@ __webpack_require__.r(__webpack_exports__);
     edit_account: "Edit account",
     recuperar_cuenta: "Recover account",
     recuperar_cuenta_sub: "Recover your account by entering your email",
-    set_password: "Set your password"
+    set_password: "Set your password",
+    declaracion_juramentada: 'AFFIDAVIT',
+    identificacion: 'Identification',
+    declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    fecha: 'Date',
     username: "Username",
     password: "Password",
     modulos: "Modules",
     acciones: "Actions",
-    roles: "Roles"
+    roles: "Roles",
+    numero_identificacion: "Passport number",
+    apellidos: 'Last name',
+    nombres: 'Names',
+    telefono: 'Phone',
+    correo_electronico: 'E-mail',
+    lugar_residencia: 'Residence',
+    direccion_domicilio: 'Address',
+    linea_aerea: 'Airline',
+    numero_vuelo: 'Number flight',
+    nacionalidad: 'Nacionality',
+    aeropuerto_origen: 'Airport of origin'
   },
   button: {
     login: "Login",
@@ -46702,9 +47816,12 @@ __webpack_require__.r(__webpack_exports__);
     logout: "Cerrar sesión",
     admin: "Panel de administración",
     perfil: "Editar cuenta",
-    recuperar: "Recuperar cuenta"
+    recuperar: "Recuperar cuenta",
+    declaracion_juramentada: 'Declaración juramentada'
   },
   message: {
+    confirmar_declaracion: 'Confirmar declaración juramentada',
+    declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
     email_inexistente: "El e-mail proporcionado no está registrado en el sistema",
     link_enviado: "El link de recuperación ha sido enviado a su dirección de correo electrónico",
     derechosReservados: "Todos los derechos reservados",
@@ -46739,7 +47856,12 @@ __webpack_require__.r(__webpack_exports__);
     debe_seleccionar_roles: "Debe seleccionar al menos un rol",
     password_confirmation: "Confirmación de contraseña",
     password: "Contraseña",
-    token_invalido: "Token inválido"
+    token_invalido: "Token inválido",
+    si: 'Sí',
+    no: 'No',
+    lugares_concentracion: 'He estado en lugares de concentración de animales domésticos o silvestres, en las últimas 72 horas (granjas, zoológicos o áreas protegidas)',
+    alimentos_procesados: 'Traigo elementos procesados, frescos o cocidos, plantas, flores, frutos, semillas, yemas, bulbos, animales vivos, madera, artesanías, productos biológicos, tierra, arena, rocas o minerales',
+    equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
   },
   title: {
     login: "Iniciar sesión",
@@ -46752,14 +47874,29 @@ __webpack_require__.r(__webpack_exports__);
     edit_account: "Editar cuenta",
     recuperar_cuenta: "Recuperar cuenta",
     recuperar_cuenta_sub: "Recupera tu cuenta proporcionándonos tu email",
-    set_password: "Cambia tu contraseña"
+    set_password: "Cambia tu contraseña",
+    declaracion_juramentada: 'Declaración juramentada',
+    identificacion: 'Identificación',
+    declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    fecha: 'Fecha',
     username: "Nombre de usuario",
     password: "Contraseña",
     acciones: "Acciones",
     roles: "Roles",
-    modulos: "Módulos"
+    modulos: "Módulos",
+    numero_identificacion: "No. Cédula",
+    apellidos: 'Apellidos',
+    nombres: 'Nombres',
+    telefono: 'Teléfono',
+    correo_electronico: 'Correo electrónico',
+    lugar_residencia: 'Lugar de residencia',
+    nacionalidad: 'Nacionalidad',
+    direccion_domicilio: 'Dirección de domicilio',
+    linea_aerea: 'Línea aérea',
+    numero_vuelo: 'Número de vuelo',
+    aeropuerto_origen: 'Aeropuerto de origen'
   },
   button: {
     login: "Iniciar sesión",
@@ -46891,6 +48028,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_ModificarCuenta__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/auth/ModificarCuenta */ "./resources/js/components/auth/ModificarCuenta.vue");
 /* harmony import */ var _components_auth_SetPassword__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/auth/SetPassword */ "./resources/js/components/auth/SetPassword.vue");
 /* harmony import */ var _components_auth_RecuperarCuenta__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/auth/RecuperarCuenta */ "./resources/js/components/auth/RecuperarCuenta.vue");
+/* harmony import */ var _components_publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/publico/DeclaracionJuramentada.vue */ "./resources/js/components/publico/DeclaracionJuramentada.vue");
+
 
 
 
@@ -46909,6 +48048,13 @@ __webpack_require__.r(__webpack_exports__);
     name: "Home",
     meta: {
       requiresAuth: true
+    }
+  }, {
+    path: "/declaracion-juramentada",
+    component: _components_publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    name: "DeclaracionJuramentada",
+    meta: {
+      requiresAuth: false
     }
   }, {
     path: "/perfil",
