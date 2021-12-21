@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class DeclaracionJuramentada extends Model
 {
@@ -13,8 +14,12 @@ class DeclaracionJuramentada extends Model
         'nacionalidad', 'direccion_domicilio', 'linea_aerea',
         'numero_vuelo', 'aeropuerto_origen', 'alimentos_procesados',
         'lugares_concentracion', 'equipos_campamento', 'fecha',
-        'codigo'
+        'codigo', 'estado', 'usuario_id'
     ];
+    public function usuario()
+    {
+        return $this->belongsTo(User::class);
+    }
     protected $dates = [
         'fecha'
     ];

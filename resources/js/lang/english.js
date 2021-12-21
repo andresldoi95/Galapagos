@@ -1,5 +1,6 @@
 export default {
     link: {
+        declaraciones_juramentadas: 'Compliance AFFIDAVIT',
         login: "Login",
         home: "Home",
         logout: "Logout",
@@ -9,6 +10,14 @@ export default {
         declaracion_juramentada: 'AFFIDAVIT'
     },
     message: {
+        debe_seleccionar: 'You must select at least one row',
+        pendientes: 'Pending',
+        rechazadas: 'Refused',
+        aprobadas: 'Approved',
+        aprobar: 'Approve',
+        rechazar: 'Refuse',
+        codigo: 'Code',
+        created_at: 'Created at',
         confirmacion_declaracion: 'Do you confirm the AFFIDAVIT form?',
         confirmar_declaracion: 'Confirm AFFIDAVIT',
         declaracion_juramentada: 'Every person over 18 must fill in this document',
@@ -52,6 +61,7 @@ export default {
         equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
+        declaraciones_juramentadas: 'Compliance AFFIDAVIT',
         login: "Login",
         access: "Access to the system with your username and password",
         dashboard: "Dashboard",

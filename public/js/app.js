@@ -3278,6 +3278,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     logout: function logout() {
@@ -3577,6 +3580,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.registros = data.data;
           _this.total = data.total;
         }
+
+        _this.checkedRows.splice(0, _this.checkedRows.length);
+
         _this.isLoading = false;
       })["catch"](function () {
         _this.$buefy.toast.open({
@@ -3601,6 +3607,186 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.submit();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/MasterForm.vue */ "./resources/js/components/layouts/MasterForm.vue");
+/* harmony import */ var _publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../publico/DeclaracionJuramentada.vue */ "./resources/js/components/publico/DeclaracionJuramentada.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      selectedDeclaracion: {
+        apellidos: "",
+        nombres: "",
+        numero_identificacion: "",
+        telefono: "",
+        correo_electronico: "",
+        lugar_residencia: "",
+        nacionalidad: "",
+        direccion_domicilio: "",
+        linea_aerea: "",
+        numero_vuelo: "",
+        aeropuerto_origen: "",
+        alimentos_procesados: "N",
+        lugares_concentracion: "N",
+        equipos_campamento: "N",
+        fecha: new Date()
+      }
+    };
+  },
+  components: {
+    MasterForm: _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    DeclaracionJuramentada: _publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    editar: function editar(row) {
+      this.selectedDeclaracion.nombres = row.nombres;
+      this.selectedDeclaracion.apellidos = row.apellidos;
+      this.selectedDeclaracion.numero_identificacion = row.numero_identificacion;
+      this.selectedDeclaracion.telefono = row.telefono;
+      this.selectedDeclaracion.correo_electronico = row.correo_electronico;
+      this.selectedDeclaracion.lugar_residencia = row.lugar_residencia;
+      this.selectedDeclaracion.nacionalidad = row.nacionalidad;
+      this.selectedDeclaracion.direccion_domicilio = row.direccion_domicilio;
+      this.selectedDeclaracion.linea_aerea = row.linea_aerea;
+      this.selectedDeclaracion.numero_vuelo = row.numero_vuelo;
+      this.selectedDeclaracion.aeropuerto_origen = row.aeropuerto_origen;
+      this.selectedDeclaracion.alimentos_procesados = row.alimentos_procesados;
+      this.selectedDeclaracion.lugares_concentracion = row.lugares_concentracion;
+      this.selectedDeclaracion.equipos_campamento = row.equipos_campamento;
+      this.selectedDeclaracion.fecha = new Date(row.fecha);
+    },
+    realizarAccion: function realizarAccion(estado, declaraciones) {
+      var _this = this;
+
+      var declaracionesId = [];
+
+      for (var i = 0; i < declaraciones.length; i++) {
+        declaracionesId.push(declaraciones[i].id);
+      }
+
+      this.$http.post("http://127.0.0.1:8000/api" + "/declaraciones-juramentadas", {
+        declaraciones: declaracionesId,
+        _method: "DELETE",
+        estado: estado
+      }).then(function () {
+        _this.$buefy.toast.open({
+          message: _this.$t("message.guardado_generico"),
+          type: "is-success"
+        });
+
+        _this.$refs.masterForm.submit();
+      })["catch"](function () {
+        _this.$buefy.toast.open({
+          message: _this.$t("message.generic_error"),
+          type: "is-danger"
+        });
+      });
+    }
   }
 });
 
@@ -3865,26 +4051,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    editable: {
+      type: Boolean,
+      required: false,
+      "default": true
+    },
+    value: {
+      type: Object,
+      required: false,
+      "default": function _default() {
+        return {
+          apellidos: "",
+          nombres: "",
+          numero_identificacion: "",
+          telefono: "",
+          correo_electronico: "",
+          lugar_residencia: "",
+          nacionalidad: "",
+          direccion_domicilio: "",
+          linea_aerea: "",
+          numero_vuelo: "",
+          aeropuerto_origen: "",
+          alimentos_procesados: "N",
+          lugares_concentracion: "N",
+          equipos_campamento: "N",
+          fecha: new Date()
+        };
+      }
+    }
+  },
   data: function data() {
     return {
-      form: {
-        apellidos: "",
-        nombres: "",
-        numero_identificacion: "",
-        telefono: "",
-        correo_electronico: "",
-        lugar_residencia: "",
-        nacionalidad: "",
-        direccion_domicilio: "",
-        linea_aerea: "",
-        numero_vuelo: "",
-        aeropuerto_origen: "",
-        alimentos_procesados: "N",
-        lugares_concentracion: "N",
-        equipos_campamento: "N",
-        fecha: new Date()
-      },
+      form: this.value,
       errores: {
         apellidos: undefined,
         nombres: undefined,
@@ -3977,6 +4214,11 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    }
+  },
+  watch: {
+    value: function value(_value) {
+      this.form = _value;
     }
   }
 });
@@ -27423,6 +27665,14 @@ var render = function () {
             [_vm._v(_vm._s(_vm.$t("link.declaracion_juramentada")))]
           ),
           _vm._v(" "),
+          _c(
+            "b-navbar-item",
+            {
+              attrs: { tag: "router-link", to: "/declaraciones-juramentadas" },
+            },
+            [_vm._v(_vm._s(_vm.$t("link.declaraciones_juramentadas")))]
+          ),
+          _vm._v(" "),
           _c("b-navbar-item", { attrs: { tag: "router-link", to: "/" } }, [
             _vm._v(_vm._s(_vm.$t("link.home"))),
           ]),
@@ -27876,6 +28126,137 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "hero" }, [
+    _c("div", { staticClass: "hero-body" }, [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("h1", { staticClass: "title" }, [
+            _vm._v(_vm._s(_vm.$t("title.declaraciones_juramentadas"))),
+          ]),
+          _vm._v(" "),
+          _c(
+            "masterForm",
+            {
+              ref: "masterForm",
+              attrs: {
+                createButton: false,
+                statusOptions: [
+                  {
+                    value: "P",
+                    text: this.$t("message.pendientes"),
+                  },
+                  {
+                    value: "R",
+                    text: this.$t("message.rechazadas"),
+                  },
+                  {
+                    value: "A",
+                    text: this.$t("message.aprobadas"),
+                  },
+                  {
+                    value: "T",
+                    text: this.$t("message.all"),
+                  },
+                ],
+                typeOptions: [
+                  {
+                    value: "A",
+                    text: this.$t("message.aprobar"),
+                  },
+                  {
+                    value: "R",
+                    text: this.$t("message.rechazar"),
+                  },
+                ],
+                editable: false,
+                defaultStatus: "P",
+                sortOrderDefault: "desc",
+                sortByDefault: "created_at",
+                resource: "/api/declaraciones-juramentadas",
+                columns: [
+                  {
+                    label: _vm.$t("message.codigo"),
+                    field: "codigo",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.nombres"),
+                    field: "nombres",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.apellidos"),
+                    field: "apellidos",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.numero_identificacion"),
+                    field: "numero_identificacion",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.fecha"),
+                    field: "fecha",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("message.created_at"),
+                    field: "created_at",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("message.status"),
+                    field: "estado",
+                    sortable: true,
+                  },
+                ],
+              },
+              on: { realizarAccion: _vm.realizarAccion, editar: _vm.editar },
+            },
+            [
+              _c("declaracion-juramentada", {
+                attrs: { editable: false },
+                model: {
+                  value: _vm.selectedDeclaracion,
+                  callback: function ($$v) {
+                    _vm.selectedDeclaracion = $$v
+                  },
+                  expression: "selectedDeclaracion",
+                },
+              }),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/publico/DeclaracionJuramentada.vue?vue&type=template&id=f59feee2& ***!
@@ -27931,6 +28312,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.numero_identificacion,
                         callback: function ($$v) {
@@ -27963,6 +28345,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.apellidos,
                         callback: function ($$v) {
@@ -27995,6 +28378,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.nombres,
                         callback: function ($$v) {
@@ -28029,6 +28413,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.nacionalidad,
                         callback: function ($$v) {
@@ -28061,6 +28446,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.telefono,
                         callback: function ($$v) {
@@ -28093,6 +28479,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.correo_electronico,
                         callback: function ($$v) {
@@ -28127,6 +28514,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.lugar_residencia,
                         callback: function ($$v) {
@@ -28159,6 +28547,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.direccion_domicilio,
                         callback: function ($$v) {
@@ -28191,6 +28580,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.linea_aerea,
                         callback: function ($$v) {
@@ -28225,6 +28615,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.numero_vuelo,
                         callback: function ($$v) {
@@ -28257,6 +28648,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { disabled: !_vm.editable },
                       model: {
                         value: _vm.form.aeropuerto_origen,
                         callback: function ($$v) {
@@ -28282,6 +28674,7 @@ var render = function () {
                   [
                     _c("b-datepicker", {
                       attrs: {
+                        disabled: !_vm.editable,
                         icon: "calendar-today",
                         placeholder: "DD/MM/YYYY",
                         "trap-focus": "",
@@ -28335,6 +28728,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "alimentos_procesados",
                             "native-value": "S",
                           },
@@ -28359,6 +28753,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "alimentos_procesados",
                             "native-value": "N",
                           },
@@ -28408,6 +28803,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "lugares_concentracion",
                             "native-value": "S",
                           },
@@ -28432,6 +28828,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "lugares_concentracion",
                             "native-value": "N",
                           },
@@ -28479,6 +28876,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "equipos_campamento",
                             "native-value": "S",
                           },
@@ -28503,6 +28901,7 @@ var render = function () {
                         "b-radio",
                         {
                           attrs: {
+                            disabled: !_vm.editable,
                             name: "equipos_campamento",
                             "native-value": "N",
                           },
@@ -28533,31 +28932,45 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("section", { staticClass: "hero" }, [
-        _c(
-          "div",
-          { staticClass: "hero-body" },
-          [
-            _c(
-              "b-button",
-              {
-                attrs: { type: "is-info" },
-                on: { click: _vm.confirmarDeclaracion },
-              },
-              [
-                _vm._v(
-                  "\n          " +
-                    _vm._s(_vm.$t("message.confirmar_declaracion")) +
-                    "\n        "
-                ),
-              ]
-            ),
-          ],
-          1
-        ),
-      ]),
-    ]),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.editable,
+            expression: "editable",
+          },
+        ],
+        staticClass: "container",
+      },
+      [
+        _c("section", { staticClass: "hero" }, [
+          _c(
+            "div",
+            { staticClass: "hero-body" },
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: { type: "is-info" },
+                  on: { click: _vm.confirmarDeclaracion },
+                },
+                [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(_vm.$t("message.confirmar_declaracion")) +
+                      "\n        "
+                  ),
+                ]
+              ),
+            ],
+            1
+          ),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []
@@ -51195,6 +51608,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d& */ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d&");
+/* harmony import */ var _ConsultaDeclaracionesJuramentadas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js& */ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConsultaDeclaracionesJuramentadas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaDeclaracionesJuramentadas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaDeclaracionesJuramentadas_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue?vue&type=template&id=2d619d6d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaDeclaracionesJuramentadas_vue_vue_type_template_id_2d619d6d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/publico/DeclaracionJuramentada.vue":
 /*!********************************************************************!*\
   !*** ./resources/js/components/publico/DeclaracionJuramentada.vue ***!
@@ -51275,6 +51757,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   link: {
+    declaraciones_juramentadas: 'Compliance AFFIDAVIT',
     login: "Login",
     home: "Home",
     logout: "Logout",
@@ -51284,6 +51767,14 @@ __webpack_require__.r(__webpack_exports__);
     declaracion_juramentada: 'AFFIDAVIT'
   },
   message: {
+    debe_seleccionar: 'You must select at least one row',
+    pendientes: 'Pending',
+    rechazadas: 'Refused',
+    aprobadas: 'Approved',
+    aprobar: 'Approve',
+    rechazar: 'Refuse',
+    codigo: 'Code',
+    created_at: 'Created at',
     confirmacion_declaracion: 'Do you confirm the AFFIDAVIT form?',
     confirmar_declaracion: 'Confirm AFFIDAVIT',
     declaracion_juramentada: 'Every person over 18 must fill in this document',
@@ -51327,6 +51818,7 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
   },
   title: {
+    declaraciones_juramentadas: 'Compliance AFFIDAVIT',
     login: "Login",
     access: "Access to the system with your username and password",
     dashboard: "Dashboard",
@@ -51389,9 +51881,18 @@ __webpack_require__.r(__webpack_exports__);
     admin: "Panel de administración",
     perfil: "Editar cuenta",
     recuperar: "Recuperar cuenta",
-    declaracion_juramentada: 'Declaración juramentada'
+    declaracion_juramentada: 'Declaración juramentada',
+    declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
   },
   message: {
+    debe_seleccionar: 'Debe seleccionar al menos un registro',
+    pendientes: 'Pendientes',
+    rechazadas: 'Rechazadas',
+    aprobadas: 'Aprobadas',
+    aprobar: 'Aprobar',
+    rechazar: 'Rechazar',
+    codigo: 'Código',
+    created_at: 'Fecha de creación',
     confirmacion_declaracion: '¿Desea confirmar la declaración juramentada?',
     confirmar_declaracion: 'Confirmar declaración juramentada',
     declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
@@ -51437,6 +51938,7 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
   },
   title: {
+    declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
     login: "Iniciar sesión",
     access: "Accede al sistema con tu nombre de usuario y contraseña",
     dashboard: "Dashboard",
@@ -51602,6 +52104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_SetPassword__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/auth/SetPassword */ "./resources/js/components/auth/SetPassword.vue");
 /* harmony import */ var _components_auth_RecuperarCuenta__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/auth/RecuperarCuenta */ "./resources/js/components/auth/RecuperarCuenta.vue");
 /* harmony import */ var _components_publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/publico/DeclaracionJuramentada.vue */ "./resources/js/components/publico/DeclaracionJuramentada.vue");
+/* harmony import */ var _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/publico/ConsultaDeclaracionesJuramentadas.vue */ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue");
+
 
 
 
@@ -51628,6 +52132,13 @@ __webpack_require__.r(__webpack_exports__);
     name: "DeclaracionJuramentada",
     meta: {
       requiresAuth: false
+    }
+  }, {
+    path: "/declaraciones-juramentadas",
+    component: _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    name: "DeclaracionesJuramentadas",
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: "/perfil",

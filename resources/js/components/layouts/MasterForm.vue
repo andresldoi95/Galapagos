@@ -262,6 +262,7 @@ export default {
             this.registros = data.data;
             this.total = data.total;
           }
+          this.checkedRows.splice(0, this.checkedRows.length);
           this.isLoading = false;
         })
         .catch(() => {

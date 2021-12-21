@@ -5,9 +5,29 @@ namespace App\Http\Controllers;
 use App\DeclaracionJuramentada;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 class DeclaracionJuramentadaApiController extends Controller
 {
+    public function index(Request $request)
+    {
+        $sortBy = $request->input('sort_by');
+        $status = $request->input('status');
+        $search = $request->input('search');
+        $currentPage = $request->input('current_page');
+        Paginator::currentPageResolver(function () use ($currentPage) {
+            return $currentPage;
+        });
+        $declaraciones = DeclaracionJuramentada::where(function ($query) use ($search) {
+            return $query->where('numero_identificacion', $search)->orWhere('codigo', 'like', "%$search%");
+        });
+        if (isset($sortBy) && $sortBy !== '')
+            $declaraciones->orderBy($sortBy, $request->input('sort_order'));
+        if ($status !== 'T')
+            $declaraciones->where('estado', $status);
+        return $declaraciones->paginate($request->input('per_page'));
+    }
     private function obtenerCodigoAutogenerado()
     {
         $today = date('Ymd');
@@ -18,6 +38,20 @@ class DeclaracionJuramentadaApiController extends Controller
         } else
             $codigo = $today . 1;
         return $codigo;
+    }
+    public function destroy(Request $request)
+    {
+        $request->validate([
+            'declaraciones' => 'required|array',
+            'estado' => 'required|max:1'
+        ]);
+        $user = $request->user();
+        $declaraciones = $request->input('declaraciones');
+        DeclaracionJuramentada::whereIn('id', $declaraciones)
+            ->update([
+                'estado' => $request->input('estado'),
+                'usuario_id' => $user->id
+            ]);
     }
     public function store(Request $request)
     {

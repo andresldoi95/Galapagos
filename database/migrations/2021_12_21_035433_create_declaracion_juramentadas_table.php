@@ -32,7 +32,10 @@ class CreateDeclaracionJuramentadasTable extends Migration
                 $table->char('lugares_concentracion', 1)->default('N');
                 $table->char('equipos_campamento', 1)->default('N');
                 $table->date('fecha');
+                $table->char('estado', 1)->default('P');
+                $table->unsignedBigInteger('usuario_id')->nullable();
                 $table->timestamps();
+                $table->foreign('usuario_id')->references('id')->on('users');
             });
         }
     }

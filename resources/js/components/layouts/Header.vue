@@ -25,6 +25,9 @@
       <b-navbar-item tag="router-link" to="/declaracion-juramentada">{{
         $t("link.declaracion_juramentada")
       }}</b-navbar-item>
+      <b-navbar-item tag="router-link" to="/declaraciones-juramentadas">{{
+        $t("link.declaraciones_juramentadas")
+      }}</b-navbar-item>
       <b-navbar-item tag="router-link" to="/">{{
         $t("link.home")
       }}</b-navbar-item>

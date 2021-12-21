@@ -21,7 +21,10 @@
                 :type="errores.numero_identificacion ? 'is-danger' : ''"
                 :label="$t('etiqueta.numero_identificacion')"
               >
-                <b-input v-model="form.numero_identificacion"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.numero_identificacion"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -30,7 +33,10 @@
                 :type="errores.apellidos ? 'is-danger' : ''"
                 :label="$t('etiqueta.apellidos')"
               >
-                <b-input v-model="form.apellidos"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.apellidos"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -39,7 +45,7 @@
                 :type="errores.nombres ? 'is-danger' : ''"
                 :label="$t('etiqueta.nombres')"
               >
-                <b-input v-model="form.nombres"></b-input>
+                <b-input :disabled="!editable" v-model="form.nombres"></b-input>
               </b-field>
             </div>
           </div>
@@ -50,7 +56,10 @@
                 :type="errores.nacionalidad ? 'is-danger' : ''"
                 :label="$t('etiqueta.nacionalidad')"
               >
-                <b-input v-model="form.nacionalidad"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.nacionalidad"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -59,7 +68,10 @@
                 :type="errores.telefono ? 'is-danger' : ''"
                 :label="$t('etiqueta.telefono')"
               >
-                <b-input v-model="form.telefono"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.telefono"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -72,7 +84,10 @@
                 :type="errores.correo_electronico ? 'is-danger' : ''"
                 :label="$t('etiqueta.correo_electronico')"
               >
-                <b-input v-model="form.correo_electronico"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.correo_electronico"
+                ></b-input>
               </b-field>
             </div>
           </div>
@@ -85,7 +100,10 @@
                 :type="errores.lugar_residencia ? 'is-danger' : ''"
                 :label="$t('etiqueta.lugar_residencia')"
               >
-                <b-input v-model="form.lugar_residencia"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.lugar_residencia"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -98,7 +116,10 @@
                 :type="errores.direccion_domicilio ? 'is-danger' : ''"
                 :label="$t('etiqueta.direccion_domicilio')"
               >
-                <b-input v-model="form.direccion_domicilio"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.direccion_domicilio"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -107,7 +128,10 @@
                 :type="errores.linea_aerea ? 'is-danger' : ''"
                 :label="$t('etiqueta.linea_aerea')"
               >
-                <b-input v-model="form.linea_aerea"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.linea_aerea"
+                ></b-input>
               </b-field>
             </div>
           </div>
@@ -118,7 +142,10 @@
                 :type="errores.numero_vuelo ? 'is-danger' : ''"
                 :label="$t('etiqueta.numero_vuelo')"
               >
-                <b-input v-model="form.numero_vuelo"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.numero_vuelo"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -129,12 +156,16 @@
                 :type="errores.aeropuerto_origen ? 'is-danger' : ''"
                 :label="$t('etiqueta.aeropuerto_origen')"
               >
-                <b-input v-model="form.aeropuerto_origen"></b-input>
+                <b-input
+                  :disabled="!editable"
+                  v-model="form.aeropuerto_origen"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
               <b-field :label="$t('etiqueta.fecha')">
                 <b-datepicker
+                  :disabled="!editable"
                   v-model="form.fecha"
                   icon="calendar-today"
                   placeholder="DD/MM/YYYY"
@@ -161,6 +192,7 @@
                 <div class="column">
                   <div class="block">
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.alimentos_procesados"
                       name="alimentos_procesados"
                       native-value="S"
@@ -168,6 +200,7 @@
                       {{ $t("message.si") }}
                     </b-radio>
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.alimentos_procesados"
                       name="alimentos_procesados"
                       native-value="N"
@@ -188,6 +221,7 @@
                 <div class="column">
                   <div class="block">
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.lugares_concentracion"
                       name="lugares_concentracion"
                       native-value="S"
@@ -195,6 +229,7 @@
                       {{ $t("message.si") }}
                     </b-radio>
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.lugares_concentracion"
                       name="lugares_concentracion"
                       native-value="N"
@@ -215,6 +250,7 @@
                 <div class="column">
                   <div class="block">
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.equipos_campamento"
                       name="equipos_campamento"
                       native-value="S"
@@ -222,6 +258,7 @@
                       {{ $t("message.si") }}
                     </b-radio>
                     <b-radio
+                      :disabled="!editable"
                       v-model="form.equipos_campamento"
                       name="equipos_campamento"
                       native-value="N"
@@ -236,7 +273,7 @@
         </div>
       </div>
     </section>
-    <div class="container">
+    <div v-show="editable" class="container">
       <section class="hero">
         <div class="hero-body">
           <b-button type="is-info" @click="confirmarDeclaracion">
@@ -250,25 +287,39 @@
 
 <script>
 export default {
+  props: {
+    editable: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    value: {
+      type: Object,
+      required: false,
+      default: function () {
+        return {
+          apellidos: "",
+          nombres: "",
+          numero_identificacion: "",
+          telefono: "",
+          correo_electronico: "",
+          lugar_residencia: "",
+          nacionalidad: "",
+          direccion_domicilio: "",
+          linea_aerea: "",
+          numero_vuelo: "",
+          aeropuerto_origen: "",
+          alimentos_procesados: "N",
+          lugares_concentracion: "N",
+          equipos_campamento: "N",
+          fecha: new Date(),
+        };
+      },
+    },
+  },
   data: function () {
     return {
-      form: {
-        apellidos: "",
-        nombres: "",
-        numero_identificacion: "",
-        telefono: "",
-        correo_electronico: "",
-        lugar_residencia: "",
-        nacionalidad: "",
-        direccion_domicilio: "",
-        linea_aerea: "",
-        numero_vuelo: "",
-        aeropuerto_origen: "",
-        alimentos_procesados: "N",
-        lugares_concentracion: "N",
-        equipos_campamento: "N",
-        fecha: new Date(),
-      },
+      form: this.value,
       errores: {
         apellidos: undefined,
         nombres: undefined,
@@ -363,6 +414,11 @@ export default {
             });
         },
       });
+    },
+  },
+  watch: {
+    value: function (value) {
+      this.form = value;
     },
   },
 };
