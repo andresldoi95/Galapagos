@@ -4,21 +4,19 @@
       <section class="hero">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">{{ $t('title.recuperar_cuenta') }}</h1>
-            <h2 class="subtitle">{{ $t('title.recuperar_cuenta_sub') }}</h2>
+            <h1 class="title">{{ $t("title.recuperar_cuenta") }}</h1>
+            <h2 class="subtitle">{{ $t("title.recuperar_cuenta_sub") }}</h2>
             <form @submit.prevent="submit">
               <b-field
-                :message="errores.email?errores.email[0]:''"
-                :type="errores.email?'is-danger':''"
+                :message="errores.email ? errores.email[0] : ''"
+                :type="errores.email ? 'is-danger' : ''"
                 :label="$t('message.email')"
               >
                 <b-input v-model="form.email"></b-input>
               </b-field>
-              <b-button
-                expanded
-                native-type="submit"
-                type="is-primary"
-              >{{ $t('button.enviar_link') }}</b-button>
+              <b-button expanded native-type="submit" type="is-info">{{
+                $t("button.enviar_link")
+              }}</b-button>
             </form>
           </div>
         </div>
@@ -30,7 +28,7 @@
 <script>
 export default {
   methods: {
-    submit: function() {
+    submit: function () {
       this.$http
         .post(process.env.MIX_APP_URL_API + "/reset", this.form)
         .then(() => {
@@ -44,21 +42,21 @@ export default {
           } else {
             this.$buefy.toast.open({
               message: this.$t("message.generic_error"),
-              type: "is-danger"
+              type: "is-danger",
             });
           }
         });
-    }
+    },
   },
-  data: function() {
+  data: function () {
     return {
       form: {
-        email: ""
+        email: "",
       },
       errores: {
-        email: undefined
-      }
+        email: undefined,
+      },
     };
-  }
+  },
 };
 </script>

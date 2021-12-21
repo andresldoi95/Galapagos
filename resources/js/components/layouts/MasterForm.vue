@@ -3,36 +3,53 @@
     <form @submit.prevent="submit">
       <b-field v-show="tipo_formulario === 'C'" grouped group-multiline>
         <div v-show="createButton" class="control">
-          <b-button @click="add" icon-left="plus">{{ $t("message.add") }}</b-button>
+          <b-button @click="add" icon-left="plus">{{
+            $t("message.add")
+          }}</b-button>
         </div>
         <b-select v-model="type">
           <option disabled value>{{ $t("message.group_action") }}</option>
-          <option v-for="type in typeOptions" :key="type.value" :value="type.value">{{ type.text }}</option>
+          <option
+            v-for="type in typeOptions"
+            :key="type.value"
+            :value="type.value"
+          >
+            {{ type.text }}
+          </option>
         </b-select>
         <div class="control">
           <b-button
             @click="realizarAccion"
             icon-left="check"
             type="is-warning"
-          >{{ $t("message.do_group_action") }}</b-button>
+            >{{ $t("message.do_group_action") }}</b-button
+          >
         </div>
         <b-select @input="submit" v-model="form.status">
           <option
             v-for="option in statusOptions"
             :key="option.value"
             :value="option.value"
-          >{{ option.text }}</option>
+          >
+            {{ option.text }}
+          </option>
         </b-select>
-        <b-input type="text" v-model="form.search" :placeholder="$t('message.search')"></b-input>
+        <b-input
+          type="text"
+          v-model="form.search"
+          :placeholder="$t('message.search')"
+        ></b-input>
         <div class="control">
-          <b-button native-type="submit" type="is-primary" icon-left="magnify"></b-button>
+          <b-button
+            native-type="submit"
+            type="is-info"
+            icon-left="magnify"
+          ></b-button>
         </div>
         <b-select v-model="form.per_page" v-show="isPaginated">
-          <option
-            v-for="page in pageOptions"
-            :value="page"
-            :key="page"
-          >{{ page }} {{ $t("message.perpage") }}</option>
+          <option v-for="page in pageOptions" :value="page" :key="page">
+            {{ page }} {{ $t("message.perpage") }}
+          </option>
         </b-select>
       </b-field>
     </form>
@@ -43,9 +60,10 @@
           <b-button
             v-show="editable"
             native-type="submit"
-            type="is-primary"
+            type="is-info"
             icon-left="content-save"
-          >{{ $t("message.guardar") }}</b-button>
+            >{{ $t("message.guardar") }}</b-button
+          >
         </div>
         <div class="control">
           <b-button
@@ -53,7 +71,8 @@
             native-type="button"
             type="is-danger"
             icon-left="close"
-          >{{ $t("message.cancelar") }}</b-button>
+            >{{ $t("message.cancelar") }}</b-button
+          >
         </div>
       </b-field>
     </form>
@@ -90,93 +109,93 @@ export default {
     editable: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     defaultStatus: {
       type: String,
       required: false,
-      default: "A"
+      default: "A",
     },
     createButton: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     sortOrderDefault: {
       type: String,
       required: false,
-      default: "asc"
+      default: "asc",
     },
     sortByDefault: {
       type: String,
       required: false,
-      default: ""
+      default: "",
     },
     resource: {
       type: String,
       required: false,
-      default: "/"
+      default: "/",
     },
     pageDefault: {
       type: Number,
       required: false,
-      default: 5
+      default: 5,
     },
     pageOptions: {
       type: Array,
       required: false,
-      default: function() {
+      default: function () {
         return [5, 10, 20, 30, 50, 100];
-      }
+      },
     },
     checkable: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     columns: {
       type: Array,
-      required: true
+      required: true,
     },
     isPaginated: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     statusOptions: {
       type: Array,
       required: false,
-      default: function() {
+      default: function () {
         return [
           {
             value: "A",
-            text: this.$t("message.active")
+            text: this.$t("message.active"),
           },
           {
             value: "I",
-            text: this.$t("message.inactive")
+            text: this.$t("message.inactive"),
           },
           {
             value: "T",
-            text: this.$t("message.all")
-          }
+            text: this.$t("message.all"),
+          },
         ];
-      }
+      },
     },
     typeOptions: {
       type: Array,
       required: false,
-      default: function() {
+      default: function () {
         return [
           {
             value: "E",
-            text: this.$t("message.delete")
-          }
+            text: this.$t("message.delete"),
+          },
         ];
-      }
-    }
+      },
+    },
   },
-  data: function() {
+  data: function () {
     return {
       isLoading: false,
       checkedRows: [],
@@ -188,12 +207,12 @@ export default {
         per_page: this.pageDefault,
         current_page: 1,
         sort_by: this.sortByDefault,
-        sort_order: this.sortOrderDefault
+        sort_order: this.sortOrderDefault,
       },
       registros: [],
       sortIcon: "arrow-up",
       tipo_formulario: "C",
-      total: 0
+      total: 0,
     };
   },
   methods: {
@@ -207,35 +226,35 @@ export default {
         this.submit();
       }
     },
-    onPageChange: function(page) {
+    onPageChange: function (page) {
       if (this.isPaginated && this.form.current_page !== page) {
         this.form.current_page = page;
         this.submit();
       }
     },
-    realizarAccion: function() {
+    realizarAccion: function () {
       if (this.type === "") {
         this.$buefy.toast.open({
           message: this.$t("message.debe_seleccionar_accion"),
-          type: "is-warning"
+          type: "is-warning",
         });
       } else if (this.checkedRows.length === 0) {
         this.$buefy.toast.open({
           message: this.$t("message.debe_seleccionar"),
-          type: "is-warning"
+          type: "is-warning",
         });
       } else this.$emit("realizarAccion", this.type, this.checkedRows);
     },
-    editar: function(row) {
+    editar: function (row) {
       this.tipo_formulario = "E";
       this.$emit("editar", row);
     },
-    submit: function() {
+    submit: function () {
       this.isLoading = true;
       if (this.tipo_formulario !== "C") this.tipo_formulario = "C";
       this.$http
         .get(this.resource, {
-          params: this.form
+          params: this.form,
         })
         .then(({ data }) => {
           if (!this.isPaginated) this.registros = data;
@@ -248,25 +267,25 @@ export default {
         .catch(() => {
           this.$buefy.toast.open({
             message: this.$t("message.generic_error"),
-            type: "is-danger"
+            type: "is-danger",
           });
           this.isLoading = false;
         });
     },
-    submitFormulario: function() {
+    submitFormulario: function () {
       this.$emit("submitFormulario", this.form);
     },
-    add: function() {
+    add: function () {
       this.tipo_formulario = "N";
       this.$emit("adding");
     },
-    cancel: function() {
+    cancel: function () {
       this.tipo_formulario = "C";
       this.$emit("canceled");
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     this.submit();
-  }
+  },
 };
 </script>

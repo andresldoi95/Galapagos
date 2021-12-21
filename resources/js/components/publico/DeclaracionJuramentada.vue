@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero is-small is-primary">
+    <section class="hero is-small is-info">
       <div class="hero-body">
         <h1 class="title">{{ $t("title.declaracion_juramentada") }}</h1>
         <h2 class="subtitle">{{ $t("message.declaracion_juramentada") }}</h2>
@@ -239,7 +239,7 @@
     <div class="container">
       <section class="hero">
         <div class="hero-body">
-          <b-button type="is-primary" @click="confirmarDeclaracion">
+          <b-button type="is-info" @click="confirmarDeclaracion">
             {{ $t("message.confirmar_declaracion") }}
           </b-button>
         </div>

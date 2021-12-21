@@ -57,7 +57,7 @@
       </b-navbar-dropdown>
       <b-navbar-item v-else tag="div">
         <div class="buttons">
-          <router-link :to="{ name: 'Login' }" class="button is-primary">{{
+          <router-link :to="{ name: 'Login' }" class="button is-info">{{
             $t("link.login")
           }}</router-link>
         </div>
