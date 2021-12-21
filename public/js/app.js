@@ -3831,9 +3831,9 @@ __webpack_require__.r(__webpack_exports__);
         linea_aerea: "",
         numero_vuelo: "",
         aeropuerto_origen: "",
-        alimentos_procesados: "",
-        lugares_concentracion: "",
-        equipos_campamento: "",
+        alimentos_procesados: "N",
+        lugares_concentracion: "N",
+        equipos_campamento: "N",
         fecha: new Date()
       },
       errores: {
@@ -3847,14 +3847,87 @@ __webpack_require__.r(__webpack_exports__);
         direccion_domicilio: undefined,
         linea_aerea: undefined,
         numero_vuelo: undefined,
-        aeropuerto_origen: undefined
+        aeropuerto_origen: undefined,
+        fecha: undefined
       }
     };
   },
   methods: {
-    confirmarDeclaracion: function confirmarDeclaracion() {},
-    clearDate: function clearDate() {
-      this.form.fecha = null;
+    limpiarErrores: function limpiarErrores() {
+      this.errores.apellidos = undefined;
+      this.errores.nombres = undefined;
+      this.errores.numero_identificacion = undefined;
+      this.errores.telefono = undefined;
+      this.errores.correo_electronico = undefined;
+      this.errores.lugar_residencia = undefined;
+      this.errores.nacionalidad = undefined;
+      this.errores.direccion_domicilio = undefined;
+      this.errores.linea_aerea = undefined;
+      this.errores.numero_vuelo = undefined;
+      this.errores.aeropuerto_origen = undefined;
+      this.errores.fecha = undefined;
+    },
+    limpiarFormulario: function limpiarFormulario() {
+      this.form.apellidos = "";
+      this.form.nombres = "";
+      this.form.numero_identificacion = "";
+      this.form.telefono = "";
+      this.form.correo_electronico = "";
+      this.form.lugar_residencia = "";
+      this.form.nacionalidad = "";
+      this.form.direccion_domicilio = "";
+      this.form.linea_aerea = "";
+      this.form.numero_vuelo = "";
+      this.form.aeropuerto_origen = "";
+      this.form.alimentos_procesados = "N";
+      this.form.lugares_concentracion = "N";
+      this.form.equipos_campamento = "N";
+      this.form.fecha = new Date();
+      this.limpiarErrores();
+    },
+    confirmarDeclaracion: function confirmarDeclaracion() {
+      var _this = this;
+
+      this.$buefy.dialog.confirm({
+        cancelText: this.$t("message.no"),
+        confirmText: this.$t("message.si"),
+        message: this.$t("message.confirmacion_declaracion"),
+        onConfirm: function onConfirm() {
+          var path = "http://127.0.0.1:8000/api" + "/declaracion-juramentada";
+
+          _this.$http.post(path, _this.form).then(function () {
+            _this.$buefy.toast.open({
+              message: _this.$t("message.guardado_generico"),
+              type: "is-success"
+            });
+
+            _this.limpiarFormulario();
+          })["catch"](function (_ref) {
+            var response = _ref.response;
+            var status = response.status;
+
+            if (status === 422) {
+              _this.errores.apellidos = response.data.errors.apellidos;
+              _this.errores.nombres = response.data.errors.nombres;
+              _this.errores.numero_identificacion = response.data.errors.numero_identificacion;
+              _this.errores.telefono = response.data.errors.telefono;
+              _this.errores.correo_electronico = response.data.errors.correo_electronico;
+              _this.errores.lugar_residencia = response.data.errors.lugar_residencia;
+              _this.errores.nacionalidad = response.data.errors.nacionalidad;
+              _this.errores.direccion_domicilio = response.data.errors.direccion_domicilio;
+              _this.errores.linea_aerea = response.data.errors.linea_aerea;
+              _this.errores.numero_vuelo = response.data.errors.numero_vuelo;
+              _this.errores.aeropuerto_origen = response.data.errors.aeropuerto_origen;
+              _this.errores.fecha = response.data.errors.fecha;
+            } else {
+              _this.$buefy.toast.open({
+                message: _this.$t("message.generic_error"),
+                type: "is-danger"
+              });
+            }
+          });
+        }
+      });
     }
   }
 });
@@ -47713,6 +47786,7 @@ __webpack_require__.r(__webpack_exports__);
     declaracion_juramentada: 'AFFIDAVIT'
   },
   message: {
+    confirmacion_declaracion: 'Do you confirm the AFFIDAVIT form?',
     confirmar_declaracion: 'Confirm AFFIDAVIT',
     declaracion_juramentada: 'Every person over 18 must fill in this document',
     email_inexistente: "The given e-mail is not registered in the system",
@@ -47820,6 +47894,7 @@ __webpack_require__.r(__webpack_exports__);
     declaracion_juramentada: 'Declaración juramentada'
   },
   message: {
+    confirmacion_declaracion: '¿Desea confirmar la declaración juramentada?',
     confirmar_declaracion: 'Confirmar declaración juramentada',
     declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
     email_inexistente: "El e-mail proporcionado no está registrado en el sistema",

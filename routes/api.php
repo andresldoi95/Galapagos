@@ -58,3 +58,4 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 Route::post('/reset', 'UsuarioApiController@reset');
 Route::post('/set-password', 'UsuarioApiController@setPassword');
+Route::post('/declaracion-juramentada', 'DeclaracionJuramentadaApiController@store');

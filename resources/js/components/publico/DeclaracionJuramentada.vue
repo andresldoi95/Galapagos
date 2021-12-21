@@ -264,9 +264,9 @@ export default {
         linea_aerea: "",
         numero_vuelo: "",
         aeropuerto_origen: "",
-        alimentos_procesados: "",
-        lugares_concentracion: "",
-        equipos_campamento: "",
+        alimentos_procesados: "N",
+        lugares_concentracion: "N",
+        equipos_campamento: "N",
         fecha: new Date(),
       },
       errores: {
@@ -281,13 +281,88 @@ export default {
         linea_aerea: undefined,
         numero_vuelo: undefined,
         aeropuerto_origen: undefined,
+        fecha: undefined,
       },
     };
   },
   methods: {
-    confirmarDeclaracion: function () {},
-    clearDate: function () {
-      this.form.fecha = null;
+    limpiarErrores: function () {
+      this.errores.apellidos = undefined;
+      this.errores.nombres = undefined;
+      this.errores.numero_identificacion = undefined;
+      this.errores.telefono = undefined;
+      this.errores.correo_electronico = undefined;
+      this.errores.lugar_residencia = undefined;
+      this.errores.nacionalidad = undefined;
+      this.errores.direccion_domicilio = undefined;
+      this.errores.linea_aerea = undefined;
+      this.errores.numero_vuelo = undefined;
+      this.errores.aeropuerto_origen = undefined;
+      this.errores.fecha = undefined;
+    },
+    limpiarFormulario: function () {
+      this.form.apellidos = "";
+      this.form.nombres = "";
+      this.form.numero_identificacion = "";
+      this.form.telefono = "";
+      this.form.correo_electronico = "";
+      this.form.lugar_residencia = "";
+      this.form.nacionalidad = "";
+      this.form.direccion_domicilio = "";
+      this.form.linea_aerea = "";
+      this.form.numero_vuelo = "";
+      this.form.aeropuerto_origen = "";
+      this.form.alimentos_procesados = "N";
+      this.form.lugares_concentracion = "N";
+      this.form.equipos_campamento = "N";
+      this.form.fecha = new Date();
+      this.limpiarErrores();
+    },
+    confirmarDeclaracion: function () {
+      this.$buefy.dialog.confirm({
+        cancelText: this.$t("message.no"),
+        confirmText: this.$t("message.si"),
+        message: this.$t("message.confirmacion_declaracion"),
+        onConfirm: () => {
+          let path = process.env.MIX_APP_URL_API + "/declaracion-juramentada";
+          this.$http
+            .post(path, this.form)
+            .then(() => {
+              this.$buefy.toast.open({
+                message: this.$t("message.guardado_generico"),
+                type: "is-success",
+              });
+              this.limpiarFormulario();
+            })
+            .catch(({ response }) => {
+              let status = response.status;
+              if (status === 422) {
+                this.errores.apellidos = response.data.errors.apellidos;
+                this.errores.nombres = response.data.errors.nombres;
+                this.errores.numero_identificacion =
+                  response.data.errors.numero_identificacion;
+                this.errores.telefono = response.data.errors.telefono;
+                this.errores.correo_electronico =
+                  response.data.errors.correo_electronico;
+                this.errores.lugar_residencia =
+                  response.data.errors.lugar_residencia;
+                this.errores.nacionalidad = response.data.errors.nacionalidad;
+                this.errores.direccion_domicilio =
+                  response.data.errors.direccion_domicilio;
+                this.errores.linea_aerea = response.data.errors.linea_aerea;
+                this.errores.numero_vuelo = response.data.errors.numero_vuelo;
+                this.errores.aeropuerto_origen =
+                  response.data.errors.aeropuerto_origen;
+                this.errores.fecha = response.data.errors.fecha;
+              } else {
+                this.$buefy.toast.open({
+                  message: this.$t("message.generic_error"),
+                  type: "is-danger",
+                });
+              }
+            });
+        },
+      });
     },
   },
 };

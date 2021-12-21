@@ -9,6 +9,7 @@ export default {
         declaracion_juramentada: 'AFFIDAVIT'
     },
     message: {
+        confirmacion_declaracion: 'Do you confirm the AFFIDAVIT form?',
         confirmar_declaracion: 'Confirm AFFIDAVIT',
         declaracion_juramentada: 'Every person over 18 must fill in this document',
         email_inexistente: "The given e-mail is not registered in the system",

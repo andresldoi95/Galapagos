@@ -9,6 +9,7 @@ export default {
         declaracion_juramentada: 'Declaración juramentada'
     },
     message: {
+        confirmacion_declaracion: '¿Desea confirmar la declaración juramentada?',
         confirmar_declaracion: 'Confirmar declaración juramentada',
         declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
         email_inexistente:
