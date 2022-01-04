@@ -10,6 +10,7 @@ import SetPassword from "../components/auth/SetPassword";
 import RecuperarCuenta from "../components/auth/RecuperarCuenta";
 import DeclaracionJuramentada from "../components/publico/DeclaracionJuramentada.vue";
 import ConsultaDeclaracionesJuramentadas from "../components/publico/ConsultaDeclaracionesJuramentadas.vue";
+import Productos from "../components/admin/productos/Productos.vue";
 export default {
     mode: "history",
     routes: [
@@ -104,6 +105,14 @@ export default {
                         requiresAuth: true
                     },
                     name: "Usuarios"
+                },
+                {
+                    component: Productos,
+                    path: "productos",
+                    meta: {
+                        requiresAuth: true
+                    },
+                    name: "Productos"
                 }
             ]
         }

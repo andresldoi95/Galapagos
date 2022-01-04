@@ -63,10 +63,50 @@ class AccionSeeder extends Seeder
         //     'descripcion' => 'Consultar roles de usuario',
         //     'modulo_id' => 'roles'
         // ]);
+        // Accion::create([
+        //     'id' => 'aprobar_declaraciones_juramentadas',
+        //     'descripcion' => 'Aprobar declaraciones juramentadas',
+        //     'modulo_id' => 'declar'
+        // ]);
         Accion::create([
-            'id' => 'aprobar_declaraciones_juramentadas',
-            'descripcion' => 'Aprobar declaraciones juramentadas',
-            'modulo_id' => 'declar'
+            'id' => 'crear_productos',
+            'descripcion' => 'Crear productos',
+            'modulo_id' => 'prods'
+        ]);
+        Accion::create([
+            'id' => 'editar_productos',
+            'descripcion' => 'Editar productos',
+            'modulo_id' => 'prods'
+        ]);
+        Accion::create([
+            'id' => 'eliminar_productos',
+            'descripcion' => 'Eliminar productos',
+            'modulo_id' => 'prods'
+        ]);
+        Accion::create([
+            'id' => 'reactivar_productos',
+            'descripcion' => 'Re-activar productos',
+            'modulo_id' => 'prods'
+        ]);
+        Accion::create([
+            'id' => 'consultar_roles_productos',
+            'descripcion' => 'Consultar productos',
+            'modulo_id' => 'prods'
+        ]);
+        Accion::create([
+            'id' => 'registrar_retencion',
+            'descripcion' => 'Registrar retenciones',
+            'modulo_id' => 'rets'
+        ]);
+        Accion::create([
+            'id' => 'editar_retencion',
+            'descripcion' => 'Editar retenciones',
+            'modulo_id' => 'rets'
+        ]);
+        Accion::create([
+            'id' => 'anular_retencion',
+            'descripcion' => 'Anular retenciones',
+            'modulo_id' => 'rets'
         ]);
     }
 }

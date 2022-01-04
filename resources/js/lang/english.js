@@ -10,6 +10,11 @@ export default {
         declaracion_juramentada: 'AFFIDAVIT'
     },
     message: {
+        categoria: 'Category',
+        permitido: 'Allowed',
+        restringido: 'Restricted',
+        no_permitido: 'Not allowed',
+        seleccione: 'Select...',
         debe_seleccionar: 'You must select at least one row',
         pendientes: 'Pending',
         rechazadas: 'Refused',
@@ -61,6 +66,7 @@ export default {
         equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
+        productos: 'Products',
         declaraciones_juramentadas: 'Compliance AFFIDAVIT',
         login: "Login",
         access: "Access to the system with your username and password",
