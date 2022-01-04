@@ -33,7 +33,8 @@ class ProductoApiController extends Controller
         $request->validate([
             'codigo' => 'required|max:40|unique:productos',
             'descripcion' => 'required|max:255',
-            'categoria' => 'required|max:2'
+            'categoria' => 'required|max:2',
+            'foto' => 'nullable|image'
         ]);
         DB::transaction(function () use ($request) {
             $user = $request->user();

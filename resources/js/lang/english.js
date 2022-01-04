@@ -10,6 +10,7 @@ export default {
         declaracion_juramentada: 'AFFIDAVIT'
     },
     message: {
+        arrastra_archivo: 'Drop your file or click to upload',
         categoria: 'Category',
         permitido: 'Allowed',
         restringido: 'Restricted',
