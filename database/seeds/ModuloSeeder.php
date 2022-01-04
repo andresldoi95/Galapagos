@@ -20,9 +20,17 @@ class ModuloSeeder extends Seeder
         //     'id' => 'roles',
         //     'nombre' => 'Roles de usuario'
         // ]);
+        // Modulo::create([
+        //     'id' => 'declar',
+        //     'nombre' => 'Declaraciones'
+        // ]);
         Modulo::create([
-            'id' => 'declar',
-            'nombre' => 'Declaraciones'
+            'id' => 'prods',
+            'nombre' => 'Productos'
+        ]);
+        Modulo::create([
+            'id' => 'rets',
+            'nombre' => 'Retenciones'
         ]);
     }
 }

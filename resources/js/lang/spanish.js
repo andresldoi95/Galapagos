@@ -10,6 +10,11 @@ export default {
         declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
     },
     message: {
+        categoria: 'Categoría',
+        permitido: 'Permitido',
+        restringido: 'Restringido',
+        no_permitido: 'No permitido',
+        seleccione: 'Seleccione...',
         debe_seleccionar: 'Debe seleccionar al menos un registro',
         pendientes: 'Pendientes',
         rechazadas: 'Rechazadas',
@@ -65,6 +70,7 @@ export default {
         equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
+        productos: 'Productos',
         declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
         login: "Iniciar sesión",
         access: "Accede al sistema con tu nombre de usuario y contraseña",

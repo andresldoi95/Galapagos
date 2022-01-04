@@ -36,15 +36,19 @@
                 tag="router-link"
                 to="/admin/usuarios"
               ></b-menu-item>
+              <b-menu-item
+                icon="file-table-box"
+                :label="$t('title.productos')"
+                tag="router-link"
+                to="/admin/productos"
+              ></b-menu-item>
             </b-menu-list>
           </b-menu>
         </div>
       </b-sidebar>
       <div class="p-1 sidebar-body">
         <b-button @click="open = !open" icon-left="menu">
-          {{
-          $t("title.menu")
-          }}
+          {{ $t("title.menu") }}
         </b-button>
         <router-view></router-view>
       </div>
@@ -54,11 +58,11 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
-      open: false
+      open: false,
     };
-  }
+  },
 };
 </script>
 
