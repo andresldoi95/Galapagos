@@ -10,6 +10,7 @@ export default {
         declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
     },
     message: {
+        arrastra_archivo: 'Arrastra un archivo o da click para subir',
         categoria: 'Categoría',
         permitido: 'Permitido',
         restringido: 'Restringido',

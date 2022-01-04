@@ -2266,6 +2266,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2278,16 +2310,26 @@ __webpack_require__.r(__webpack_exports__);
         codigo: "",
         id: "",
         _method: undefined,
-        categoria: ""
+        categoria: "",
+        tipo_foto: "S"
       },
       errores: {
         descripcion: undefined,
         codigo: undefined,
-        categoria: undefined
-      }
+        categoria: undefined,
+        foto: undefined
+      },
+      foto: null
     };
   },
   methods: {
+    inputFoto: function inputFoto() {
+      this.form.tipo_foto = this.foto != null ? "S" : "N";
+    },
+    quitarArchivo: function quitarArchivo() {
+      this.foto = null;
+      this.form.tipo_foto = "Q";
+    },
     canceled: function canceled() {
       this.limpiar();
     },
@@ -2297,6 +2339,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form.descripcion = "";
       this.form.codigo = "";
       this.form.categoria = "";
+      this.form.tipo_foto = "S";
+      this.foto = null;
     },
     adding: function adding() {
       this.limpiar();
@@ -2339,6 +2383,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errores.descripcion = undefined;
       this.errores.codigo = undefined;
       this.errores.categoria = undefined;
+      this.errores.foto = undefined;
     },
     submitFormulario: function submitFormulario() {
       var _this2 = this;
@@ -2351,7 +2396,20 @@ __webpack_require__.r(__webpack_exports__);
         this.form._method = "PATCH";
       } else this.form._method = undefined;
 
-      this.$http.post(path, this.form).then(function () {
+      var formData = new FormData();
+      formData.append("codigo", this.form.codigo);
+      formData.append("descripcion", this.form.descripcion);
+      formData.append("categoria", this.form.categoria);
+      if (this.form._method != null) formData.append("_method", this.form._method);
+      if (this.foto != null) formData.append("foto", this.foto);
+      this.$http({
+        method: "post",
+        url: path,
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function () {
         _this2.$buefy.toast.open({
           message: _this2.$t("message.guardado_generico"),
           type: "is-success"
@@ -2366,6 +2424,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.errores.descripcion = response.data.errors.descripcion;
           _this2.errores.codigo = response.data.errors.codigo;
           _this2.errores.categoria = response.data.errors.categoria;
+          _this2.errores.foto = response.data.errors.foto;
         } else {
           _this2.$buefy.toast.open({
             message: _this2.$t("message.generic_error"),
@@ -26784,6 +26843,85 @@ var render = function () {
                       ],
                       1
                     ),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "columns is-one-third" }, [
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [
+                    _c(
+                      "b-field",
+                      [
+                        _c(
+                          "b-upload",
+                          {
+                            attrs: {
+                              accept: "image/*",
+                              "drag-drop": "",
+                              expanded: "",
+                            },
+                            on: { input: _vm.inputFoto },
+                            model: {
+                              value: _vm.foto,
+                              callback: function ($$v) {
+                                _vm.foto = $$v
+                              },
+                              expression: "foto",
+                            },
+                          },
+                          [
+                            _c("section", { staticClass: "section" }, [
+                              _c(
+                                "div",
+                                { staticClass: "content has-text-centered" },
+                                [
+                                  _c(
+                                    "p",
+                                    [
+                                      _c("b-icon", {
+                                        attrs: {
+                                          icon: "upload",
+                                          size: "is-large",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      _vm._s(_vm.$t("message.arrastra_archivo"))
+                                    ),
+                                  ]),
+                                ]
+                              ),
+                            ]),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.foto != null
+                      ? _c("div", { staticClass: "tags" }, [
+                          _c("span", { staticClass: "tag is-primary" }, [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(_vm.foto.name) +
+                                "\n                "
+                            ),
+                            _c("button", {
+                              staticClass: "delete is-small",
+                              attrs: { type: "button" },
+                              on: { click: _vm.quitarArchivo },
+                            }),
+                          ]),
+                        ])
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -52240,6 +52378,7 @@ __webpack_require__.r(__webpack_exports__);
     declaracion_juramentada: 'AFFIDAVIT'
   },
   message: {
+    arrastra_archivo: 'Drop your file or click to upload',
     categoria: 'Category',
     permitido: 'Allowed',
     restringido: 'Restricted',
@@ -52364,6 +52503,7 @@ __webpack_require__.r(__webpack_exports__);
     declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
   },
   message: {
+    arrastra_archivo: 'Arrastra un archivo o da click para subir',
     categoria: 'Categoría',
     permitido: 'Permitido',
     restringido: 'Restringido',

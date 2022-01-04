@@ -69,6 +69,38 @@
               </b-field>
             </div>
           </div>
+          <div class="columns is-one-third">
+            <div class="column">
+              <b-field>
+                <b-upload
+                  @input="inputFoto"
+                  accept="image/*"
+                  v-model="foto"
+                  drag-drop
+                  expanded
+                >
+                  <section class="section">
+                    <div class="content has-text-centered">
+                      <p>
+                        <b-icon icon="upload" size="is-large"></b-icon>
+                      </p>
+                      <p>{{ $t("message.arrastra_archivo") }}</p>
+                    </div>
+                  </section>
+                </b-upload>
+              </b-field>
+              <div v-if="foto != null" class="tags">
+                <span class="tag is-primary">
+                  {{ foto.name }}
+                  <button
+                    class="delete is-small"
+                    type="button"
+                    @click="quitarArchivo"
+                  ></button>
+                </span>
+              </div>
+            </div>
+          </div>
         </masterForm>
       </div>
     </div>
@@ -87,15 +119,25 @@ export default {
         id: "",
         _method: undefined,
         categoria: "",
+        tipo_foto: "S",
       },
       errores: {
         descripcion: undefined,
         codigo: undefined,
         categoria: undefined,
+        foto: undefined,
       },
+      foto: null,
     };
   },
   methods: {
+    inputFoto: function () {
+      this.form.tipo_foto = this.foto != null ? "S" : "N";
+    },
+    quitarArchivo: function () {
+      this.foto = null;
+      this.form.tipo_foto = "Q";
+    },
     canceled: function () {
       this.limpiar();
     },
@@ -105,6 +147,8 @@ export default {
       this.form.descripcion = "";
       this.form.codigo = "";
       this.form.categoria = "";
+      this.form.tipo_foto = "S";
+      this.foto = null;
     },
     adding: function () {
       this.limpiar();
@@ -144,6 +188,7 @@ export default {
       this.errores.descripcion = undefined;
       this.errores.codigo = undefined;
       this.errores.categoria = undefined;
+      this.errores.foto = undefined;
     },
     submitFormulario: function () {
       this.limpiarErrores();
@@ -152,8 +197,19 @@ export default {
         path += "/" + this.form.id;
         this.form._method = "PATCH";
       } else this.form._method = undefined;
-      this.$http
-        .post(path, this.form)
+      let formData = new FormData();
+      formData.append("codigo", this.form.codigo);
+      formData.append("descripcion", this.form.descripcion);
+      formData.append("categoria", this.form.categoria);
+      if (this.form._method != null)
+        formData.append("_method", this.form._method);
+      if (this.foto != null) formData.append("foto", this.foto);
+      this.$http({
+        method: "post",
+        url: path,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
         .then(() => {
           this.$buefy.toast.open({
             message: this.$t("message.guardado_generico"),
@@ -167,6 +223,7 @@ export default {
             this.errores.descripcion = response.data.errors.descripcion;
             this.errores.codigo = response.data.errors.codigo;
             this.errores.categoria = response.data.errors.categoria;
+            this.errores.foto = response.data.errors.foto;
           } else {
             this.$buefy.toast.open({
               message: this.$t("message.generic_error"),
