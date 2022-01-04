@@ -12,13 +12,17 @@ class ModuloSeeder extends Seeder
      */
     public function run()
     {
+        // Modulo::create([
+        //     'id' => 'usuarios',
+        //     'nombre' => 'Usuarios'
+        // ]);
+        // Modulo::create([
+        //     'id' => 'roles',
+        //     'nombre' => 'Roles de usuario'
+        // ]);
         Modulo::create([
-            'id' => 'usuarios',
-            'nombre' => 'Usuarios'
-        ]);
-        Modulo::create([
-            'id' => 'roles',
-            'nombre' => 'Roles de usuario'
+            'id' => 'declar',
+            'nombre' => 'Declaraciones'
         ]);
     }
 }

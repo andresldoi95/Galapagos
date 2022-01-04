@@ -9,6 +9,7 @@ import ModificarCuenta from "../components/auth/ModificarCuenta";
 import SetPassword from "../components/auth/SetPassword";
 import RecuperarCuenta from "../components/auth/RecuperarCuenta";
 import DeclaracionJuramentada from "../components/publico/DeclaracionJuramentada.vue";
+import ConsultaDeclaracionesJuramentadas from "../components/publico/ConsultaDeclaracionesJuramentadas.vue";
 export default {
     mode: "history",
     routes: [
@@ -26,6 +27,14 @@ export default {
             name: "DeclaracionJuramentada",
             meta: {
                 requiresAuth: false
+            }
+        },
+        {
+            path: "/declaraciones-juramentadas",
+            component: ConsultaDeclaracionesJuramentadas,
+            name: "DeclaracionesJuramentadas",
+            meta: {
+                requiresAuth: true
             }
         },
         {

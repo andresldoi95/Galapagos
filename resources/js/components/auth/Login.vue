@@ -4,25 +4,32 @@
       <section class="hero">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">{{ $t('title.login') }}</h1>
-            <h2 class="subtitle">{{ $t('title.access') }}</h2>
+            <h1 class="title">{{ $t("title.login") }}</h1>
+            <h2 class="subtitle">{{ $t("title.access") }}</h2>
+            <section>
+              <b-image src="/img/login.png" alt="Logo" responsive></b-image>
+            </section>
             <form @submit.prevent="submit">
               <b-field
-                :message="errores.username?errores.username[0]:''"
-                :type="errores.username?'is-danger':''"
+                :message="errores.username ? errores.username[0] : ''"
+                :type="errores.username ? 'is-danger' : ''"
                 :label="$t('etiqueta.username')"
               >
                 <b-input v-model="form.username"></b-input>
               </b-field>
               <b-field
-                :message="errores.password?errores.password[0]:''"
-                :type="errores.password?'is-danger':''"
+                :message="errores.password ? errores.password[0] : ''"
+                :type="errores.password ? 'is-danger' : ''"
                 :label="$t('etiqueta.password')"
               >
                 <b-input type="password" v-model="form.password"></b-input>
               </b-field>
-              <b-button expanded native-type="submit" type="is-primary">{{ $t('button.login') }}</b-button>
-              <router-link :to="{ name: 'Recuperar' }">{{ $t('link.recuperar') }}</router-link>
+              <b-button expanded native-type="submit" type="is-info">{{
+                $t("button.login")
+              }}</b-button>
+              <router-link :to="{ name: 'Recuperar' }">{{
+                $t("link.recuperar")
+              }}</router-link>
             </form>
           </div>
         </div>
@@ -34,14 +41,14 @@
 <script>
 export default {
   methods: {
-    submit: function() {
+    submit: function () {
       this.$http
         .post(process.env.MIX_APP_URL + "/oauth/token", {
           grant_type: "password",
           client_id: process.env.MIX_CLIENT_ID,
           client_secret: process.env.MIX_CLIENT_SECRET,
           username: this.form.username,
-          password: this.form.password
+          password: this.form.password,
         })
         .then(({ data }) => {
           this.$session.start();
@@ -50,7 +57,7 @@ export default {
           this.$session.set("oauth2", token);
           this.$buefy.toast.open(this.$t("message.acceso_exitoso"));
           this.$router.push({
-            name: "Home"
+            name: "Home",
           });
         })
         .catch(({ response }) => {
@@ -58,30 +65,30 @@ export default {
           if (status === 400) {
             this.$buefy.toast.open({
               message: this.$t("message.invalid_credentials"),
-              type: "is-danger"
+              type: "is-danger",
             });
           }
         });
-    }
+    },
   },
-  data: function() {
+  data: function () {
     return {
       form: {
         username: "",
-        password: ""
+        password: "",
       },
       errores: {
         username: undefined,
-        password: undefined
-      }
+        password: undefined,
+      },
     };
   },
-  mounted: function() {
+  mounted: function () {
     if (this.$session.exists()) {
       this.$router.push({
-        name: "Home"
+        name: "Home",
       });
     }
-  }
+  },
 };
 </script>

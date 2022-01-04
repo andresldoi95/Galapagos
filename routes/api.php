@@ -54,7 +54,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('modulos', 'ModuloApiController@index');
 
     Route::get('acciones', 'AccionApiController@index');
+    Route::group(['prefix' => 'declaraciones-juramentadas'], function () {
+        Route::get('/', 'DeclaracionJuramentadaApiController@index');
+        Route::delete('/', 'DeclaracionJuramentadaApiController@destroy');
+    });
 });
 
 Route::post('/reset', 'UsuarioApiController@reset');
 Route::post('/set-password', 'UsuarioApiController@setPassword');
+Route::post('/declaracion-juramentada', 'DeclaracionJuramentadaApiController@store');

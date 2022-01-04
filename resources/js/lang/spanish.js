@@ -6,9 +6,19 @@ export default {
         admin: "Panel de administración",
         perfil: "Editar cuenta",
         recuperar: "Recuperar cuenta",
-        declaracion_juramentada: 'Declaración juramentada'
+        declaracion_juramentada: 'Declaración juramentada',
+        declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
     },
     message: {
+        debe_seleccionar: 'Debe seleccionar al menos un registro',
+        pendientes: 'Pendientes',
+        rechazadas: 'Rechazadas',
+        aprobadas: 'Aprobadas',
+        aprobar: 'Aprobar',
+        rechazar: 'Rechazar',
+        codigo: 'Código',
+        created_at: 'Fecha de creación',
+        confirmacion_declaracion: '¿Desea confirmar la declaración juramentada?',
         confirmar_declaracion: 'Confirmar declaración juramentada',
         declaracion_juramentada: 'Cada persona mayor de 18 años debe llenar este documento',
         email_inexistente:
@@ -55,6 +65,7 @@ export default {
         equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
+        declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
         login: "Iniciar sesión",
         access: "Accede al sistema con tu nombre de usuario y contraseña",
         dashboard: "Dashboard",

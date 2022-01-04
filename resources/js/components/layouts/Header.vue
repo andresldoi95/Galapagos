@@ -25,6 +25,9 @@
       <b-navbar-item tag="router-link" to="/declaracion-juramentada">{{
         $t("link.declaracion_juramentada")
       }}</b-navbar-item>
+      <b-navbar-item tag="router-link" to="/declaraciones-juramentadas">{{
+        $t("link.declaraciones_juramentadas")
+      }}</b-navbar-item>
       <b-navbar-item tag="router-link" to="/">{{
         $t("link.home")
       }}</b-navbar-item>
@@ -57,7 +60,7 @@
       </b-navbar-dropdown>
       <b-navbar-item v-else tag="div">
         <div class="buttons">
-          <router-link :to="{ name: 'Login' }" class="button is-primary">{{
+          <router-link :to="{ name: 'Login' }" class="button is-info">{{
             $t("link.login")
           }}</router-link>
         </div>
