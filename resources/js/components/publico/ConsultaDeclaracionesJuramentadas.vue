@@ -6,37 +6,8 @@
         <masterForm
           @realizarAccion="realizarAccion"
           :createButton="false"
-          :statusOptions="[
-            {
-              value: 'P',
-              text: this.$t('message.pendientes'),
-            },
-            {
-              value: 'R',
-              text: this.$t('message.rechazadas'),
-            },
-            {
-              value: 'A',
-              text: this.$t('message.aprobadas'),
-            },
-            {
-              value: 'T',
-              text: this.$t('message.all'),
-            },
-          ]"
-          :typeOptions="[
-            {
-              value: 'A',
-              text: this.$t('message.aprobar'),
-            },
-            {
-              value: 'R',
-              text: this.$t('message.rechazar'),
-            },
-          ]"
           :editable="false"
           @editar="editar"
-          defaultStatus="P"
           sortOrderDefault="desc"
           sortByDefault="created_at"
           ref="masterForm"

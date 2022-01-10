@@ -75,4 +75,15 @@ class ProductoApiController extends Controller
                 'modificador_id' => $user->id
             ]);
     }
+    public function search(Request $request)
+    {
+        $request->validate([
+            'search' => 'nullable'
+        ]);
+        $search = $request->input('search');
+        $productos = Producto::active()->orderBy('descripcion')->where(function ($query) use ($search) {
+            return $query->where('descripcion', 'like', "%$search%")->orWhere('codigo', 'like', "%$search%");
+        })->select(['id', 'descripcion', 'categoria', 'path_foto', 'codigo'])->get();
+        return $productos;
+    }
 }

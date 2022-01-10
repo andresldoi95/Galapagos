@@ -2438,6 +2438,796 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TrProductoRetenido_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrProductoRetenido.vue */ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    TrProductoRetenido: _TrProductoRetenido_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    value: {
+      type: Array,
+      required: false,
+      "default": function _default() {
+        return [];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      productos: this.value
+    };
+  },
+  methods: {
+    agregar: function agregar() {
+      this.productos.push({
+        producto_id: "",
+        nombre_producto: "",
+        cantidad: 1,
+        peso: 0,
+        categoria: "",
+        razon_retencion: "",
+        destino_producto: "",
+        transportado_en: ""
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductosRetenidos.vue */ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ProductosRetenidos: _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    limpiarFormulario: function limpiarFormulario() {
+      this.form.lugar = "";
+      this.form.tipo_transporte = "";
+      this.form.nombre_transporte = "";
+      this.form.destino = "";
+      this.form.procedencia = "";
+      this.form.fecha = new Date();
+      this.form.retencion = false;
+      this.form.rechazo = false;
+      this.form.inspeccion_origen = "N";
+      this.form.inspector_responsable = "", this.form.fecha_inspeccion = null;
+      this.form.numero_guia_sanitaria = "";
+      this.form.numero_candado = "";
+      this.form.nombre_completo = "";
+      this.form.direccion = "";
+      this.form.numero_identificacion = "";
+      this.form.tipo_residencia = "";
+      this.form.observaciones = "";
+      this.form.numero_guia_transporte = "";
+      this.form.porcentaje_mal_estado = 0;
+      this.form.porcentaje_plagados = 0;
+      this.form.retencion_patio = "N";
+      this.form.nombre_inspector_responsable = "";
+      this.form.identificacion_inspector_responsable = "";
+      this.form.nombre_testigo = "", this.form.identificacion_testigo = "";
+      this.form.productos.splice(0, this.form.productos.length);
+      this.errores = {};
+    },
+    registrarRetencion: function registrarRetencion() {
+      var _this = this;
+
+      this.errores = {};
+      this.$buefy.dialog.confirm({
+        cancelText: this.$t("message.no"),
+        confirmText: this.$t("message.si"),
+        message: this.$t("message.confirmar_registro_retencion"),
+        onConfirm: function onConfirm() {
+          var path = "http://127.0.0.1:8000/api" + "/registro-retencion";
+
+          _this.$http.post(path, _this.form).then(function () {
+            _this.$buefy.toast.open({
+              message: _this.$t("message.guardado_generico"),
+              type: "is-success"
+            });
+
+            _this.limpiarFormulario();
+          })["catch"](function (_ref) {
+            var response = _ref.response;
+            var status = response.status;
+
+            if (status === 422) {
+              _this.errores = response.data.errors;
+
+              _this.$buefy.toast.open({
+                message: _this.$t("message.errores_formulario"),
+                type: "is-warning"
+              });
+            } else {
+              _this.$buefy.toast.open({
+                message: _this.$t("message.generic_error"),
+                type: "is-danger"
+              });
+            }
+          });
+        }
+      });
+    }
+  },
+  data: function data() {
+    return {
+      form: {
+        fecha_inspeccion: null,
+        retencion: false,
+        rechazo: false,
+        fecha: new Date(),
+        lugar: "",
+        tipo_transporte: "",
+        nombre_transporte: "",
+        destino: "",
+        procedencia: "",
+        inspeccion_origen: "N",
+        inspector_responsable: "",
+        numero_guia_sanitaria: "",
+        numero_candado: "",
+        nombre_completo: "",
+        direccion: "",
+        numero_identificacion: "",
+        tipo_residencia: "",
+        observaciones: "",
+        numero_guia_transporte: "",
+        porcentaje_mal_estado: 0,
+        porcentaje_plagados: 0,
+        retencion_patio: "N",
+        nombre_inspector_responsable: "",
+        identificacion_inspector_responsable: "",
+        nombre_testigo: "",
+        identificacion_testigo: "",
+        productos: []
+      },
+      errores: {
+        retencion: undefined,
+        rechazo: undefined,
+        fecha: undefined,
+        lugar: undefined,
+        tipo_transporte: undefined,
+        nombre_transporte: undefined,
+        destino: undefined,
+        procedencia: undefined,
+        inspeccion_origen: undefined,
+        inspector_responsable: undefined,
+        numero_guia_sanitaria: undefined,
+        numero_candado: undefined,
+        nombre_completo: undefined,
+        direccion: undefined,
+        numero_identificacion: undefined,
+        tipo_residencia: undefined,
+        observaciones: undefined,
+        numero_guia_transporte: undefined,
+        porcentaje_mal_estado: undefined,
+        porcentaje_plagados: undefined,
+        retencion_patio: undefined,
+        nombre_inspector_responsable: undefined,
+        identificacion_inspector_responsable: undefined,
+        nombre_testigo: undefined,
+        identificacion_testigo: undefined
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    value: {
+      type: Object,
+      required: false,
+      "default": function _default() {
+        return {
+          producto_id: "",
+          nombre_producto: "",
+          cantidad: 1,
+          peso: 0,
+          categoria: "",
+          razon_retencion: "",
+          destino_producto: "",
+          transportado_en: ""
+        };
+      }
+    }
+  },
+  methods: {
+    cargarProductos: function cargarProductos(name) {
+      var _this = this;
+
+      this.isFetching = true;
+      this.$http.get("http://127.0.0.1:8000/api" + "/productos/search", {
+        params: {
+          search: name
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+        _this.productos = data;
+        _this.isFetching = false;
+      })["catch"](function () {
+        _this.isFetching = false;
+      });
+    },
+    selectedProducto: function selectedProducto(producto) {
+      if (producto != null) {
+        this.modelValue.nombre_producto = producto.descripcion, this.modelValue.producto_id = producto.id;
+        this.modelValue.categoria = producto.categoria;
+      } else {
+        this.modelValue.nombre_producto = "";
+        this.modelValue.producto_id = "";
+        this.modelValue.categoria = "";
+      }
+    }
+  },
+  data: function data() {
+    return {
+      productos: [],
+      isFetching: false,
+      modelValue: this.value
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/usuarios/Roles.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/usuarios/Roles.vue?vue&type=script&lang=js& ***!
@@ -3544,6 +4334,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     logout: function logout() {
@@ -3886,35 +4688,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/MasterForm.vue */ "./resources/js/components/layouts/MasterForm.vue");
 /* harmony import */ var _publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../publico/DeclaracionJuramentada.vue */ "./resources/js/components/publico/DeclaracionJuramentada.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -26941,6 +27714,1507 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "b-table" }, [
+    _c("div", { staticClass: "table-wrapper has-mobile-cards" }, [
+      _c("table", { staticClass: "table" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { attrs: { width: "25%" } }, [
+              _vm._v(_vm._s(_vm.$t("etiqueta.producto"))),
+            ]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.cantidad")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.peso")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.categoria")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.razon_retencion")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.destino_producto")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.transportado_en")))]),
+            _vm._v(" "),
+            _c(
+              "th",
+              [
+                _c("b-button", {
+                  attrs: { "icon-left": "plus", type: "is-success" },
+                  on: { click: _vm.agregar },
+                }),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          [
+            _vm._l(_vm.productos, function (producto, index) {
+              return _c("tr-producto-retenido", {
+                key: index,
+                tag: "tr",
+                model: {
+                  value: _vm.productos[index],
+                  callback: function ($$v) {
+                    _vm.$set(_vm.productos, index, $$v)
+                  },
+                  expression: "productos[index]",
+                },
+              })
+            }),
+            _vm._v(" "),
+            _c(
+              "tr",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.productos.length === 0,
+                    expression: "productos.length === 0",
+                  },
+                ],
+              },
+              [
+                _c("td", { attrs: { colspan: "8" } }, [
+                  _c("strong", [_vm._v(_vm._s(_vm.$t("message.no_agregado")))]),
+                ]),
+              ]
+            ),
+          ],
+          2
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("section", { staticClass: "hero is-small is-info" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("h1", { staticClass: "title" }, [
+          _vm._v(_vm._s(_vm.$t("title.registro_retencion"))),
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "subtitle" }, [
+          _vm._v(_vm._s(_vm.$t("message.registro_retencion"))),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c("b-field", { attrs: { label: _vm.$t("etiqueta.tipo") } }, [
+                  _c(
+                    "div",
+                    { staticClass: "block" },
+                    [
+                      _c(
+                        "b-checkbox",
+                        {
+                          model: {
+                            value: _vm.form.retencion,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "retencion", $$v)
+                            },
+                            expression: "form.retencion",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("etiqueta.retencion")) +
+                              "\n                "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-checkbox",
+                        {
+                          model: {
+                            value: _vm.form.rechazo,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "rechazo", $$v)
+                            },
+                            expression: "form.rechazo",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("etiqueta.rechazo")) +
+                              "\n                "
+                          ),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.lugar ? _vm.errores.lugar[0] : "",
+                      type: _vm.errores.lugar ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.lugar"),
+                    },
+                  },
+                  [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: _vm.$t("message.seleccione"),
+                          expanded: "",
+                        },
+                        model: {
+                          value: _vm.form.lugar,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "lugar", $$v)
+                          },
+                          expression: "form.lugar",
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "B" } }, [_vm._v("B")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "F" } }, [_vm._v("F")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "I" } }, [_vm._v("I")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "SC" } }, [
+                          _vm._v("SC"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "SX" } }, [
+                          _vm._v("SX"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "G" } }, [_vm._v("G")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Q" } }, [_vm._v("Q")]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.tipo_transporte
+                        ? _vm.errores.tipo_transporte[0]
+                        : "",
+                      type: _vm.errores.tipo_transporte ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.tipo_transporte"),
+                    },
+                  },
+                  [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: _vm.$t("message.seleccione"),
+                          expanded: "",
+                        },
+                        model: {
+                          value: _vm.form.tipo_transporte,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "tipo_transporte", $$v)
+                          },
+                          expression: "form.tipo_transporte",
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "ME" } }, [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("message.maritimo_exterior")) +
+                              "\n                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "MC" } }, [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("message.maritimo_continente")) +
+                              "\n                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "MI" } }, [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("message.maritimo_interista")) +
+                              "\n                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "AE" } }, [
+                          _vm._v(_vm._s(_vm.$t("message.aereo_exterior"))),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "AC" } }, [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("message.aereo_continente")) +
+                              "\n                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "AI" } }, [
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.$t("message.aereo_interista")) +
+                              "\n                "
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nombre_transporte
+                        ? _vm.errores.nombre_transporte[0]
+                        : "",
+                      type: _vm.errores.nombre_transporte ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.nombre_transporte"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nombre_transporte,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "nombre_transporte", $$v)
+                        },
+                        expression: "form.nombre_transporte",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.destino
+                        ? _vm.errores.destino[0]
+                        : "",
+                      type: _vm.errores.destino ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.destino"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.destino,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "destino", $$v)
+                        },
+                        expression: "form.destino",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.procedencia
+                        ? _vm.errores.procedencia[0]
+                        : "",
+                      type: _vm.errores.procedencia ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.procedencia"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.procedencia,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "procedencia", $$v)
+                        },
+                        expression: "form.procedencia",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.numero_identificacion
+                        ? _vm.errores.numero_identificacion[0]
+                        : "",
+                      type: _vm.errores.numero_identificacion
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.numero_identificacion"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.numero_identificacion,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "numero_identificacion", $$v)
+                        },
+                        expression: "form.numero_identificacion",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nombre_completo
+                        ? _vm.errores.nombre_completo[0]
+                        : "",
+                      type: _vm.errores.nombre_completo ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.nombre_completo"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nombre_completo,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "nombre_completo", $$v)
+                        },
+                        expression: "form.nombre_completo",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.direccion
+                        ? _vm.errores.direccion[0]
+                        : "",
+                      type: _vm.errores.direccion ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.direccion"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.direccion,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "direccion", $$v)
+                        },
+                        expression: "form.direccion",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: _vm.$t("etiqueta.tipo_residencia") } },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "block" },
+                      [
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "R" },
+                            model: {
+                              value: _vm.form.tipo_residencia,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "tipo_residencia", $$v)
+                              },
+                              expression: "form.tipo_residencia",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("etiqueta.residente")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "N" },
+                            model: {
+                              value: _vm.form.tipo_residencia,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "tipo_residencia", $$v)
+                              },
+                              expression: "form.tipo_residencia",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("etiqueta.nacional")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "E" },
+                            model: {
+                              value: _vm.form.tipo_residencia,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "tipo_residencia", $$v)
+                              },
+                              expression: "form.tipo_residencia",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("etiqueta.extranjero")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: _vm.$t("etiqueta.fecha_hora") } },
+                  [
+                    _c("b-datetimepicker", {
+                      attrs: {
+                        placeholder: _vm.$t("message.seleccione"),
+                        icon: "calendar-today",
+                        "icon-right-clickable": "",
+                        "trap-focus": "",
+                        locale: "es-ES",
+                      },
+                      model: {
+                        value: _vm.form.fecha,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "fecha", $$v)
+                        },
+                        expression: "form.fecha",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: _vm.$t("etiqueta.inspeccion_origen") } },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "block" },
+                      [
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "S" },
+                            model: {
+                              value: _vm.form.inspeccion_origen,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "inspeccion_origen", $$v)
+                              },
+                              expression: "form.inspeccion_origen",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("message.si")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "N" },
+                            model: {
+                              value: _vm.form.inspeccion_origen,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "inspeccion_origen", $$v)
+                              },
+                              expression: "form.inspeccion_origen",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("message.no")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form.inspeccion_origen === "S",
+                  expression: "form.inspeccion_origen === 'S'",
+                },
+              ],
+              staticClass: "columns",
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        message: _vm.errores.inspector_responsable
+                          ? _vm.errores.inspector_responsable[0]
+                          : "",
+                        type: _vm.errores.inspector_responsable
+                          ? "is-danger"
+                          : "",
+                        label: _vm.$t("etiqueta.inspector_responsable"),
+                      },
+                    },
+                    [
+                      _c("b-input", {
+                        model: {
+                          value: _vm.form.inspector_responsable,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "inspector_responsable", $$v)
+                          },
+                          expression: "form.inspector_responsable",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    { attrs: { label: _vm.$t("etiqueta.fecha_inspeccion") } },
+                    [
+                      _c("b-datepicker", {
+                        attrs: {
+                          icon: "calendar-today",
+                          placeholder: "DD/MM/YYYY",
+                          "trap-focus": "",
+                          locale: "es-ES",
+                        },
+                        model: {
+                          value: _vm.form.fecha_inspeccion,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "fecha_inspeccion", $$v)
+                          },
+                          expression: "form.fecha_inspeccion",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        message: _vm.errores.numero_guia_sanitaria
+                          ? _vm.errores.numero_guia_sanitaria[0]
+                          : "",
+                        type: _vm.errores.numero_guia_sanitaria
+                          ? "is-danger"
+                          : "",
+                        label: _vm.$t("etiqueta.numero_guia_sanitaria"),
+                      },
+                    },
+                    [
+                      _c("b-input", {
+                        model: {
+                          value: _vm.form.numero_guia_sanitaria,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "numero_guia_sanitaria", $$v)
+                          },
+                          expression: "form.numero_guia_sanitaria",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        message: _vm.errores.numero_candado
+                          ? _vm.errores.numero_candado[0]
+                          : "",
+                        type: _vm.errores.numero_candado ? "is-danger" : "",
+                        label: _vm.$t("etiqueta.numero_candado"),
+                      },
+                    },
+                    [
+                      _c("b-input", {
+                        model: {
+                          value: _vm.form.numero_candado,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "numero_candado", $$v)
+                          },
+                          expression: "form.numero_candado",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ]
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c("productos-retenidos", {
+                  model: {
+                    value: _vm.form.productos,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.form, "productos", $$v)
+                    },
+                    expression: "form.productos",
+                  },
+                }),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nombre_inspector_responsable
+                        ? _vm.errores.nombre_inspector_responsable[0]
+                        : "",
+                      type: _vm.errores.nombre_inspector_responsable
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.nombre_inspector_responsable"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nombre_inspector_responsable,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form,
+                            "nombre_inspector_responsable",
+                            $$v
+                          )
+                        },
+                        expression: "form.nombre_inspector_responsable",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.identificacion_inspector_responsable
+                        ? _vm.errores.identificacion_inspector_responsable[0]
+                        : "",
+                      type: _vm.errores.identificacion_inspector_responsable
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t(
+                        "etiqueta.identificacion_inspector_responsable"
+                      ),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.identificacion_inspector_responsable,
+                        callback: function ($$v) {
+                          _vm.$set(
+                            _vm.form,
+                            "identificacion_inspector_responsable",
+                            $$v
+                          )
+                        },
+                        expression: "form.identificacion_inspector_responsable",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.nombre_testigo
+                        ? _vm.errores.nombre_testigo[0]
+                        : "",
+                      type: _vm.errores.nombre_testigo ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.nombre_testigo"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.nombre_testigo,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "nombre_testigo", $$v)
+                        },
+                        expression: "form.nombre_testigo",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.identificacion_testigo
+                        ? _vm.errores.identificacion_testigo[0]
+                        : "",
+                      type: _vm.errores.identificacion_testigo
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.identificacion_testigo"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.identificacion_testigo,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "identificacion_testigo", $$v)
+                        },
+                        expression: "form.identificacion_testigo",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.observaciones
+                        ? _vm.errores.observaciones[0]
+                        : "",
+                      type: _vm.errores.observaciones ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.observaciones"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      attrs: { maxlength: "500", type: "textarea" },
+                      model: {
+                        value: _vm.form.observaciones,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "observaciones", $$v)
+                        },
+                        expression: "form.observaciones",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.numero_guia_transporte
+                        ? _vm.errores.numero_guia_transporte[0]
+                        : "",
+                      type: _vm.errores.numero_guia_transporte
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.numero_guia_transporte"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.numero_guia_transporte,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "numero_guia_transporte", $$v)
+                        },
+                        expression: "form.numero_guia_transporte",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.porcentaje_mal_estado
+                        ? _vm.errores.porcentaje_mal_estado[0]
+                        : "",
+                      type: _vm.errores.porcentaje_mal_estado
+                        ? "is-danger"
+                        : "",
+                      label: _vm.$t("etiqueta.porcentaje_mal_estado"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.porcentaje_mal_estado,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "porcentaje_mal_estado", $$v)
+                        },
+                        expression: "form.porcentaje_mal_estado",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  {
+                    attrs: {
+                      message: _vm.errores.porcentaje_plagados
+                        ? _vm.errores.porcentaje_plagados[0]
+                        : "",
+                      type: _vm.errores.porcentaje_plagados ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.porcentaje_plagados"),
+                    },
+                  },
+                  [
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.porcentaje_plagados,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "porcentaje_plagados", $$v)
+                        },
+                        expression: "form.porcentaje_plagados",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: _vm.$t("etiqueta.retencion_patio") } },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "block" },
+                      [
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "S" },
+                            model: {
+                              value: _vm.form.retencion_patio,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "retencion_patio", $$v)
+                              },
+                              expression: "form.retencion_patio",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("message.si")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-radio",
+                          {
+                            attrs: { "native-value": "N" },
+                            model: {
+                              value: _vm.form.retencion_patio,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "retencion_patio", $$v)
+                              },
+                              expression: "form.retencion_patio",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.$t("message.no")) +
+                                "\n                "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c(
+          "div",
+          { staticClass: "container" },
+          [
+            _c(
+              "b-button",
+              {
+                attrs: { type: "is-info" },
+                on: { click: _vm.registrarRetencion },
+              },
+              [
+                _vm._v(
+                  "\n          " +
+                    _vm._s(_vm.$t("message.registrar_retencion")) +
+                    "\n        "
+                ),
+              ]
+            ),
+          ],
+          1
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("tr", [
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c("b-autocomplete", {
+              attrs: {
+                clearable: "",
+                data: _vm.productos,
+                placeholder: _vm.$t("message.seleccione"),
+                field: "descripcion",
+                loading: _vm.isFetching,
+              },
+              on: { typing: _vm.cargarProductos, select: _vm.selectedProducto },
+              scopedSlots: _vm._u([
+                {
+                  key: "default",
+                  fn: function (props) {
+                    return [
+                      _c("div", { staticClass: "media" }, [
+                        _c("div", { staticClass: "media-left" }, [
+                          _c("img", {
+                            attrs: {
+                              width: "32",
+                              src:
+                                props.option.url_foto != null
+                                  ? props.option.url_foto
+                                  : "/img/sin-imagen.jpg",
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "media-content" }, [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(props.option.descripcion) +
+                              "\n            "
+                          ),
+                        ]),
+                      ]),
+                    ]
+                  },
+                },
+              ]),
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c("b-input", {
+              model: {
+                value: _vm.modelValue.cantidad,
+                callback: function ($$v) {
+                  _vm.$set(_vm.modelValue, "cantidad", $$v)
+                },
+                expression: "modelValue.cantidad",
+              },
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c("b-input", {
+              model: {
+                value: _vm.modelValue.peso,
+                callback: function ($$v) {
+                  _vm.$set(_vm.modelValue, "peso", $$v)
+                },
+                expression: "modelValue.peso",
+              },
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("td", [_vm._v("\n    " + _vm._s(_vm.modelValue.categoria) + "\n  ")]),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c(
+              "b-select",
+              {
+                attrs: {
+                  placeholder: _vm.$t("message.seleccione"),
+                  expanded: "",
+                },
+                model: {
+                  value: _vm.modelValue.razon_retencion,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.modelValue, "razon_retencion", $$v)
+                  },
+                  expression: "modelValue.razon_retencion",
+                },
+              },
+              [
+                _c("option", { attrs: { value: "PL" } }, [_vm._v("PL")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ME" } }, [_vm._v("ME")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "SR" } }, [_vm._v("SR")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "NP" } }, [_vm._v("NP")]),
+              ]
+            ),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c(
+              "b-select",
+              {
+                attrs: {
+                  placeholder: _vm.$t("message.seleccione"),
+                  expanded: "",
+                },
+                model: {
+                  value: _vm.modelValue.destino_producto,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.modelValue, "destino_producto", $$v)
+                  },
+                  expression: "modelValue.destino_producto",
+                },
+              },
+              [
+                _c("option", { attrs: { value: "INC" } }, [_vm._v("INC")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "TTO" } }, [_vm._v("TTO")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "DEV/OR" } }, [
+                  _vm._v("DEV/OR"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "DEV" } }, [_vm._v("DEV")]),
+              ]
+            ),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c(
+              "b-select",
+              {
+                attrs: {
+                  placeholder: _vm.$t("message.seleccione"),
+                  expanded: "",
+                },
+                model: {
+                  value: _vm.modelValue.transportado_en,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.modelValue, "transportado_en", $$v)
+                  },
+                  expression: "modelValue.transportado_en",
+                },
+              },
+              [
+                _c("option", { attrs: { value: "C" } }, [_vm._v("C")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "EA" } }, [_vm._v("EA")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ENA" } }, [_vm._v("ENA")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "V" } }, [_vm._v("MT")]),
+              ]
+            ),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/usuarios/Roles.vue?vue&type=template&id=6a60811e&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/usuarios/Roles.vue?vue&type=template&id=6a60811e& ***!
@@ -28162,7 +30436,8 @@ var render = function () {
         "template",
         { slot: "start" },
         [
-          _vm.$store.state.empresas.length > 0
+          _vm.$store.state.empresas.length > 1 ||
+          _vm.$store.state.nombre_empresa_actual === ""
             ? _c(
                 "b-navbar-dropdown",
                 {
@@ -28207,13 +30482,26 @@ var render = function () {
             [_vm._v(_vm._s(_vm.$t("link.declaracion_juramentada")))]
           ),
           _vm._v(" "),
-          _c(
-            "b-navbar-item",
-            {
-              attrs: { tag: "router-link", to: "/declaraciones-juramentadas" },
-            },
-            [_vm._v(_vm._s(_vm.$t("link.declaraciones_juramentadas")))]
-          ),
+          _vm.$store.state.usuario.id !== ""
+            ? _c(
+                "b-navbar-item",
+                {
+                  attrs: {
+                    tag: "router-link",
+                    to: "/declaraciones-juramentadas",
+                  },
+                },
+                [_vm._v(_vm._s(_vm.$t("link.declaraciones_juramentadas")))]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.$store.state.usuario.id !== ""
+            ? _c(
+                "b-navbar-item",
+                { attrs: { tag: "router-link", to: "/registro-retencion" } },
+                [_vm._v(_vm._s(_vm.$t("link.registro_retenciones")))]
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c("b-navbar-item", { attrs: { tag: "router-link", to: "/" } }, [
             _vm._v(_vm._s(_vm.$t("link.home"))),
@@ -28699,36 +30987,7 @@ var render = function () {
               ref: "masterForm",
               attrs: {
                 createButton: false,
-                statusOptions: [
-                  {
-                    value: "P",
-                    text: this.$t("message.pendientes"),
-                  },
-                  {
-                    value: "R",
-                    text: this.$t("message.rechazadas"),
-                  },
-                  {
-                    value: "A",
-                    text: this.$t("message.aprobadas"),
-                  },
-                  {
-                    value: "T",
-                    text: this.$t("message.all"),
-                  },
-                ],
-                typeOptions: [
-                  {
-                    value: "A",
-                    text: this.$t("message.aprobar"),
-                  },
-                  {
-                    value: "R",
-                    text: this.$t("message.rechazar"),
-                  },
-                ],
                 editable: false,
-                defaultStatus: "P",
                 sortOrderDefault: "desc",
                 sortByDefault: "created_at",
                 resource: "/api/declaraciones-juramentadas",
@@ -51511,6 +53770,213 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ProductosRetenidos.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductosRetenidos.vue?vue&type=template&id=373c59b3& */ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3&");
+/* harmony import */ var _ProductosRetenidos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductosRetenidos.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProductosRetenidos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/retenciones/ProductosRetenidos.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosRetenidos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductosRetenidos.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosRetenidos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductosRetenidos.vue?vue&type=template&id=373c59b3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosRetenidos_vue_vue_type_template_id_373c59b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/RegistroRetencion.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/RegistroRetencion.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegistroRetencion.vue?vue&type=template&id=f3ac03a2& */ "./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2&");
+/* harmony import */ var _RegistroRetencion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegistroRetencion.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegistroRetencion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/retenciones/RegistroRetencion.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroRetencion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroRetencion.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroRetencion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroRetencion.vue?vue&type=template&id=f3ac03a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/RegistroRetencion.vue?vue&type=template&id=f3ac03a2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroRetencion_vue_vue_type_template_id_f3ac03a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/TrProductoRetenido.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrProductoRetenido.vue?vue&type=template&id=d3001076& */ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076&");
+/* harmony import */ var _TrProductoRetenido_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TrProductoRetenido.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TrProductoRetenido_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/retenciones/TrProductoRetenido.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrProductoRetenido_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TrProductoRetenido.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrProductoRetenido_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TrProductoRetenido.vue?vue&type=template&id=d3001076& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/TrProductoRetenido.vue?vue&type=template&id=d3001076&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrProductoRetenido_vue_vue_type_template_id_d3001076___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/usuarios/Roles.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/admin/usuarios/Roles.vue ***!
@@ -52368,16 +54834,28 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   link: {
-    declaraciones_juramentadas: 'Compliance AFFIDAVIT',
+    declaraciones_juramentadas: 'AFFIDAVIT Consultation',
     login: "Login",
     home: "Home",
     logout: "Logout",
     admin: "Admin panel",
     perfil: "Edit account",
     recuperar: "Recover account",
-    declaracion_juramentada: 'AFFIDAVIT'
+    declaracion_juramentada: 'AFFIDAVIT',
+    registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    errores_formulario: 'There was some errors in the form, please validate the information',
+    confirmar_registro_retencion: 'Do you want to register this form?',
+    registrar_retencion: 'Register',
+    no_agregado: 'Rows not added',
+    maritimo_exterior: 'External maritime',
+    maritimo_continente: 'Continental maritime',
+    maritimo_interista: 'Internal maritime',
+    aereo_exterior: 'External aerial',
+    aereo_continente: 'Continental aerial',
+    aereo_interista: 'Internal aerial',
+    registro_retencion: 'Appendant # 31',
     arrastra_archivo: 'Drop your file or click to upload',
     categoria: 'Category',
     permitido: 'Allowed',
@@ -52435,6 +54913,7 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
   },
   title: {
+    registro_retencion: 'Register withholdings/refuses',
     productos: 'Products',
     declaraciones_juramentadas: 'Compliance AFFIDAVIT',
     login: "Login",
@@ -52453,6 +54932,42 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    inspector_responsable: 'Responsible inspector',
+    retencion_patio: 'Containers yard withholding',
+    observaciones: 'Observations',
+    numero_guia_transporte: 'Transport guide number',
+    porcentaje_mal_estado: 'Disrepair percent',
+    porcentaje_plagados: 'Plagued percent',
+    identificacion_inspector_responsable: 'Inspector Id.',
+    nombre_testigo: 'Witness name',
+    identificacion_testigo: 'Witness Id.',
+    producto: 'Product',
+    cantidad: 'Quantity',
+    peso: 'Weight (Kg)',
+    categoria: 'Category',
+    razon_retencion: 'Reason',
+    destino_producto: 'Destine',
+    transportado_en: 'Transportation',
+    numero_guia_sanitaria: 'Sanitary guide number',
+    numero_candado: 'Padlock number',
+    nombre_inspector_responsable: 'Responsible inspector name',
+    fecha_inspeccion: 'Inspection date',
+    tipo: 'Type',
+    inspeccion_origen: 'Was there source inspection?',
+    tipo_residencia: 'Residence type',
+    fecha_hora: 'Datetime',
+    nombre_transporte: 'Carrier name',
+    nombre_completo: "Product's owner name",
+    destino: 'Destine',
+    procedencia: 'Source',
+    direccion: 'Address',
+    residente: 'Resident',
+    nacional: 'National',
+    extranjero: 'Foreign',
+    tipo_transporte: 'Transportation type',
+    retencion: 'Withholding',
+    rechazo: 'Refuse',
+    lugar: 'Place',
     fecha: 'Date',
     username: "Username",
     password: "Password",
@@ -52500,9 +55015,21 @@ __webpack_require__.r(__webpack_exports__);
     perfil: "Editar cuenta",
     recuperar: "Recuperar cuenta",
     declaracion_juramentada: 'Declaración juramentada',
-    declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas'
+    declaraciones_juramentadas: 'Consulta de declaraciones juramentadas',
+    registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
+    confirmar_registro_retencion: '¿Deseas registrar formulario?',
+    registrar_retencion: 'Registrar',
+    no_agregado: 'No se ha agregado filas',
+    maritimo_exterior: 'Marítimo exterior',
+    maritimo_continente: 'Marítimo continente',
+    maritimo_interista: 'Marítimo interista',
+    aereo_exterior: 'Aéreo exterior',
+    aereo_continente: 'Aéreo continente',
+    aereo_interista: 'Aéreo interista',
+    registro_retencion: 'Anexo No. 31',
     arrastra_archivo: 'Arrastra un archivo o da click para subir',
     categoria: 'Categoría',
     permitido: 'Permitido',
@@ -52562,6 +55089,7 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
   },
   title: {
+    registro_retencion: 'Registro de retención/rechazo',
     productos: 'Productos',
     declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
     login: "Iniciar sesión",
@@ -52580,6 +55108,42 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    inspector_responsable: 'Inspector responsable',
+    retencion_patio: 'Retención en patio de contenedores',
+    observaciones: 'Observaciones',
+    numero_guia_transporte: 'Número de guía de transporte',
+    porcentaje_mal_estado: 'Porcentaje de mal estado',
+    porcentaje_plagados: 'Porcentaje de plagados',
+    identificacion_inspector_responsable: 'Identificación de inspector',
+    nombre_testigo: 'Nombre de testigo',
+    identificacion_testigo: 'Id. Testigo',
+    producto: 'Producto',
+    cantidad: 'Cantidad',
+    peso: 'Peso (Kg)',
+    categoria: 'Categoría',
+    razon_retencion: 'Razón',
+    destino_producto: 'Destino',
+    transportado_en: 'Transportación',
+    numero_guia_sanitaria: 'Número de guía sanitaria',
+    numero_candado: 'Número de candado',
+    nombre_inspector_responsable: 'Nombre de inspector responsable',
+    fecha_inspeccion: 'Fecha de inspección',
+    tipo: 'Tipo',
+    inspeccion_origen: '¿Hubo inspección de origen?',
+    tipo_residencia: 'Tipo de residencia',
+    fecha_hora: 'Fecha y hora',
+    nombre_transporte: 'Nombre de transporte',
+    nombre_completo: 'Nombre de dueño del producto',
+    destino: 'Destino',
+    procedencia: 'Procedencia',
+    direccion: 'Dirección',
+    residente: 'Residente',
+    nacional: 'Nacional',
+    extranjero: 'Extranjero',
+    tipo_transporte: 'Tipo de transporte',
+    retencion: 'Retención',
+    rechazo: 'Rechazo',
+    lugar: 'Lugar',
     fecha: 'Fecha',
     username: "Nombre de usuario",
     password: "Contraseña",
@@ -52731,6 +55295,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publico_DeclaracionJuramentada_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/publico/DeclaracionJuramentada.vue */ "./resources/js/components/publico/DeclaracionJuramentada.vue");
 /* harmony import */ var _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/publico/ConsultaDeclaracionesJuramentadas.vue */ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue");
 /* harmony import */ var _components_admin_productos_Productos_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/admin/productos/Productos.vue */ "./resources/js/components/admin/productos/Productos.vue");
+/* harmony import */ var _components_admin_retenciones_RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/admin/retenciones/RegistroRetencion.vue */ "./resources/js/components/admin/retenciones/RegistroRetencion.vue");
+
 
 
 
@@ -52767,6 +55333,13 @@ __webpack_require__.r(__webpack_exports__);
     meta: {
       requiresAuth: true
     }
+  }, {
+    component: _components_admin_retenciones_RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    path: "/registro-retencion",
+    meta: {
+      requiresAuth: true
+    },
+    name: "RegistroRetencion"
   }, {
     path: "/perfil",
     component: _components_auth_ModificarCuenta__WEBPACK_IMPORTED_MODULE_7__["default"],

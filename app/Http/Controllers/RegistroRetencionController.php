@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\RegistroRetencion;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class RegistroRetencionController extends Controller
+{
+    private function obtenerNumeroDocumento()
+    {
+        $ultimoRegistro = RegistroRetencion::orderByRaw('cast(numero_documento as unsigned) desc')->select(['numero_documento'])->first();
+        if (isset($ultimoRegistro))
+            $numeroDocumento = intval($ultimoRegistro->numero_documento) + 1;
+        else
+            $numeroDocumento = 1;
+        return str_pad($numeroDocumento, 8, '0', STR_PAD_LEFT);
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'lugar' => 'required|max:2',
+            'tipo_transporte' => 'required|max:2',
+            'nombre_transporte' => 'required|max:500',
+            'destino' => 'required|max:255',
+            'procedencia' => 'required|max:255',
+            'fecha' => 'required|date',
+            'retencion' => 'nullable',
+            'rechazo' => 'nullable',
+            'inspeccion_origen' => 'required|max:1',
+            'inspector_responsable' => 'nullable|max:255|required_if:inspeccion_origen,S',
+            'fecha_inspeccion' => 'nullable|required_if:inspeccion_origen,S|date',
+            'numero_guia_sanitaria' => 'nullable|max:50',
+            'numero_candado' => 'nullable|max:255',
+            'nombre_completo' => 'required|max:500',
+            'direccion' => 'required|max:255',
+            'numero_identificacion' => 'required|max:20',
+            'tipo_residencia' => 'required|max:1',
+            'observaciones' => 'nullable|max:500',
+            'numero_guia_transporte' => 'nullable|max:50',
+            'porcentaje_mal_estado' => 'required|numeric',
+            'porcentaje_plagados' => 'required|numeric',
+            'retencion_patio' => 'required|max:1',
+            'nombre_inspector_responsable' => 'required|max:500',
+            'identificacion_inspector_responsable' => 'required|max:20',
+            'nombre_testigo' => 'required|max:500',
+            'identificacion_testigo' => 'required|max:20',
+            'productos' => 'required|array'
+        ]);
+        DB::transaction(function () use ($request) {
+            $user = $request->user();
+            $registroRetencion = RegistroRetencion::create([
+                'id' => uniqid('r' . date('ymdHis'), true),
+                'empresa_id' => $user->empresa_id,
+                'numero_documento' => $this->obtenerNumeroDocumento(),
+                'lugar' => $request->input('lugar'),
+                'tipo_transporte' => $request->input('tipo_transporte'),
+                'nombre_transporte' => $request->input('nombre_transporte'),
+                'destino' => $request->input('destino'),
+                'procedencia' => $request->input('procedencia'),
+                'fecha' => new Carbon($request->input('fecha')),
+                'retencion' => $request->input('retencion') ? 'S' : 'N',
+                'rechazo' => $request->input('rechazo') ? 'S' : 'N',
+                'inspeccion_origen' => $request->input('inspeccion_origen'),
+                'inspector_responsable' => $request->input('inspector_responsable'),
+                'fecha_inspeccion' => new Carbon($request->input('fecha_inspeccion')),
+                'numero_guia_sanitaria' => $request->input('numero_guia_sanitaria'),
+                'numero_candado' => $request->input('numero_candado'),
+                'nombre_completo' => $request->input('nombre_completo'),
+                'direccion' => $request->input('direccion'),
+                'numero_identificacion' => $request->input('numero_identificacion'),
+                'tipo_residencia' => $request->input('tipo_residencia'),
+                'observaciones' => $request->input('observaciones'),
+                'numero_guia_transporte' => $request->input('numero_guia_transporte'),
+                'porcentaje_mal_estado' => $request->input('porcentaje_mal_estado'),
+                'porcentaje_plagados' => $request->input('porcentaje_plagados'),
+                'retencion_patio' => $request->input('retencion_patio'),
+                'nombre_inspector_responsable' => $request->input('nombre_inspector_responsable'),
+                'identificacion_inspector_responsable' => $request->input('identificacion_inspector_responsable'),
+                'nombre_testigo' => $request->input('nombre_testigo'),
+                'identificacion_testigo' => $request->input('identificacion_testigo'),
+                'creador_id' => $request->input('creador_id'),
+            ]);
+            $productos = $request->input('productos');
+            foreach ($productos as $producto) {
+                $registroRetencion->productos()->create([
+                    'id' => uniqid('p' . date('ymdHis'), true),
+                    'producto_id' => $producto['producto_id'],
+                    'peso' => $producto['peso'],
+                    'cantidad' => $producto['cantidad'],
+                    'categoria' => $producto['categoria'],
+                    'razon_retencion' => $producto['razon_retencion'],
+                    'destino_producto' => $producto['destino_producto'],
+                    'transportado_en' => $producto['transportado_en']
+                ]);
+            }
+        });
+    }
+}

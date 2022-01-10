@@ -49,7 +49,8 @@ class DeclaracionJuramentadaApiController extends Controller
         $declaraciones = $request->input('declaraciones');
         DeclaracionJuramentada::whereIn('id', $declaraciones)
             ->update([
-                'estado' => $request->input('estado'),
+                'estado' =>
+                DB::raw('if(estado = "A", "I", "A")'),
                 'usuario_id' => $user->id
             ]);
     }

@@ -11,6 +11,7 @@ import RecuperarCuenta from "../components/auth/RecuperarCuenta";
 import DeclaracionJuramentada from "../components/publico/DeclaracionJuramentada.vue";
 import ConsultaDeclaracionesJuramentadas from "../components/publico/ConsultaDeclaracionesJuramentadas.vue";
 import Productos from "../components/admin/productos/Productos.vue";
+import RegistroRetencion from '../components/admin/retenciones/RegistroRetencion.vue';
 export default {
     mode: "history",
     routes: [
@@ -37,6 +38,14 @@ export default {
             meta: {
                 requiresAuth: true
             }
+        },
+        {
+            component: RegistroRetencion,
+            path: "/registro-retencion",
+            meta: {
+                requiresAuth: true
+            },
+            name: "RegistroRetencion"
         },
         {
             path: "/perfil",
