@@ -24,13 +24,13 @@ class ModuloSeeder extends Seeder
         //     'id' => 'declar',
         //     'nombre' => 'Declaraciones'
         // ]);
-        Modulo::create([
-            'id' => 'prods',
-            'nombre' => 'Productos'
-        ]);
-        Modulo::create([
-            'id' => 'rets',
-            'nombre' => 'Retenciones'
-        ]);
+        // Modulo::create([
+        //     'id' => 'prods',
+        //     'nombre' => 'Productos'
+        // ]);
+        // Modulo::create([
+        //     'id' => 'rets',
+        //     'nombre' => 'Retenciones'
+        // ]);
     }
 }

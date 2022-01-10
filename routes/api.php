@@ -61,8 +61,14 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'producto'], function () {
         Route::delete('/', 'ProductoApiController@destroy');
     });
+    Route::group(['prefix' => 'productos'], function () {
+        Route::get('/search', 'ProductoApiController@search');
+    });
     Route::resource('productos', 'ProductoApiController', [
         'except' => ['create', 'edit', 'show', 'destroy']
+    ]);
+    Route::resource('registro-retencion', 'RegistroRetencionController', [
+        'only' => ['index', 'store', 'update']
     ]);
 });
 

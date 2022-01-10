@@ -7,7 +7,10 @@
     </template>
     <template slot="start">
       <b-navbar-dropdown
-        v-if="$store.state.empresas.length > 0"
+        v-if="
+          $store.state.empresas.length > 1 ||
+          $store.state.nombre_empresa_actual === ''
+        "
         :label="
           $store.state.nombre_empresa_actual === ''
             ? $t('message.seleccione_empresa')
@@ -25,9 +28,18 @@
       <b-navbar-item tag="router-link" to="/declaracion-juramentada">{{
         $t("link.declaracion_juramentada")
       }}</b-navbar-item>
-      <b-navbar-item tag="router-link" to="/declaraciones-juramentadas">{{
-        $t("link.declaraciones_juramentadas")
-      }}</b-navbar-item>
+      <b-navbar-item
+        v-if="$store.state.usuario.id !== ''"
+        tag="router-link"
+        to="/declaraciones-juramentadas"
+        >{{ $t("link.declaraciones_juramentadas") }}</b-navbar-item
+      >
+      <b-navbar-item
+        v-if="$store.state.usuario.id !== ''"
+        tag="router-link"
+        to="/registro-retencion"
+        >{{ $t("link.registro_retenciones") }}</b-navbar-item
+      >
       <b-navbar-item tag="router-link" to="/">{{
         $t("link.home")
       }}</b-navbar-item>
