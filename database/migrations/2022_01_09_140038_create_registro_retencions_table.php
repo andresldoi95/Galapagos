@@ -44,6 +44,7 @@ class CreateRegistroRetencionsTable extends Migration
                 $table->string('identificacion_inspector_responsable', 20);
                 $table->string('nombre_testigo', 500);
                 $table->string('identificacion_testigo', 20);
+                $table->char('estado', 1)->default('A');
                 $table->timestamps();
                 $table->unsignedBigInteger('creador_id')->nullable();
                 $table->unsignedBigInteger('modificador_id')->nullable();

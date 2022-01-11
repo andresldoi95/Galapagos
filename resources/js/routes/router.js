@@ -12,6 +12,8 @@ import DeclaracionJuramentada from "../components/publico/DeclaracionJuramentada
 import ConsultaDeclaracionesJuramentadas from "../components/publico/ConsultaDeclaracionesJuramentadas.vue";
 import Productos from "../components/admin/productos/Productos.vue";
 import RegistroRetencion from '../components/admin/retenciones/RegistroRetencion.vue';
+import ConsultaRetenciones from '../components/admin/retenciones/ConsultaRetenciones.vue';
+
 export default {
     mode: "history",
     routes: [
@@ -20,7 +22,7 @@ export default {
             component: Home,
             name: "Home",
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {
@@ -30,22 +32,6 @@ export default {
             meta: {
                 requiresAuth: false
             }
-        },
-        {
-            path: "/declaraciones-juramentadas",
-            component: ConsultaDeclaracionesJuramentadas,
-            name: "DeclaracionesJuramentadas",
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            component: RegistroRetencion,
-            path: "/registro-retencion",
-            meta: {
-                requiresAuth: true
-            },
-            name: "RegistroRetencion"
         },
         {
             path: "/perfil",
@@ -122,6 +108,30 @@ export default {
                         requiresAuth: true
                     },
                     name: "Productos"
+                },
+                {
+                    component: RegistroRetencion,
+                    path: "registro-retencion",
+                    meta: {
+                        requiresAuth: true
+                    },
+                    name: "RegistroRetencion"
+                },
+                {
+                    component: ConsultaRetenciones,
+                    path: "retenciones",
+                    meta: {
+                        requiresAuth: true
+                    },
+                    name: "ConsultarRetenciones"
+                },
+                {
+                    component: ConsultaDeclaracionesJuramentadas,
+                    path: "declaraciones-juramentadas",
+                    meta: {
+                        requiresAuth: true
+                    },
+                    name: "DeclaracionesJuramentadas"
                 }
             ]
         }

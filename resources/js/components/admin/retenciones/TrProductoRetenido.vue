@@ -10,6 +10,7 @@
           :loading="isFetching"
           @typing="cargarProductos"
           @select="selectedProducto"
+          v-model="productoSeleccionado"
         >
           <template slot-scope="props">
             <div class="media">
@@ -143,7 +144,11 @@ export default {
       productos: [],
       isFetching: false,
       modelValue: this.value,
+      productoSeleccionado: "",
     };
+  },
+  mounted: function () {
+    this.productoSeleccionado = this.modelValue.nombre_producto;
   },
 };
 </script>

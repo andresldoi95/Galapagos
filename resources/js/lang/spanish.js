@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        numero_documento: 'Documento',
         errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
         confirmar_registro_retencion: '¿Deseas registrar formulario?',
         registrar_retencion: 'Registrar',
@@ -83,9 +84,10 @@ export default {
         equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
+        retenciones: 'Retenciones/Rechazos',
         registro_retencion: 'Registro de retención/rechazo',
         productos: 'Productos',
-        declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
+        declaraciones_juramentadas: 'Consulta de declaraciones juramentadas',
         login: "Iniciar sesión",
         access: "Accede al sistema con tu nombre de usuario y contraseña",
         dashboard: "Dashboard",

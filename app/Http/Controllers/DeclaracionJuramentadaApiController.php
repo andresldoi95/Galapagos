@@ -91,6 +91,7 @@ class DeclaracionJuramentadaApiController extends Controller
             'lugares_concentracion' => $request->input('lugares_concentracion'),
             'equipos_campamento' => $request->input('equipos_campamento'),
             'fecha' => new Carbon($request->input('fecha')),
+            'estado' => 'A'
         ]);
     }
 }
