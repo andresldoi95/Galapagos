@@ -2438,6 +2438,191 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../layouts/MasterForm.vue */ "./resources/js/components/layouts/MasterForm.vue");
+/* harmony import */ var _RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegistroRetencion.vue */ "./resources/js/components/admin/retenciones/RegistroRetencion.vue");
+var _components$data$comp;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_components$data$comp = {
+  components: {
+    RegistroRetencion: _RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      selectedRetencion: {
+        fecha_inspeccion: null,
+        retencion: false,
+        rechazo: false,
+        fecha: new Date(),
+        lugar: "",
+        tipo_transporte: "",
+        nombre_transporte: "",
+        destino: "",
+        procedencia: "",
+        inspeccion_origen: "N",
+        inspector_responsable: "",
+        numero_guia_sanitaria: "",
+        numero_candado: "",
+        nombre_completo: "",
+        direccion: "",
+        numero_identificacion: "",
+        tipo_residencia: "",
+        observaciones: "",
+        numero_guia_transporte: "",
+        porcentaje_mal_estado: 0,
+        porcentaje_plagados: 0,
+        retencion_patio: "N",
+        nombre_inspector_responsable: "",
+        identificacion_inspector_responsable: "",
+        nombre_testigo: "",
+        identificacion_testigo: "",
+        productos: []
+      }
+    };
+  }
+}, _defineProperty(_components$data$comp, "components", {
+  MasterForm: _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  RegistroRetencion: _RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}), _defineProperty(_components$data$comp, "methods", {
+  editar: function editar(row) {
+    this.selectedRetencion.fecha_inspeccion = new Date(row.fecha_inspeccion);
+    this.selectedRetencion.retencion = row.retencion === "S";
+    this.selectedRetencion.rechazo = row.rechazo === "S";
+    this.selectedRetencion.fecha = new Date(row.fecha);
+    this.selectedRetencion.lugar = row.lugar;
+    this.selectedRetencion.tipo_transporte = row.tipo_transporte;
+    this.selectedRetencion.nombre_transporte = row.nombre_transporte;
+    this.selectedRetencion.destino = row.destino;
+    this.selectedRetencion.procedencia = row.procedencia;
+    this.selectedRetencion.inspeccion_origen = row.inspeccion_origen;
+    this.selectedRetencion.inspector_responsable = row.inspector_responsable;
+    this.selectedRetencion.numero_guia_sanitaria = row.numero_guia_sanitaria;
+    this.selectedRetencion.numero_candado = row.numero_candado;
+    this.selectedRetencion.nombre_completo = row.nombre_completo;
+    this.selectedRetencion.direccion = row.direccion;
+    this.selectedRetencion.numero_identificacion = row.numero_identificacion;
+    this.selectedRetencion.tipo_residencia = row.tipo_residencia;
+    this.selectedRetencion.observaciones = row.observaciones;
+    this.selectedRetencion.numero_guia_transporte = row.numero_guia_transporte;
+    this.selectedRetencion.porcentaje_mal_estado = row.porcentaje_mal_estado;
+    this.selectedRetencion.porcentaje_plagados = row.porcentaje_plagados;
+    this.selectedRetencion.retencion_patio = row.retencion_patio;
+    this.selectedRetencion.nombre_inspector_responsable = row.nombre_inspector_responsable;
+    this.selectedRetencion.identificacion_inspector_responsable = row.identificacion_inspector_responsable;
+    this.selectedRetencion.nombre_testigo = row.nombre_testigo;
+    this.selectedRetencion.identificacion_testigo = row.identificacion_testigo;
+    this.selectedRetencion.productos.splice(0, this.selectedRetencion.productos.length);
+
+    for (var i = 0; i < row.productos.length; i++) {
+      this.selectedRetencion.productos.push({
+        producto_id: row.productos[i].producto_id,
+        nombre_producto: row.productos[i].producto.descripcion,
+        peso: row.productos[i].peso,
+        categoria: row.productos[i].categoria,
+        razon_retencion: row.productos[i].razon_retencion,
+        destino_producto: row.productos[i].destino_producto,
+        transportado_en: row.productos[i].transportado_en,
+        cantidad: row.productos[i].cantidad
+      });
+    }
+  },
+  realizarAccion: function realizarAccion(estado, retenciones) {
+    var _this = this;
+
+    var retencionesId = [];
+
+    for (var i = 0; i < retenciones.length; i++) {
+      retencionesId.push(retenciones[i].id);
+    }
+
+    this.$http.post("http://127.0.0.1:8000/api" + "/registro-retencion", {
+      retenciones: retencionesId,
+      _method: "DELETE",
+      estado: estado
+    }).then(function () {
+      _this.$buefy.toast.open({
+        message: _this.$t("message.guardado_generico"),
+        type: "is-success"
+      });
+
+      _this.$refs.masterForm.submit();
+    })["catch"](function () {
+      _this.$buefy.toast.open({
+        message: _this.$t("message.generic_error"),
+        type: "is-danger"
+      });
+    });
+  }
+}), _components$data$comp);
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=script&lang=js& ***!
@@ -2934,6 +3119,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    value: {
+      type: Object,
+      required: false,
+      "default": function _default() {
+        return {
+          fecha_inspeccion: null,
+          retencion: false,
+          rechazo: false,
+          fecha: new Date(),
+          lugar: "",
+          tipo_transporte: "",
+          nombre_transporte: "",
+          destino: "",
+          procedencia: "",
+          inspeccion_origen: "N",
+          inspector_responsable: "",
+          numero_guia_sanitaria: "",
+          numero_candado: "",
+          nombre_completo: "",
+          direccion: "",
+          numero_identificacion: "",
+          tipo_residencia: "",
+          observaciones: "",
+          numero_guia_transporte: "",
+          porcentaje_mal_estado: 0,
+          porcentaje_plagados: 0,
+          retencion_patio: "N",
+          nombre_inspector_responsable: "",
+          identificacion_inspector_responsable: "",
+          nombre_testigo: "",
+          identificacion_testigo: "",
+          productos: []
+        };
+      }
+    }
+  },
   components: {
     ProductosRetenidos: _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3008,35 +3230,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      form: {
-        fecha_inspeccion: null,
-        retencion: false,
-        rechazo: false,
-        fecha: new Date(),
-        lugar: "",
-        tipo_transporte: "",
-        nombre_transporte: "",
-        destino: "",
-        procedencia: "",
-        inspeccion_origen: "N",
-        inspector_responsable: "",
-        numero_guia_sanitaria: "",
-        numero_candado: "",
-        nombre_completo: "",
-        direccion: "",
-        numero_identificacion: "",
-        tipo_residencia: "",
-        observaciones: "",
-        numero_guia_transporte: "",
-        porcentaje_mal_estado: 0,
-        porcentaje_plagados: 0,
-        retencion_patio: "N",
-        nombre_inspector_responsable: "",
-        identificacion_inspector_responsable: "",
-        nombre_testigo: "",
-        identificacion_testigo: "",
-        productos: []
-      },
+      form: this.value,
       errores: {
         retencion: undefined,
         rechazo: undefined,
@@ -3079,6 +3273,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3221,8 +3416,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       productos: [],
       isFetching: false,
-      modelValue: this.value
+      modelValue: this.value,
+      productoSeleccionado: ""
     };
+  },
+  mounted: function mounted() {
+    this.productoSeleccionado = this.modelValue.nombre_producto;
   }
 });
 
@@ -4206,6 +4405,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4263,14 +4480,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -27714,6 +27923,102 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "hero" }, [
+    _c("div", { staticClass: "hero-body" }, [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c("h1", { staticClass: "title" }, [
+            _vm._v(_vm._s(_vm.$t("title.retenciones"))),
+          ]),
+          _vm._v(" "),
+          _c(
+            "masterForm",
+            {
+              ref: "masterForm",
+              attrs: {
+                createButton: false,
+                editable: false,
+                sortOrderDefault: "desc",
+                sortByDefault: "created_at",
+                resource: "/api/registro-retencion",
+                columns: [
+                  {
+                    label: _vm.$t("message.numero_documento"),
+                    field: "numero_documento",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.nombre_completo"),
+                    field: "nombre_completo",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.numero_identificacion"),
+                    field: "numero_identificacion",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("etiqueta.fecha"),
+                    field: "fecha",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("message.created_at"),
+                    field: "created_at",
+                    sortable: true,
+                  },
+                  {
+                    label: _vm.$t("message.status"),
+                    field: "estado",
+                    sortable: true,
+                  },
+                ],
+              },
+              on: { realizarAccion: _vm.realizarAccion, editar: _vm.editar },
+            },
+            [
+              _c("registro-retencion", {
+                model: {
+                  value: _vm.selectedRetencion,
+                  callback: function ($$v) {
+                    _vm.selectedRetencion = $$v
+                  },
+                  expression: "selectedRetencion",
+                },
+              }),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3&":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/retenciones/ProductosRetenidos.vue?vue&type=template&id=373c59b3& ***!
@@ -29037,6 +29342,13 @@ var render = function () {
                   },
                 },
               ]),
+              model: {
+                value: _vm.productoSeleccionado,
+                callback: function ($$v) {
+                  _vm.productoSeleccionado = $$v
+                },
+                expression: "productoSeleccionado",
+              },
             }),
           ],
           1
@@ -30305,6 +30617,33 @@ var render = function () {
                             to: "/admin/productos",
                           },
                         }),
+                        _vm._v(" "),
+                        _c("b-menu-item", {
+                          attrs: {
+                            icon: "clipboard-text",
+                            label: _vm.$t("title.declaraciones_juramentadas"),
+                            tag: "router-link",
+                            to: "/admin/declaraciones-juramentadas",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("b-menu-item", {
+                          attrs: {
+                            icon: "book-information-variant",
+                            label: _vm.$t("title.registro_retencion"),
+                            tag: "router-link",
+                            to: "/admin/registro-retencion",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("b-menu-item", {
+                          attrs: {
+                            icon: "format-align-justify",
+                            label: _vm.$t("title.retenciones"),
+                            tag: "router-link",
+                            to: "/admin/retenciones",
+                          },
+                        }),
                       ],
                       1
                     ),
@@ -30436,8 +30775,9 @@ var render = function () {
         "template",
         { slot: "start" },
         [
-          _vm.$store.state.empresas.length > 1 ||
-          _vm.$store.state.nombre_empresa_actual === ""
+          (_vm.$store.state.empresas.length > 1 ||
+            _vm.$store.state.nombre_empresa_actual === "") &&
+          _vm.$store.state.usuario.id !== ""
             ? _c(
                 "b-navbar-dropdown",
                 {
@@ -30476,6 +30816,10 @@ var render = function () {
               )
             : _vm._e(),
           _vm._v(" "),
+          _c("b-navbar-item", { attrs: { tag: "router-link", to: "/" } }, [
+            _vm._v(_vm._s(_vm.$t("link.home"))),
+          ]),
+          _vm._v(" "),
           _c(
             "b-navbar-item",
             { attrs: { tag: "router-link", to: "/declaracion-juramentada" } },
@@ -30485,31 +30829,10 @@ var render = function () {
           _vm.$store.state.usuario.id !== ""
             ? _c(
                 "b-navbar-item",
-                {
-                  attrs: {
-                    tag: "router-link",
-                    to: "/declaraciones-juramentadas",
-                  },
-                },
-                [_vm._v(_vm._s(_vm.$t("link.declaraciones_juramentadas")))]
+                { attrs: { tag: "router-link", to: "/admin" } },
+                [_vm._v(_vm._s(_vm.$t("link.admin")))]
               )
             : _vm._e(),
-          _vm._v(" "),
-          _vm.$store.state.usuario.id !== ""
-            ? _c(
-                "b-navbar-item",
-                { attrs: { tag: "router-link", to: "/registro-retencion" } },
-                [_vm._v(_vm._s(_vm.$t("link.registro_retenciones")))]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("b-navbar-item", { attrs: { tag: "router-link", to: "/" } }, [
-            _vm._v(_vm._s(_vm.$t("link.home"))),
-          ]),
-          _vm._v(" "),
-          _c("b-navbar-item", { attrs: { tag: "router-link", to: "/admin" } }, [
-            _vm._v(_vm._s(_vm.$t("link.admin"))),
-          ]),
         ],
         1
       ),
@@ -53770,6 +54093,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ConsultaRetenciones.vue ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConsultaRetenciones.vue?vue&type=template&id=10252c1b& */ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b&");
+/* harmony import */ var _ConsultaRetenciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConsultaRetenciones.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConsultaRetenciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/retenciones/ConsultaRetenciones.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaRetenciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultaRetenciones.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaRetenciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ConsultaRetenciones.vue?vue&type=template&id=10252c1b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/retenciones/ConsultaRetenciones.vue?vue&type=template&id=10252c1b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConsultaRetenciones_vue_vue_type_template_id_10252c1b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/admin/retenciones/ProductosRetenidos.vue ***!
@@ -54845,6 +55237,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    numero_documento: 'Document',
     errores_formulario: 'There was some errors in the form, please validate the information',
     confirmar_registro_retencion: 'Do you want to register this form?',
     registrar_retencion: 'Register',
@@ -54913,9 +55306,10 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
   },
   title: {
+    retenciones: 'Withholdings/Refuses',
     registro_retencion: 'Register withholdings/refuses',
     productos: 'Products',
-    declaraciones_juramentadas: 'Compliance AFFIDAVIT',
+    declaraciones_juramentadas: 'AFFIDAVIT consultation',
     login: "Login",
     access: "Access to the system with your username and password",
     dashboard: "Dashboard",
@@ -55019,6 +55413,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    numero_documento: 'Documento',
     errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
     confirmar_registro_retencion: '¿Deseas registrar formulario?',
     registrar_retencion: 'Registrar',
@@ -55089,9 +55484,10 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
   },
   title: {
+    retenciones: 'Retenciones/Rechazos',
     registro_retencion: 'Registro de retención/rechazo',
     productos: 'Productos',
-    declaraciones_juramentadas: 'Aprobación de declaraciones juramentadas',
+    declaraciones_juramentadas: 'Consulta de declaraciones juramentadas',
     login: "Iniciar sesión",
     access: "Accede al sistema con tu nombre de usuario y contraseña",
     dashboard: "Dashboard",
@@ -55296,6 +55692,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/publico/ConsultaDeclaracionesJuramentadas.vue */ "./resources/js/components/publico/ConsultaDeclaracionesJuramentadas.vue");
 /* harmony import */ var _components_admin_productos_Productos_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/admin/productos/Productos.vue */ "./resources/js/components/admin/productos/Productos.vue");
 /* harmony import */ var _components_admin_retenciones_RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/admin/retenciones/RegistroRetencion.vue */ "./resources/js/components/admin/retenciones/RegistroRetencion.vue");
+/* harmony import */ var _components_admin_retenciones_ConsultaRetenciones_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/admin/retenciones/ConsultaRetenciones.vue */ "./resources/js/components/admin/retenciones/ConsultaRetenciones.vue");
+
 
 
 
@@ -55317,7 +55715,7 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_Home__WEBPACK_IMPORTED_MODULE_0__["default"],
     name: "Home",
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   }, {
     path: "/declaracion-juramentada",
@@ -55326,20 +55724,6 @@ __webpack_require__.r(__webpack_exports__);
     meta: {
       requiresAuth: false
     }
-  }, {
-    path: "/declaraciones-juramentadas",
-    component: _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
-    name: "DeclaracionesJuramentadas",
-    meta: {
-      requiresAuth: true
-    }
-  }, {
-    component: _components_admin_retenciones_RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-    path: "/registro-retencion",
-    meta: {
-      requiresAuth: true
-    },
-    name: "RegistroRetencion"
   }, {
     path: "/perfil",
     component: _components_auth_ModificarCuenta__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -55406,6 +55790,27 @@ __webpack_require__.r(__webpack_exports__);
         requiresAuth: true
       },
       name: "Productos"
+    }, {
+      component: _components_admin_retenciones_RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+      path: "registro-retencion",
+      meta: {
+        requiresAuth: true
+      },
+      name: "RegistroRetencion"
+    }, {
+      component: _components_admin_retenciones_ConsultaRetenciones_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+      path: "retenciones",
+      meta: {
+        requiresAuth: true
+      },
+      name: "ConsultarRetenciones"
+    }, {
+      component: _components_publico_ConsultaDeclaracionesJuramentadas_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+      path: "declaraciones-juramentadas",
+      meta: {
+        requiresAuth: true
+      },
+      name: "DeclaracionesJuramentadas"
     }]
   }]
 });

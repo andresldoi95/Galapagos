@@ -15,7 +15,7 @@ class RegistroRetencion extends Model
         'numero_identificacion', 'tipo_residencia', 'observaciones', 'numero_guia_transporte',
         'porcentaje_mal_estado', 'porcentaje_plagados', 'retencion_patio', 'nombre_inspector_responsable',
         'identificacion_inspector_responsable', 'nombre_testigo', 'identificacion_testigo',
-        'creador_id', 'modificador_id'
+        'creador_id', 'modificador_id', 'estado'
     ];
     public $incrementing = false;
     public function creador()

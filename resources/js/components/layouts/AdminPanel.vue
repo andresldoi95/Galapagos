@@ -42,6 +42,24 @@
                 tag="router-link"
                 to="/admin/productos"
               ></b-menu-item>
+              <b-menu-item
+                icon="clipboard-text"
+                :label="$t('title.declaraciones_juramentadas')"
+                tag="router-link"
+                to="/admin/declaraciones-juramentadas"
+              ></b-menu-item>
+              <b-menu-item
+                icon="book-information-variant"
+                :label="$t('title.registro_retencion')"
+                tag="router-link"
+                to="/admin/registro-retencion"
+              ></b-menu-item>
+              <b-menu-item
+                icon="format-align-justify"
+                :label="$t('title.retenciones')"
+                tag="router-link"
+                to="/admin/retenciones"
+              ></b-menu-item>
             </b-menu-list>
           </b-menu>
         </div>

@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        numero_documento: 'Document',
         errores_formulario: 'There was some errors in the form, please validate the information',
         confirmar_registro_retencion: 'Do you want to register this form?',
         registrar_retencion: 'Register',
@@ -79,9 +80,10 @@ export default {
         equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
+        retenciones: 'Withholdings/Refuses',
         registro_retencion: 'Register withholdings/refuses',
         productos: 'Products',
-        declaraciones_juramentadas: 'Compliance AFFIDAVIT',
+        declaraciones_juramentadas: 'AFFIDAVIT consultation',
         login: "Login",
         access: "Access to the system with your username and password",
         dashboard: "Dashboard",

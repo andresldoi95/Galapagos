@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\RegistroRetencion;
 use Carbon\Carbon;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -97,5 +98,23 @@ class RegistroRetencionController extends Controller
                 ]);
             }
         });
+    }
+    public function index(Request $request)
+    {
+        $sortBy = $request->input('sort_by');
+        $status = $request->input('status');
+        $search = $request->input('search');
+        $currentPage = $request->input('current_page');
+        Paginator::currentPageResolver(function () use ($currentPage) {
+            return $currentPage;
+        });
+        $declaraciones = RegistroRetencion::with('productos.producto')->where(function ($query) use ($search) {
+            return $query->where('numero_identificacion', $search)->orWhere('numero_documento', 'like', "%$search");
+        });
+        if (isset($sortBy) && $sortBy !== '')
+            $declaraciones->orderBy($sortBy, $request->input('sort_order'));
+        if ($status !== 'T')
+            $declaraciones->where('estado', $status);
+        return $declaraciones->paginate($request->input('per_page'));
     }
 }
