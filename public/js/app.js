@@ -2298,6 +2298,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2311,13 +2327,15 @@ __webpack_require__.r(__webpack_exports__);
         id: "",
         _method: undefined,
         categoria: "",
-        tipo_foto: "S"
+        tipo_foto: "S",
+        informacion_adicional: ""
       },
       errores: {
         descripcion: undefined,
         codigo: undefined,
         categoria: undefined,
-        foto: undefined
+        foto: undefined,
+        informacion_adicional: undefined
       },
       foto: null
     };
@@ -2340,6 +2358,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.codigo = "";
       this.form.categoria = "";
       this.form.tipo_foto = "S";
+      this.form.informacion_adicional = "";
       this.foto = null;
     },
     adding: function adding() {
@@ -2378,12 +2397,14 @@ __webpack_require__.r(__webpack_exports__);
       this.form.descripcion = producto.descripcion;
       this.form.codigo = producto.codigo;
       this.form.categoria = producto.categoria;
+      this.form.informacion_adicional = producto.informacion_adicional;
     },
     limpiarErrores: function limpiarErrores() {
       this.errores.descripcion = undefined;
       this.errores.codigo = undefined;
       this.errores.categoria = undefined;
       this.errores.foto = undefined;
+      this.errores.informacion_adicional = undefined;
     },
     submitFormulario: function submitFormulario() {
       var _this2 = this;
@@ -2400,6 +2421,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("codigo", this.form.codigo);
       formData.append("descripcion", this.form.descripcion);
       formData.append("categoria", this.form.categoria);
+      formData.append("informacion_adicional", this.form.informacion_adicional);
       if (this.form._method != null) formData.append("_method", this.form._method);
       if (this.foto != null) formData.append("foto", this.foto);
       this.$http({
@@ -2425,6 +2447,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.errores.codigo = response.data.errors.codigo;
           _this2.errores.categoria = response.data.errors.categoria;
           _this2.errores.foto = response.data.errors.foto;
+          _this2.errores.informacion_adicional = response.data.errors.informacion_adicional;
         } else {
           _this2.$buefy.toast.open({
             message: _this2.$t("message.generic_error"),
@@ -28716,7 +28739,42 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "columns is-one-third" }, [
+              _c("div", { staticClass: "columns" }, [
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [
+                    _c(
+                      "b-field",
+                      {
+                        attrs: {
+                          message: _vm.errores.informacion_adicional
+                            ? _vm.errores.informacion_adicional[0]
+                            : "",
+                          type: _vm.errores.informacion_adicional
+                            ? "is-danger"
+                            : "",
+                          label: _vm.$t("etiqueta.informacion_adicional"),
+                        },
+                      },
+                      [
+                        _c("b-input", {
+                          attrs: { type: "textarea" },
+                          model: {
+                            value: _vm.form.informacion_adicional,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "informacion_adicional", $$v)
+                            },
+                            expression: "form.informacion_adicional",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "column" },
@@ -56526,6 +56584,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    informacion_adicional: 'Additional information',
     numero_declaracion_cedula: '# AFFIDAVIT or ID',
     productos: 'Products',
     inspector_responsable: 'Responsible inspector',
@@ -56709,6 +56768,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    informacion_adicional: 'Información adicional',
     numero_declaracion_cedula: '# Declaración o Identificación',
     productos: 'Productos',
     inspector_responsable: 'Inspector responsable',

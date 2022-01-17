@@ -107,6 +107,7 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        informacion_adicional: 'Información adicional',
         numero_declaracion_cedula: '# Declaración o Identificación',
         productos: 'Productos',
         inspector_responsable: 'Inspector responsable',

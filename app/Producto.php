@@ -6,9 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+    protected $appends = [
+        'url_foto'
+    ];
+    public function getUrlFotoAttribute()
+    {
+        $path_foto = $this->path_foto;
+        if (isset($path_foto))
+            return url('/storage/' . $this->path_foto);
+        else
+            return null;
+    }
     protected $fillable = [
         'codigo', 'descripcion', 'path_foto', 'categoria', 'estado',
-        'creador_id', 'modificador_id', 'empresa_id'
+        'creador_id', 'modificador_id', 'empresa_id', 'informacion_adicional'
     ];
     public function empresa()
     {

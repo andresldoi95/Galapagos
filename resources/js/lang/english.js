@@ -103,6 +103,7 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        informacion_adicional: 'Additional information',
         numero_declaracion_cedula: '# AFFIDAVIT or ID',
         productos: 'Products',
         inspector_responsable: 'Responsible inspector',

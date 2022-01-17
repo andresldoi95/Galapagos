@@ -69,7 +69,23 @@
               </b-field>
             </div>
           </div>
-          <div class="columns is-one-third">
+          <div class="columns">
+            <div class="column">
+              <b-field
+                :message="
+                  errores.informacion_adicional
+                    ? errores.informacion_adicional[0]
+                    : ''
+                "
+                :type="errores.informacion_adicional ? 'is-danger' : ''"
+                :label="$t('etiqueta.informacion_adicional')"
+              >
+                <b-input
+                  type="textarea"
+                  v-model="form.informacion_adicional"
+                ></b-input>
+              </b-field>
+            </div>
             <div class="column">
               <b-field>
                 <b-upload
@@ -120,12 +136,14 @@ export default {
         _method: undefined,
         categoria: "",
         tipo_foto: "S",
+        informacion_adicional: "",
       },
       errores: {
         descripcion: undefined,
         codigo: undefined,
         categoria: undefined,
         foto: undefined,
+        informacion_adicional: undefined,
       },
       foto: null,
     };
@@ -148,6 +166,7 @@ export default {
       this.form.codigo = "";
       this.form.categoria = "";
       this.form.tipo_foto = "S";
+      this.form.informacion_adicional = "";
       this.foto = null;
     },
     adding: function () {
@@ -183,12 +202,14 @@ export default {
       this.form.descripcion = producto.descripcion;
       this.form.codigo = producto.codigo;
       this.form.categoria = producto.categoria;
+      this.form.informacion_adicional = producto.informacion_adicional;
     },
     limpiarErrores: function () {
       this.errores.descripcion = undefined;
       this.errores.codigo = undefined;
       this.errores.categoria = undefined;
       this.errores.foto = undefined;
+      this.errores.informacion_adicional = undefined;
     },
     submitFormulario: function () {
       this.limpiarErrores();
@@ -201,6 +222,7 @@ export default {
       formData.append("codigo", this.form.codigo);
       formData.append("descripcion", this.form.descripcion);
       formData.append("categoria", this.form.categoria);
+      formData.append("informacion_adicional", this.form.informacion_adicional);
       if (this.form._method != null)
         formData.append("_method", this.form._method);
       if (this.foto != null) formData.append("foto", this.foto);
@@ -224,6 +246,8 @@ export default {
             this.errores.codigo = response.data.errors.codigo;
             this.errores.categoria = response.data.errors.categoria;
             this.errores.foto = response.data.errors.foto;
+            this.errores.informacion_adicional =
+              response.data.errors.informacion_adicional;
           } else {
             this.$buefy.toast.open({
               message: this.$t("message.generic_error"),

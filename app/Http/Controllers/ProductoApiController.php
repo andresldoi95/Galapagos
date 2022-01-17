@@ -34,7 +34,8 @@ class ProductoApiController extends Controller
             'codigo' => 'required|max:40|unique:productos',
             'descripcion' => 'required|max:255',
             'categoria' => 'required|max:2',
-            'foto' => 'nullable|image'
+            'foto' => 'nullable|image',
+            'informacion_adicional' => 'nullable'
         ]);
         DB::transaction(function () use ($request) {
             $user = $request->user();
@@ -43,7 +44,9 @@ class ProductoApiController extends Controller
                 'descripcion' => $request->input('descripcion'),
                 'categoria' => $request->input('categoria'),
                 'creador_id' => $user->id,
-                'empresa_id' => $user->empresa_id
+                'empresa_id' => $user->empresa_id,
+                'informacion_adicional' => $request->input('informacion_adicional'),
+                'path_foto' => $request->hasFile('foto') ? $request->file('foto')->storeAs('/productos', $request->input('codigo') . '-' . date('YmdHis') . '.' . $request->file('foto')->extension()) : null
             ]);
         });
     }
@@ -51,7 +54,8 @@ class ProductoApiController extends Controller
     {
         $request->validate([
             'descripcion' => 'required|max:255',
-            'categoria' => 'required|max:2'
+            'categoria' => 'required|max:2',
+            'informacion_adicional' => 'nullable'
         ]);
         DB::transaction(function () use ($request, $id) {
             $user = $request->user();
@@ -59,6 +63,7 @@ class ProductoApiController extends Controller
             $producto->descripcion = $request->input('descripcion');
             $producto->categoria = $request->input('categoria');
             $producto->modificador_id = $user->id;
+            $producto->informacion_adicional = $request->input('informacion_adicional');
             $producto->save();
         });
     }

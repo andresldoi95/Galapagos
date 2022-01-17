@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
                 $table->unsignedBigInteger('empresa_id');
                 $table->string('codigo', 40)->unique();
                 $table->string('descripcion');
+                $table->text('informacion_adicional')->nullable();
                 $table->string('path_foto', 150)->nullable();
                 $table->string('categoria', 2)->default('P');
                 $table->timestamps();
