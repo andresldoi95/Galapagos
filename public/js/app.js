@@ -2507,6 +2507,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_components$data$comp = {
@@ -2542,7 +2545,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         identificacion_inspector_responsable: "",
         nombre_testigo: "",
         identificacion_testigo: "",
-        productos: []
+        productos: [],
+        id: "",
+        numero_documento: "",
+        _method: undefined
       }
     };
   }
@@ -2550,7 +2556,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   MasterForm: _layouts_MasterForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
   RegistroRetencion: _RegistroRetencion_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }), _defineProperty(_components$data$comp, "methods", {
+  inputRetencion: function inputRetencion() {
+    this.$refs.masterForm.submit();
+  },
   editar: function editar(row) {
+    this.selectedRetencion._method = "PUT";
+    this.selectedRetencion.id = row.id;
+    this.selectedRetencion.numero_documento = row.numero_documento;
     this.selectedRetencion.fecha_inspeccion = new Date(row.fecha_inspeccion);
     this.selectedRetencion.retencion = row.retencion === "S";
     this.selectedRetencion.rechazo = row.rechazo === "S";
@@ -3151,7 +3163,10 @@ __webpack_require__.r(__webpack_exports__);
           identificacion_inspector_responsable: "",
           nombre_testigo: "",
           identificacion_testigo: "",
-          productos: []
+          productos: [],
+          numero_documento: "",
+          id: "",
+          _method: undefined
         };
       }
     }
@@ -3161,6 +3176,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     limpiarFormulario: function limpiarFormulario() {
+      this.form._method = undefined;
+      this.form.id = "";
+      this.form.numero_documento = "";
       this.form.lugar = "";
       this.form.tipo_transporte = "";
       this.form.nombre_transporte = "";
@@ -3199,13 +3217,22 @@ __webpack_require__.r(__webpack_exports__);
         onConfirm: function onConfirm() {
           var path = "http://127.0.0.1:8000/api" + "/registro-retencion";
 
+          if (_this.form.id != "") {
+            _this.form._method = "PUT";
+            path += "/" + _this.form.id;
+          } else {
+            _this.form._method = undefined;
+          }
+
           _this.$http.post(path, _this.form).then(function () {
             _this.$buefy.toast.open({
               message: _this.$t("message.guardado_generico"),
               type: "is-success"
             });
 
-            _this.limpiarFormulario();
+            _this.$emit("input", _this.form);
+
+            if (_this.form.id == "") _this.limpiarFormulario();
           })["catch"](function (_ref) {
             var response = _ref.response;
             var status = response.status;
@@ -27995,6 +28022,7 @@ var render = function () {
             },
             [
               _c("registro-retencion", {
+                on: { input: _vm.inputRetencion },
                 model: {
                   value: _vm.selectedRetencion,
                   callback: function ($$v) {
@@ -55240,7 +55268,7 @@ __webpack_require__.r(__webpack_exports__);
     numero_documento: 'Document',
     errores_formulario: 'There was some errors in the form, please validate the information',
     confirmar_registro_retencion: 'Do you want to register this form?',
-    registrar_retencion: 'Register',
+    registrar_retencion: 'Save',
     no_agregado: 'Rows not added',
     maritimo_exterior: 'External maritime',
     maritimo_continente: 'Continental maritime',
@@ -55416,7 +55444,7 @@ __webpack_require__.r(__webpack_exports__);
     numero_documento: 'Documento',
     errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
     confirmar_registro_retencion: '¿Deseas registrar formulario?',
-    registrar_retencion: 'Registrar',
+    registrar_retencion: 'Guardar',
     no_agregado: 'No se ha agregado filas',
     maritimo_exterior: 'Marítimo exterior',
     maritimo_continente: 'Marítimo continente',

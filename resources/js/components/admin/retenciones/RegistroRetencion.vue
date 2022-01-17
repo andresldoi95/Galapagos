@@ -431,6 +431,9 @@ export default {
           nombre_testigo: "",
           identificacion_testigo: "",
           productos: [],
+          numero_documento: "",
+          id: "",
+          _method: undefined,
         };
       },
     },
@@ -440,6 +443,9 @@ export default {
   },
   methods: {
     limpiarFormulario: function () {
+      this.form._method = undefined;
+      this.form.id = "";
+      this.form.numero_documento = "";
       this.form.lugar = "";
       this.form.tipo_transporte = "";
       this.form.nombre_transporte = "";
@@ -476,6 +482,12 @@ export default {
         message: this.$t("message.confirmar_registro_retencion"),
         onConfirm: () => {
           let path = process.env.MIX_APP_URL_API + "/registro-retencion";
+          if (this.form.id != "") {
+            this.form._method = "PUT";
+            path += "/" + this.form.id;
+          } else {
+            this.form._method = undefined;
+          }
           this.$http
             .post(path, this.form)
             .then(() => {
@@ -483,7 +495,8 @@ export default {
                 message: this.$t("message.guardado_generico"),
                 type: "is-success",
               });
-              this.limpiarFormulario();
+              this.$emit("input", this.form);
+              if (this.form.id == "") this.limpiarFormulario();
             })
             .catch(({ response }) => {
               let status = response.status;

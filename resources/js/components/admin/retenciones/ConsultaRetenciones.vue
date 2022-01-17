@@ -45,7 +45,10 @@
             },
           ]"
         >
-          <registro-retencion v-model="selectedRetencion"></registro-retencion>
+          <registro-retencion
+            @input="inputRetencion"
+            v-model="selectedRetencion"
+          ></registro-retencion>
         </masterForm>
       </div>
     </div>
@@ -89,6 +92,9 @@ export default {
         nombre_testigo: "",
         identificacion_testigo: "",
         productos: [],
+        id: "",
+        numero_documento: "",
+        _method: undefined,
       },
     };
   },
@@ -97,7 +103,13 @@ export default {
     RegistroRetencion,
   },
   methods: {
+    inputRetencion: function () {
+      this.$refs.masterForm.submit();
+    },
     editar: function (row) {
+      this.selectedRetencion._method = "PUT";
+      this.selectedRetencion.id = row.id;
+      this.selectedRetencion.numero_documento = row.numero_documento;
       this.selectedRetencion.fecha_inspeccion = new Date(row.fecha_inspeccion);
       this.selectedRetencion.retencion = row.retencion === "S";
       this.selectedRetencion.rechazo = row.rechazo === "S";

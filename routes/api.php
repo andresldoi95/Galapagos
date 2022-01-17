@@ -67,6 +67,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('productos', 'ProductoApiController', [
         'except' => ['create', 'edit', 'show', 'destroy']
     ]);
+    Route::prefix('registro-retencion')->group(function () {
+        Route::delete('/', 'RegistroRetencionController@destroy');
+    });
     Route::resource('registro-retencion', 'RegistroRetencionController', [
         'only' => ['index', 'store', 'update']
     ]);

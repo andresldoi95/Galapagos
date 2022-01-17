@@ -14,7 +14,7 @@ export default {
         numero_documento: 'Documento',
         errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
         confirmar_registro_retencion: '¿Deseas registrar formulario?',
-        registrar_retencion: 'Registrar',
+        registrar_retencion: 'Guardar',
         no_agregado: 'No se ha agregado filas',
         maritimo_exterior: 'Marítimo exterior',
         maritimo_continente: 'Marítimo continente',

@@ -14,7 +14,7 @@ export default {
         numero_documento: 'Document',
         errores_formulario: 'There was some errors in the form, please validate the information',
         confirmar_registro_retencion: 'Do you want to register this form?',
-        registrar_retencion: 'Register',
+        registrar_retencion: 'Save',
         no_agregado: 'Rows not added',
         maritimo_exterior: 'External maritime',
         maritimo_continente: 'Continental maritime',
