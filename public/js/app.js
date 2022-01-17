@@ -5006,7 +5006,8 @@ __webpack_require__.r(__webpack_exports__);
         alimentos_procesados: "N",
         lugares_concentracion: "N",
         equipos_campamento: "N",
-        fecha: new Date()
+        fecha: new Date(),
+        productos: []
       }
     };
   },
@@ -5031,6 +5032,7 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedDeclaracion.lugares_concentracion = row.lugares_concentracion;
       this.selectedDeclaracion.equipos_campamento = row.equipos_campamento;
       this.selectedDeclaracion.fecha = new Date(row.fecha);
+      this.selectedDeclaracion.productos.splice(0, this.selectedDeclaracion.productos.length);
     },
     realizarAccion: function realizarAccion(estado, declaraciones) {
       var _this = this;
@@ -5360,6 +5362,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     editable: {
@@ -5386,7 +5423,8 @@ __webpack_require__.r(__webpack_exports__);
           alimentos_procesados: "N",
           lugares_concentracion: "N",
           equipos_campamento: "N",
-          fecha: new Date()
+          fecha: new Date(),
+          productos: []
         };
       }
     }
@@ -5407,10 +5445,23 @@ __webpack_require__.r(__webpack_exports__);
         numero_vuelo: undefined,
         aeropuerto_origen: undefined,
         fecha: undefined
-      }
+      },
+      productos: []
     };
   },
   methods: {
+    cargarProductos: function cargarProductos(name) {
+      var _this = this;
+
+      this.$http.get("http://127.0.0.1:8000/api" + "/productos/search", {
+        params: {
+          search: name
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+        _this.productos = data;
+      });
+    },
     limpiarErrores: function limpiarErrores() {
       this.errores.apellidos = undefined;
       this.errores.nombres = undefined;
@@ -5426,6 +5477,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errores.fecha = undefined;
     },
     limpiarFormulario: function limpiarFormulario() {
+      this.form.productos.splice(0, this.form.productos.length);
       this.form.apellidos = "";
       this.form.nombres = "";
       this.form.numero_identificacion = "";
@@ -5444,7 +5496,7 @@ __webpack_require__.r(__webpack_exports__);
       this.limpiarErrores();
     },
     confirmarDeclaracion: function confirmarDeclaracion() {
-      var _this = this;
+      var _this2 = this;
 
       this.$buefy.dialog.confirm({
         cancelText: this.$t("message.no"),
@@ -5453,33 +5505,33 @@ __webpack_require__.r(__webpack_exports__);
         onConfirm: function onConfirm() {
           var path = "http://127.0.0.1:8000/api" + "/declaracion-juramentada";
 
-          _this.$http.post(path, _this.form).then(function () {
-            _this.$buefy.toast.open({
-              message: _this.$t("message.guardado_generico"),
+          _this2.$http.post(path, _this2.form).then(function () {
+            _this2.$buefy.toast.open({
+              message: _this2.$t("message.guardado_generico"),
               type: "is-success"
             });
 
-            _this.limpiarFormulario();
-          })["catch"](function (_ref) {
-            var response = _ref.response;
+            _this2.limpiarFormulario();
+          })["catch"](function (_ref2) {
+            var response = _ref2.response;
             var status = response.status;
 
             if (status === 422) {
-              _this.errores.apellidos = response.data.errors.apellidos;
-              _this.errores.nombres = response.data.errors.nombres;
-              _this.errores.numero_identificacion = response.data.errors.numero_identificacion;
-              _this.errores.telefono = response.data.errors.telefono;
-              _this.errores.correo_electronico = response.data.errors.correo_electronico;
-              _this.errores.lugar_residencia = response.data.errors.lugar_residencia;
-              _this.errores.nacionalidad = response.data.errors.nacionalidad;
-              _this.errores.direccion_domicilio = response.data.errors.direccion_domicilio;
-              _this.errores.linea_aerea = response.data.errors.linea_aerea;
-              _this.errores.numero_vuelo = response.data.errors.numero_vuelo;
-              _this.errores.aeropuerto_origen = response.data.errors.aeropuerto_origen;
-              _this.errores.fecha = response.data.errors.fecha;
+              _this2.errores.apellidos = response.data.errors.apellidos;
+              _this2.errores.nombres = response.data.errors.nombres;
+              _this2.errores.numero_identificacion = response.data.errors.numero_identificacion;
+              _this2.errores.telefono = response.data.errors.telefono;
+              _this2.errores.correo_electronico = response.data.errors.correo_electronico;
+              _this2.errores.lugar_residencia = response.data.errors.lugar_residencia;
+              _this2.errores.nacionalidad = response.data.errors.nacionalidad;
+              _this2.errores.direccion_domicilio = response.data.errors.direccion_domicilio;
+              _this2.errores.linea_aerea = response.data.errors.linea_aerea;
+              _this2.errores.numero_vuelo = response.data.errors.numero_vuelo;
+              _this2.errores.aeropuerto_origen = response.data.errors.aeropuerto_origen;
+              _this2.errores.fecha = response.data.errors.fecha;
             } else {
-              _this.$buefy.toast.open({
-                message: _this.$t("message.generic_error"),
+              _this2.$buefy.toast.open({
+                message: _this2.$t("message.generic_error"),
                 type: "is-danger"
               });
             }
@@ -31930,6 +31982,122 @@ var render = function () {
                   ),
                 ]),
               ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.form.alimentos_procesados === "S",
+                      expression: "form.alimentos_procesados === 'S'",
+                    },
+                  ],
+                  staticClass: "columns",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "column" },
+                    [
+                      _c(
+                        "b-field",
+                        { attrs: { label: _vm.$t("etiqueta.productos") } },
+                        [
+                          _c("b-taginput", {
+                            ref: "productos",
+                            attrs: {
+                              data: _vm.productos,
+                              autocomplete: "",
+                              icon: "label",
+                              placeholder: _vm.$t("message.seleccione"),
+                            },
+                            on: { typing: _vm.cargarProductos },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "default",
+                                fn: function (props) {
+                                  return [
+                                    _c("strong", [
+                                      _vm._v(_vm._s(props.option.id)),
+                                    ]),
+                                    _vm._v(
+                                      ": " +
+                                        _vm._s(props.option.descripcion) +
+                                        "\n                    "
+                                    ),
+                                  ]
+                                },
+                              },
+                              {
+                                key: "empty",
+                                fn: function () {
+                                  return [
+                                    _vm._v(
+                                      " " +
+                                        _vm._s(_vm.$t("message.empty")) +
+                                        " "
+                                    ),
+                                  ]
+                                },
+                                proxy: true,
+                              },
+                              {
+                                key: "selected",
+                                fn: function (props) {
+                                  return _vm._l(
+                                    props.tags,
+                                    function (producto, index) {
+                                      return _c(
+                                        "b-tag",
+                                        {
+                                          key: index,
+                                          attrs: {
+                                            type: "is-primary",
+                                            rounded: "",
+                                            tabstop: false,
+                                            ellipsis: "",
+                                            closable: "",
+                                          },
+                                          on: {
+                                            close: function ($event) {
+                                              return _vm.$refs.taginput.removeTag(
+                                                index,
+                                                $event
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(producto.descripcion) +
+                                              "\n                      "
+                                          ),
+                                        ]
+                                      )
+                                    }
+                                  )
+                                },
+                              },
+                            ]),
+                            model: {
+                              value: _vm.form.productos,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.form, "productos", $$v)
+                              },
+                              expression: "form.productos",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -55265,6 +55433,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    empty: 'The list is empty',
     numero_documento: 'Document',
     errores_formulario: 'There was some errors in the form, please validate the information',
     confirmar_registro_retencion: 'Do you want to register this form?',
@@ -55354,6 +55523,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    productos: 'Products',
     inspector_responsable: 'Responsible inspector',
     retencion_patio: 'Containers yard withholding',
     observaciones: 'Observations',
@@ -55441,6 +55611,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    empty: 'La lista está vacía',
     numero_documento: 'Documento',
     errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
     confirmar_registro_retencion: '¿Deseas registrar formulario?',
@@ -55532,6 +55703,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    productos: 'Productos',
     inspector_responsable: 'Inspector responsable',
     retencion_patio: 'Retención en patio de contenedores',
     observaciones: 'Observaciones',

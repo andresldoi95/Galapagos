@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        empty: 'La lista está vacía',
         numero_documento: 'Documento',
         errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
         confirmar_registro_retencion: '¿Deseas registrar formulario?',
@@ -104,6 +105,7 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        productos: 'Productos',
         inspector_responsable: 'Inspector responsable',
         retencion_patio: 'Retención en patio de contenedores',
         observaciones: 'Observaciones',

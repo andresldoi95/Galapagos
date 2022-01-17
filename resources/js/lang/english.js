@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        empty: 'The list is empty',
         numero_documento: 'Document',
         errores_formulario: 'There was some errors in the form, please validate the information',
         confirmar_registro_retencion: 'Do you want to register this form?',
@@ -100,6 +101,7 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        productos: 'Products',
         inspector_responsable: 'Responsible inspector',
         retencion_patio: 'Containers yard withholding',
         observaciones: 'Observations',

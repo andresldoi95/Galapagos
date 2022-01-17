@@ -210,6 +210,41 @@
                   </div>
                 </div>
               </div>
+              <div class="columns" v-show="form.alimentos_procesados === 'S'">
+                <div class="column">
+                  <b-field :label="$t('etiqueta.productos')">
+                    <b-taginput
+                      v-model="form.productos"
+                      :data="productos"
+                      autocomplete
+                      ref="productos"
+                      icon="label"
+                      :placeholder="$t('message.seleccione')"
+                      @typing="cargarProductos"
+                    >
+                      <template slot-scope="props">
+                        <strong>{{ props.option.id }}</strong
+                        >: {{ props.option.descripcion }}
+                      </template>
+                      <template #empty> {{ $t("message.empty") }} </template>
+                      <template #selected="props">
+                        <b-tag
+                          v-for="(producto, index) in props.tags"
+                          :key="index"
+                          type="is-primary"
+                          rounded
+                          :tabstop="false"
+                          ellipsis
+                          closable
+                          @close="$refs.taginput.removeTag(index, $event)"
+                        >
+                          {{ producto.descripcion }}
+                        </b-tag>
+                      </template>
+                    </b-taginput>
+                  </b-field>
+                </div>
+              </div>
             </div>
           </section>
           <section class="hero">
@@ -313,6 +348,7 @@ export default {
           lugares_concentracion: "N",
           equipos_campamento: "N",
           fecha: new Date(),
+          productos: [],
         };
       },
     },
@@ -334,9 +370,21 @@ export default {
         aeropuerto_origen: undefined,
         fecha: undefined,
       },
+      productos: [],
     };
   },
   methods: {
+    cargarProductos: function (name) {
+      this.$http
+        .get(process.env.MIX_APP_URL_API + "/productos/search", {
+          params: {
+            search: name,
+          },
+        })
+        .then(({ data }) => {
+          this.productos = data;
+        });
+    },
     limpiarErrores: function () {
       this.errores.apellidos = undefined;
       this.errores.nombres = undefined;
@@ -352,6 +400,7 @@ export default {
       this.errores.fecha = undefined;
     },
     limpiarFormulario: function () {
+      this.form.productos.splice(0, this.form.productos.length);
       this.form.apellidos = "";
       this.form.nombres = "";
       this.form.numero_identificacion = "";
