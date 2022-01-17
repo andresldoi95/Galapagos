@@ -11,10 +11,13 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        qr: 'Presenta este código QR a los inspectores cuando lo soliciten',
+        declaracion_no_existente: 'La declaración no existe',
+        empty: 'La lista está vacía',
         numero_documento: 'Documento',
         errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
         confirmar_registro_retencion: '¿Deseas registrar formulario?',
-        registrar_retencion: 'Registrar',
+        registrar_retencion: 'Guardar',
         no_agregado: 'No se ha agregado filas',
         maritimo_exterior: 'Marítimo exterior',
         maritimo_continente: 'Marítimo continente',
@@ -104,6 +107,8 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        numero_declaracion_cedula: '# Declaración o Identificación',
+        productos: 'Productos',
         inspector_responsable: 'Inspector responsable',
         retencion_patio: 'Retención en patio de contenedores',
         observaciones: 'Observaciones',

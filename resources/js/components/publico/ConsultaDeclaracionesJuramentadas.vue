@@ -82,6 +82,7 @@ export default {
         lugares_concentracion: "N",
         equipos_campamento: "N",
         fecha: new Date(),
+        productos: [],
       },
     };
   },
@@ -108,6 +109,17 @@ export default {
         row.lugares_concentracion;
       this.selectedDeclaracion.equipos_campamento = row.equipos_campamento;
       this.selectedDeclaracion.fecha = new Date(row.fecha);
+      this.selectedDeclaracion.productos.splice(
+        0,
+        this.selectedDeclaracion.productos.length
+      );
+      for (let i = 0; i < row.productos.length; i++) {
+        this.selectedDeclaracion.productos.push({
+          id: row.productos[i].id,
+          descripcion: row.productos[i].descripcion,
+          codigo: row.productos[i].codigo,
+        });
+      }
     },
     realizarAccion: function (estado, declaraciones) {
       let declaracionesId = [];

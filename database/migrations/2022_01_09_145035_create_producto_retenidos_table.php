@@ -25,6 +25,9 @@ class CreateProductoRetenidosTable extends Migration
                 $table->string('destino_producto', 6);
                 $table->string('transportado_en', 3);
                 $table->timestamps();
+                $table->foreign('retencion_id')->references('id')->on('registro_retenciones');
+                $table->foreign('producto_id')->references('id')->on('productos');
+                $table->primary(['declaracion_id', 'producto_id']);
             });
     }
 

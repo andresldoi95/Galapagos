@@ -16,9 +16,17 @@ class DeclaracionJuramentada extends Model
         'lugares_concentracion', 'equipos_campamento', 'fecha',
         'codigo', 'estado', 'usuario_id'
     ];
+    public function scopeActive($query)
+    {
+        return $query->where('estado', 'A');
+    }
     public function usuario()
     {
         return $this->belongsTo(User::class);
+    }
+    public function productos()
+    {
+        return $this->belongsToMany(Producto::class, 'productos_declaracion', 'declaracion_id', 'producto_id');
     }
     protected $dates = [
         'fecha'

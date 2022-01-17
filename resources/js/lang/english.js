@@ -11,10 +11,13 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        qr: 'Present this QR Code to inspectors when they need it',
+        declaracion_no_existente: 'The AFFIDAVIT does not exist',
+        empty: 'The list is empty',
         numero_documento: 'Document',
         errores_formulario: 'There was some errors in the form, please validate the information',
         confirmar_registro_retencion: 'Do you want to register this form?',
-        registrar_retencion: 'Register',
+        registrar_retencion: 'Save',
         no_agregado: 'Rows not added',
         maritimo_exterior: 'External maritime',
         maritimo_continente: 'Continental maritime',
@@ -100,6 +103,8 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        numero_declaracion_cedula: '# AFFIDAVIT or ID',
+        productos: 'Products',
         inspector_responsable: 'Responsible inspector',
         retencion_patio: 'Containers yard withholding',
         observaciones: 'Observations',

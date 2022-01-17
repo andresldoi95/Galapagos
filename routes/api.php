@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'declaraciones-juramentadas'], function () {
         Route::get('/', 'DeclaracionJuramentadaApiController@index');
         Route::delete('/', 'DeclaracionJuramentadaApiController@destroy');
+        Route::get('/{numeroDeclaracion}', 'DeclaracionJuramentadaApiController@show');
     });
     Route::group(['prefix' => 'producto'], function () {
         Route::delete('/', 'ProductoApiController@destroy');
@@ -67,6 +68,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('productos', 'ProductoApiController', [
         'except' => ['create', 'edit', 'show', 'destroy']
     ]);
+    Route::prefix('registro-retencion')->group(function () {
+        Route::delete('/', 'RegistroRetencionController@destroy');
+    });
     Route::resource('registro-retencion', 'RegistroRetencionController', [
         'only' => ['index', 'store', 'update']
     ]);
