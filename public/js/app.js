@@ -3129,6 +3129,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -3175,6 +3187,36 @@ __webpack_require__.r(__webpack_exports__);
     ProductosRetenidos: _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
+    consultarDeclaracion: function consultarDeclaracion() {
+      var _this = this;
+
+      this.isFetching = true;
+      this.$http.get("http://127.0.0.1:8000/api" + "/declaraciones-juramentadas/" + this.numero_declaracion).then(function (_ref) {
+        var data = _ref.data;
+        _this.form.numero_identificacion = data.numero_identificacion;
+        _this.form.direccion = data.direccion_domicilio;
+        _this.form.procedencia = data.aeropuerto_origen;
+        _this.form.nombre_completo = data.apellidos + " " + data.nombres;
+
+        for (var i = 0; i < data.productos.length; i++) {
+          _this.form.productos.push({
+            producto_id: data.productos[i].id,
+            nombre_producto: data.productos[i].descripcion,
+            peso: 0,
+            categoria: data.productos[i].categoria,
+            razon_retencion: "",
+            destino_producto: "",
+            transportado_en: "",
+            cantidad: 1
+          });
+        }
+      })["catch"](function () {
+        _this.$buefy.toast.open({
+          message: _this.$t("message.declaracion_no_existente"),
+          type: "is-danger"
+        });
+      });
+    },
     limpiarFormulario: function limpiarFormulario() {
       this.form._method = undefined;
       this.form.id = "";
@@ -3207,7 +3249,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errores = {};
     },
     registrarRetencion: function registrarRetencion() {
-      var _this = this;
+      var _this2 = this;
 
       this.errores = {};
       this.$buefy.dialog.confirm({
@@ -3217,36 +3259,36 @@ __webpack_require__.r(__webpack_exports__);
         onConfirm: function onConfirm() {
           var path = "http://127.0.0.1:8000/api" + "/registro-retencion";
 
-          if (_this.form.id != "") {
-            _this.form._method = "PUT";
-            path += "/" + _this.form.id;
+          if (_this2.form.id != "") {
+            _this2.form._method = "PUT";
+            path += "/" + _this2.form.id;
           } else {
-            _this.form._method = undefined;
+            _this2.form._method = undefined;
           }
 
-          _this.$http.post(path, _this.form).then(function () {
-            _this.$buefy.toast.open({
-              message: _this.$t("message.guardado_generico"),
+          _this2.$http.post(path, _this2.form).then(function () {
+            _this2.$buefy.toast.open({
+              message: _this2.$t("message.guardado_generico"),
               type: "is-success"
             });
 
-            _this.$emit("input", _this.form);
+            _this2.$emit("input", _this2.form);
 
-            if (_this.form.id == "") _this.limpiarFormulario();
-          })["catch"](function (_ref) {
-            var response = _ref.response;
+            if (_this2.form.id == "") _this2.limpiarFormulario();
+          })["catch"](function (_ref2) {
+            var response = _ref2.response;
             var status = response.status;
 
             if (status === 422) {
-              _this.errores = response.data.errors;
+              _this2.errores = response.data.errors;
 
-              _this.$buefy.toast.open({
-                message: _this.$t("message.errores_formulario"),
+              _this2.$buefy.toast.open({
+                message: _this2.$t("message.errores_formulario"),
                 type: "is-warning"
               });
             } else {
-              _this.$buefy.toast.open({
-                message: _this.$t("message.generic_error"),
+              _this2.$buefy.toast.open({
+                message: _this2.$t("message.generic_error"),
                 type: "is-danger"
               });
             }
@@ -3257,6 +3299,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      numero_declaracion: "",
       form: this.value,
       errores: {
         retencion: undefined,
@@ -5033,6 +5076,14 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedDeclaracion.equipos_campamento = row.equipos_campamento;
       this.selectedDeclaracion.fecha = new Date(row.fecha);
       this.selectedDeclaracion.productos.splice(0, this.selectedDeclaracion.productos.length);
+
+      for (var i = 0; i < row.productos.length; i++) {
+        this.selectedDeclaracion.productos.push({
+          id: row.productos[i].id,
+          descripcion: row.productos[i].descripcion,
+          codigo: row.productos[i].codigo
+        });
+      }
     },
     realizarAccion: function realizarAccion(estado, declaraciones) {
       var _this = this;
@@ -28228,6 +28279,55 @@ var render = function () {
     _c("section", { staticClass: "hero" }, [
       _c("div", { staticClass: "hero-body" }, [
         _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form.id === "",
+                  expression: "form.id === ''",
+                },
+              ],
+              staticClass: "columns",
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        label: _vm.$t("etiqueta.numero_declaracion_cedula"),
+                      },
+                    },
+                    [
+                      _c("b-input", {
+                        model: {
+                          value: _vm.numero_declaracion,
+                          callback: function ($$v) {
+                            _vm.numero_declaracion = $$v
+                          },
+                          expression: "numero_declaracion",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("b-button", {
+                        attrs: { "icon-left": "check", type: "is-success" },
+                        on: { click: _vm.consultarDeclaracion },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ]
+          ),
+          _vm._v(" "),
           _c("div", { staticClass: "columns" }, [
             _c(
               "div",
@@ -32020,7 +32120,7 @@ var render = function () {
                                 fn: function (props) {
                                   return [
                                     _c("strong", [
-                                      _vm._v(_vm._s(props.option.id)),
+                                      _vm._v(_vm._s(props.option.codigo)),
                                     ]),
                                     _vm._v(
                                       ": " +
@@ -32062,7 +32162,7 @@ var render = function () {
                                           },
                                           on: {
                                             close: function ($event) {
-                                              return _vm.$refs.taginput.removeTag(
+                                              return _vm.$refs.productos.removeTag(
                                                 index,
                                                 $event
                                               )
@@ -55433,6 +55533,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    declaracion_no_existente: 'The AFFIDAVIT does not exist',
     empty: 'The list is empty',
     numero_documento: 'Document',
     errores_formulario: 'There was some errors in the form, please validate the information',
@@ -55523,6 +55624,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    numero_declaracion_cedula: '# AFFIDAVIT or ID',
     productos: 'Products',
     inspector_responsable: 'Responsible inspector',
     retencion_patio: 'Containers yard withholding',
@@ -55611,6 +55713,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    declaracion_no_existente: 'La declaración no existe',
     empty: 'La lista está vacía',
     numero_documento: 'Documento',
     errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
@@ -55703,6 +55806,7 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    numero_declaracion_cedula: '# Declaración o Identificación',
     productos: 'Productos',
     inspector_responsable: 'Inspector responsable',
     retencion_patio: 'Retención en patio de contenedores',

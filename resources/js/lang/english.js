@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        declaracion_no_existente: 'The AFFIDAVIT does not exist',
         empty: 'The list is empty',
         numero_documento: 'Document',
         errores_formulario: 'There was some errors in the form, please validate the information',
@@ -101,6 +102,7 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        numero_declaracion_cedula: '# AFFIDAVIT or ID',
         productos: 'Products',
         inspector_responsable: 'Responsible inspector',
         retencion_patio: 'Containers yard withholding',

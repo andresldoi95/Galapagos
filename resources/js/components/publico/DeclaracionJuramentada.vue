@@ -223,7 +223,7 @@
                       @typing="cargarProductos"
                     >
                       <template slot-scope="props">
-                        <strong>{{ props.option.id }}</strong
+                        <strong>{{ props.option.codigo }}</strong
                         >: {{ props.option.descripcion }}
                       </template>
                       <template #empty> {{ $t("message.empty") }} </template>
@@ -236,7 +236,7 @@
                           :tabstop="false"
                           ellipsis
                           closable
-                          @close="$refs.taginput.removeTag(index, $event)"
+                          @close="$refs.productos.removeTag(index, $event)"
                         >
                           {{ producto.descripcion }}
                         </b-tag>

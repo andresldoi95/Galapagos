@@ -21,7 +21,7 @@ class DeclaracionJuramentadaApiController extends Controller
         });
         $declaraciones = DeclaracionJuramentada::where(function ($query) use ($search) {
             return $query->where('numero_identificacion', $search)->orWhere('codigo', 'like', "%$search%");
-        });
+        })->with('productos');
         if (isset($sortBy) && $sortBy !== '')
             $declaraciones->orderBy($sortBy, $request->input('sort_order'));
         if ($status !== 'T')
@@ -71,27 +71,43 @@ class DeclaracionJuramentadaApiController extends Controller
             'alimentos_procesados' => 'nullable',
             'lugares_concentracion' => 'nullable',
             'equipos_campamento' => 'nullable',
-            'fecha' => 'required|date'
+            'fecha' => 'required|date',
+            'productos' => 'nullable|array'
         ]);
-        return DeclaracionJuramentada::create([
-            'id' => uniqid('d' . date('ymdHis'), true),
-            'codigo' => $this->obtenerCodigoAutogenerado(),
-            'apellidos' => $request->input('apellidos'),
-            'nombres' => $request->input('nombres'),
-            'numero_identificacion' => $request->input('numero_identificacion'),
-            'telefono' => $request->input('telefono'),
-            'correo_electronico' => $request->input('correo_electronico'),
-            'lugar_residencia' => $request->input('lugar_residencia'),
-            'nacionalidad' => $request->input('nacionalidad'),
-            'direccion_domicilio' => $request->input('direccion_domicilio'),
-            'linea_aerea' => $request->input('linea_aerea'),
-            'numero_vuelo' => $request->input('numero_vuelo'),
-            'aeropuerto_origen' => $request->input('aeropuerto_origen'),
-            'alimentos_procesados' => $request->input('alimentos_procesados'),
-            'lugares_concentracion' => $request->input('lugares_concentracion'),
-            'equipos_campamento' => $request->input('equipos_campamento'),
-            'fecha' => new Carbon($request->input('fecha')),
-            'estado' => 'A'
-        ]);
+        return DB::transaction(function () use ($request) {
+            $declaracionJuramentada = DeclaracionJuramentada::create([
+                'id' => uniqid('d' . date('ymdHis'), true),
+                'codigo' => $this->obtenerCodigoAutogenerado(),
+                'apellidos' => $request->input('apellidos'),
+                'nombres' => $request->input('nombres'),
+                'numero_identificacion' => $request->input('numero_identificacion'),
+                'telefono' => $request->input('telefono'),
+                'correo_electronico' => $request->input('correo_electronico'),
+                'lugar_residencia' => $request->input('lugar_residencia'),
+                'nacionalidad' => $request->input('nacionalidad'),
+                'direccion_domicilio' => $request->input('direccion_domicilio'),
+                'linea_aerea' => $request->input('linea_aerea'),
+                'numero_vuelo' => $request->input('numero_vuelo'),
+                'aeropuerto_origen' => $request->input('aeropuerto_origen'),
+                'alimentos_procesados' => $request->input('alimentos_procesados'),
+                'lugares_concentracion' => $request->input('lugares_concentracion'),
+                'equipos_campamento' => $request->input('equipos_campamento'),
+                'fecha' => new Carbon($request->input('fecha')),
+                'estado' => 'A'
+            ]);
+            $productos = $request->input('productos');
+            if (isset($productos)) {
+                foreach ($productos as $producto) {
+                    $declaracionJuramentada->productos()->attach($producto['id']);
+                }
+            }
+            return $declaracionJuramentada;
+        });
+    }
+    public function show($numeroDeclaracion)
+    {
+        return DeclaracionJuramentada::active()->where(function ($query) use ($numeroDeclaracion) {
+            return $query->where('numero_identificacion', $numeroDeclaracion)->orWhere('id', $numeroDeclaracion);
+        })->with('productos')->orderBy('fecha', 'desc')->firstOrFail();
     }
 }

@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        declaracion_no_existente: 'La declaración no existe',
         empty: 'La lista está vacía',
         numero_documento: 'Documento',
         errores_formulario: 'Hay errores en el formulario, por favor verifique la información',
@@ -105,6 +106,7 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        numero_declaracion_cedula: '# Declaración o Identificación',
         productos: 'Productos',
         inspector_responsable: 'Inspector responsable',
         retencion_patio: 'Retención en patio de contenedores',

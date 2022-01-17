@@ -9,6 +9,18 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
+          <div v-show="form.id === ''" class="columns">
+            <div class="column">
+              <b-field :label="$t('etiqueta.numero_declaracion_cedula')">
+                <b-input v-model="numero_declaracion"></b-input>
+                <b-button
+                  icon-left="check"
+                  type="is-success"
+                  @click="consultarDeclaracion"
+                ></b-button>
+              </b-field>
+            </div>
+          </div>
           <div class="columns">
             <div class="column">
               <b-field :label="$t('etiqueta.tipo')">
@@ -442,6 +454,39 @@ export default {
     ProductosRetenidos,
   },
   methods: {
+    consultarDeclaracion: function () {
+      this.isFetching = true;
+      this.$http
+        .get(
+          process.env.MIX_APP_URL_API +
+            "/declaraciones-juramentadas/" +
+            this.numero_declaracion
+        )
+        .then(({ data }) => {
+          this.form.numero_identificacion = data.numero_identificacion;
+          this.form.direccion = data.direccion_domicilio;
+          this.form.procedencia = data.aeropuerto_origen;
+          this.form.nombre_completo = data.apellidos + " " + data.nombres;
+          for (let i = 0; i < data.productos.length; i++) {
+            this.form.productos.push({
+              producto_id: data.productos[i].id,
+              nombre_producto: data.productos[i].descripcion,
+              peso: 0,
+              categoria: data.productos[i].categoria,
+              razon_retencion: "",
+              destino_producto: "",
+              transportado_en: "",
+              cantidad: 1,
+            });
+          }
+        })
+        .catch(() => {
+          this.$buefy.toast.open({
+            message: this.$t("message.declaracion_no_existente"),
+            type: "is-danger",
+          });
+        });
+    },
     limpiarFormulario: function () {
       this.form._method = undefined;
       this.form.id = "";
@@ -519,6 +564,7 @@ export default {
   },
   data: function () {
     return {
+      numero_declaracion: "",
       form: this.value,
       errores: {
         retencion: undefined,

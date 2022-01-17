@@ -113,6 +113,13 @@ export default {
         0,
         this.selectedDeclaracion.productos.length
       );
+      for (let i = 0; i < row.productos.length; i++) {
+        this.selectedDeclaracion.productos.push({
+          id: row.productos[i].id,
+          descripcion: row.productos[i].descripcion,
+          codigo: row.productos[i].codigo,
+        });
+      }
     },
     realizarAccion: function (estado, declaraciones) {
       let declaracionesId = [];
