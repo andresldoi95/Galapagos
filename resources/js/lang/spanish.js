@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        qr: 'Presenta este código QR a los inspectores cuando lo soliciten',
         declaracion_no_existente: 'La declaración no existe',
         empty: 'La lista está vacía',
         numero_documento: 'Documento',

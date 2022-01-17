@@ -317,11 +317,33 @@
         </div>
       </section>
     </div>
+    <b-modal v-model="mostrarQr">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <vue-qr :text="id"></vue-qr>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <p>
+              <i>
+                <strong>{{ $t("message.qr") }}</strong>
+              </i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import VueQr from "vue-qrcode-component";
 export default {
+  components: {
+    VueQr,
+  },
   props: {
     editable: {
       type: Boolean,
@@ -355,6 +377,8 @@ export default {
   },
   data: function () {
     return {
+      id: "",
+      mostrarQr: false,
       form: this.value,
       errores: {
         apellidos: undefined,
@@ -427,11 +451,13 @@ export default {
           let path = process.env.MIX_APP_URL_API + "/declaracion-juramentada";
           this.$http
             .post(path, this.form)
-            .then(() => {
+            .then(({ data }) => {
               this.$buefy.toast.open({
                 message: this.$t("message.guardado_generico"),
                 type: "is-success",
               });
+              this.mostrarQr = true;
+              this.id = data.id;
               this.limpiarFormulario();
             })
             .catch(({ response }) => {

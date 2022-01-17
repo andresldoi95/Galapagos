@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        qr: 'Present this QR Code to inspectors when they need it',
         declaracion_no_existente: 'The AFFIDAVIT does not exist',
         empty: 'The list is empty',
         numero_documento: 'Document',
