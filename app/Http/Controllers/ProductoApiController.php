@@ -11,9 +11,13 @@ class ProductoApiController extends Controller
 {
     public function index(Request $request)
     {
+        $request->validate([
+            'categoria' => 'nullable'
+        ]);
         $sortBy = $request->input('sort_by');
         $status = $request->input('status');
         $search = $request->input('search');
+        $categoria = $request->input('categoria');
         $currentPage = $request->input('current_page');
         Paginator::currentPageResolver(function () use ($currentPage) {
             return $currentPage;
@@ -26,6 +30,8 @@ class ProductoApiController extends Controller
             $productos->where('estado', $status);
         if (isset($sortBy) && $sortBy !== '')
             $productos->orderBy($sortBy, $request->input('sort_order'));
+        if (isset($categoria) && $categoria !== 'T')
+            $productos->where('categoria', $categoria);
         return $productos->paginate($request->input('per_page'));
     }
     public function store(Request $request)
@@ -55,7 +61,8 @@ class ProductoApiController extends Controller
         $request->validate([
             'descripcion' => 'required|max:255',
             'categoria' => 'required|max:2',
-            'informacion_adicional' => 'nullable'
+            'informacion_adicional' => 'nullable',
+            'foto' => 'nullable|image',
         ]);
         DB::transaction(function () use ($request, $id) {
             $user = $request->user();
@@ -64,6 +71,9 @@ class ProductoApiController extends Controller
             $producto->categoria = $request->input('categoria');
             $producto->modificador_id = $user->id;
             $producto->informacion_adicional = $request->input('informacion_adicional');
+            if ($request->hasFile('foto')) {
+                $producto->path_foto = $request->file('foto')->storeAs('/productos', $request->input('codigo') . '-' . date('YmdHis') . '.' . $request->file('foto')->extension());
+            }
             $producto->save();
         });
     }

@@ -13,6 +13,7 @@ import ConsultaDeclaracionesJuramentadas from "../components/publico/ConsultaDec
 import Productos from "../components/admin/productos/Productos.vue";
 import RegistroRetencion from '../components/admin/retenciones/RegistroRetencion.vue';
 import ConsultaRetenciones from '../components/admin/retenciones/ConsultaRetenciones.vue';
+import Catalogo from '../components/publico/Catalogo.vue';
 
 export default {
     mode: "history",
@@ -21,6 +22,14 @@ export default {
             path: "/",
             component: Home,
             name: "Home",
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/catalogo",
+            component: Catalogo,
+            name: "Catalogo",
             meta: {
                 requiresAuth: false
             }

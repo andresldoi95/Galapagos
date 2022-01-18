@@ -116,6 +116,9 @@
                 </span>
               </div>
             </div>
+            <div class="column">
+              <b-image :src="imagenActual" alt="Imagen" ratio="6by4"></b-image>
+            </div>
           </div>
         </masterForm>
       </div>
@@ -129,6 +132,7 @@ export default {
   components: { MasterForm },
   data: function () {
     return {
+      imagenActual: "/img/sin-imagen.jpg",
       form: {
         descripcion: "",
         codigo: "",
@@ -151,10 +155,19 @@ export default {
   methods: {
     inputFoto: function () {
       this.form.tipo_foto = this.foto != null ? "S" : "N";
+      if (this.foto != null) {
+        let reader = new FileReader();
+        reader.readAsDataURL(this.foto);
+        let that = this;
+        reader.onload = function () {
+          that.imagenActual = reader.result;
+        };
+      } else this.imagenActual = "/img/sin-imagen.jpg";
     },
     quitarArchivo: function () {
       this.foto = null;
       this.form.tipo_foto = "Q";
+      this.imagenActual = "/img/sin-imagen.jpg";
     },
     canceled: function () {
       this.limpiar();
@@ -167,6 +180,7 @@ export default {
       this.form.categoria = "";
       this.form.tipo_foto = "S";
       this.form.informacion_adicional = "";
+      this.imagenActual = "/img/sin-imagen.jpg";
       this.foto = null;
     },
     adding: function () {
@@ -203,6 +217,8 @@ export default {
       this.form.codigo = producto.codigo;
       this.form.categoria = producto.categoria;
       this.form.informacion_adicional = producto.informacion_adicional;
+      if (producto.url_foto != null) this.imagenActual = producto.url_foto;
+      else this.imagenActual = "/img/sin-imagen.jpg";
     },
     limpiarErrores: function () {
       this.errores.descripcion = undefined;
@@ -222,7 +238,14 @@ export default {
       formData.append("codigo", this.form.codigo);
       formData.append("descripcion", this.form.descripcion);
       formData.append("categoria", this.form.categoria);
-      formData.append("informacion_adicional", this.form.informacion_adicional);
+      if (
+        this.form.informacion_adicional != "" &&
+        this.form.informacion_adicional != null
+      )
+        formData.append(
+          "informacion_adicional",
+          this.form.informacion_adicional
+        );
       if (this.form._method != null)
         formData.append("_method", this.form._method);
       if (this.foto != null) formData.append("foto", this.foto);

@@ -11,6 +11,8 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        descripcion_catalogo: 'Consulte los productos permitidos, no permitidos y restringidos',
+        no_results: 'No se ha encontrado resultados',
         qr: 'Presenta este código QR a los inspectores cuando lo soliciten',
         declaracion_no_existente: 'La declaración no existe',
         empty: 'La lista está vacía',
@@ -87,6 +89,8 @@ export default {
         equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
+        catalogo: 'Catálogo',
+        resultados: 'Resultados',
         retenciones: 'Retenciones/Rechazos',
         registro_retencion: 'Registro de retención/rechazo',
         productos: 'Productos',
@@ -107,6 +111,7 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        consulta: 'Consulta',
         informacion_adicional: 'Información adicional',
         numero_declaracion_cedula: '# Declaración o Identificación',
         productos: 'Productos',

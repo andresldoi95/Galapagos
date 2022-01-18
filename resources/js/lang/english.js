@@ -11,6 +11,8 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        descripcion_catalogo: 'Search allowed, not allowed and restricted products',
+        no_results: 'No results',
         qr: 'Present this QR Code to inspectors when they need it',
         declaracion_no_existente: 'The AFFIDAVIT does not exist',
         empty: 'The list is empty',
@@ -83,6 +85,8 @@ export default {
         equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
+        catalogo: 'Catalog',
+        resultados: 'Results',
         retenciones: 'Withholdings/Refuses',
         registro_retencion: 'Register withholdings/refuses',
         productos: 'Products',
@@ -103,6 +107,7 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        consulta: 'Search',
         informacion_adicional: 'Additional information',
         numero_declaracion_cedula: '# AFFIDAVIT or ID',
         productos: 'Products',
