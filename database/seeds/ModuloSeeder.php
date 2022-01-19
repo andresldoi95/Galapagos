@@ -12,25 +12,25 @@ class ModuloSeeder extends Seeder
      */
     public function run()
     {
-        // Modulo::create([
-        //     'id' => 'usuarios',
-        //     'nombre' => 'Usuarios'
-        // ]);
-        // Modulo::create([
-        //     'id' => 'roles',
-        //     'nombre' => 'Roles de usuario'
-        // ]);
-        // Modulo::create([
-        //     'id' => 'declar',
-        //     'nombre' => 'Declaraciones'
-        // ]);
-        // Modulo::create([
-        //     'id' => 'prods',
-        //     'nombre' => 'Productos'
-        // ]);
-        // Modulo::create([
-        //     'id' => 'rets',
-        //     'nombre' => 'Retenciones'
-        // ]);
+        Modulo::create([
+            'id' => 'usuarios',
+            'nombre' => 'Usuarios'
+        ]);
+        Modulo::create([
+            'id' => 'roles',
+            'nombre' => 'Roles de usuario'
+        ]);
+        Modulo::create([
+            'id' => 'declar',
+            'nombre' => 'Declaraciones'
+        ]);
+        Modulo::create([
+            'id' => 'prods',
+            'nombre' => 'Productos'
+        ]);
+        Modulo::create([
+            'id' => 'rets',
+            'nombre' => 'Retenciones'
+        ]);
     }
 }
