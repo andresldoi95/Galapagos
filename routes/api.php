@@ -62,9 +62,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => 'producto'], function () {
         Route::delete('/', 'ProductoApiController@destroy');
     });
-    Route::group(['prefix' => 'productos'], function () {
-        Route::get('/search', 'ProductoApiController@search');
-    });
+
     Route::resource('productos', 'ProductoApiController', [
         'except' => ['create', 'edit', 'show', 'destroy', 'index']
     ]);
@@ -80,3 +78,6 @@ Route::post('/reset', 'UsuarioApiController@reset');
 Route::post('/set-password', 'UsuarioApiController@setPassword');
 Route::post('/declaracion-juramentada', 'DeclaracionJuramentadaApiController@store');
 Route::get('/productos', 'ProductoApiController@index');
+Route::group(['prefix' => 'productos'], function () {
+    Route::get('/search', 'ProductoApiController@search');
+});

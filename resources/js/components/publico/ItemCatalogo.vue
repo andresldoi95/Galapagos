@@ -3,7 +3,7 @@
     <div class="hero-body">
       <h3 class="title">{{ descripcionCategoria }}</h3>
       <div class="container">
-        <div class="columns">
+        <div class="columns is-multiline">
           <div
             class="column is-one-quarter"
             v-for="producto in productos"

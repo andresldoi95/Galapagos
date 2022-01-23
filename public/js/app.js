@@ -33777,7 +33777,7 @@ var render = function () {
           [
             _c(
               "div",
-              { staticClass: "columns" },
+              { staticClass: "columns is-multiline" },
               [
                 _vm._l(_vm.productos, function (producto) {
                   return _c(
