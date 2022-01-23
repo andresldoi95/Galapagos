@@ -23,7 +23,7 @@ class ProductoApiController extends Controller
             return $currentPage;
         });
         $user = $request->user();
-        $productos = Producto::current($user->empresa_id)->where(function ($query) use ($search) {
+        $productos = Producto::where(function ($query) use ($search) {
             return $query->where('descripcion', 'like', "%$search%")->orWhere('descripcion', 'like', "%$search%");
         });
         if ($status !== 'T')

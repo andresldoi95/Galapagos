@@ -5879,8 +5879,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     descripcionCategoria: {
@@ -33924,13 +33922,13 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("p", [
-                  _c("i", [
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.currentProducto.informacion_adicional) +
-                        "\n            "
-                    ),
-                  ]),
+                  _c("i", {
+                    domProps: {
+                      innerHTML: _vm._s(
+                        _vm.currentProducto.informacion_adicional
+                      ),
+                    },
+                  }),
                 ]),
               ]),
             ]),

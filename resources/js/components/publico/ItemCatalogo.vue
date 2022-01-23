@@ -79,9 +79,7 @@
               >
             </p>
             <p>
-              <i>
-                {{ currentProducto.informacion_adicional }}
-              </i>
+              <i v-html="currentProducto.informacion_adicional"></i>
             </p>
           </div>
         </div>

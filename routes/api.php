@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/search', 'ProductoApiController@search');
     });
     Route::resource('productos', 'ProductoApiController', [
-        'except' => ['create', 'edit', 'show', 'destroy']
+        'except' => ['create', 'edit', 'show', 'destroy', 'index']
     ]);
     Route::prefix('registro-retencion')->group(function () {
         Route::delete('/', 'RegistroRetencionController@destroy');
@@ -79,3 +79,4 @@ Route::group(['middleware' => 'auth:api'], function () {
 Route::post('/reset', 'UsuarioApiController@reset');
 Route::post('/set-password', 'UsuarioApiController@setPassword');
 Route::post('/declaracion-juramentada', 'DeclaracionJuramentadaApiController@store');
+Route::get('/productos', 'ProductoApiController@index');
