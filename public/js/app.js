@@ -2099,7 +2099,7 @@ __webpack_require__.r(__webpack_exports__);
           empresasId.push(empresas[i].id);
         }
 
-        this.$http.post("http://127.0.0.1:8000/api" + "/empresas", {
+        this.$http.post("https://abg-galapagos.info/api" + "/empresas", {
           empresas: empresasId,
           _method: "DELETE"
         }).then(function () {
@@ -2134,7 +2134,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.limpiarErrores();
-      var path = "http://127.0.0.1:8000/api" + "/empresas";
+      var path = "https://abg-galapagos.info/api" + "/empresas";
 
       if (this.form.id !== "") {
         path += "/" + this.form.id;
@@ -2166,7 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
     cargarModulos: function cargarModulos() {
       var _this3 = this;
 
-      this.$http.get("http://127.0.0.1:8000/api" + "/modulos").then(function (_ref2) {
+      this.$http.get("https://abg-galapagos.info/api" + "/modulos").then(function (_ref2) {
         var data = _ref2.data;
         _this3.modulos = data;
       });
@@ -2390,7 +2390,7 @@ __webpack_require__.r(__webpack_exports__);
           productosId.push(productos[i].id);
         }
 
-        this.$http.post("http://127.0.0.1:8000/api" + "/producto", {
+        this.$http.post("https://abg-galapagos.info/api" + "/producto", {
           productos: productosId,
           _method: "DELETE"
         }).then(function () {
@@ -2427,7 +2427,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.limpiarErrores();
-      var path = "http://127.0.0.1:8000/api" + "/productos";
+      var path = "https://abg-galapagos.info/api" + "/productos";
 
       if (this.form.id !== "") {
         path += "/" + this.form.id;
@@ -2653,7 +2653,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       retencionesId.push(retenciones[i].id);
     }
 
-    this.$http.post("http://127.0.0.1:8000/api" + "/registro-retencion", {
+    this.$http.post("https://abg-galapagos.info/api" + "/registro-retencion", {
       retenciones: retencionesId,
       _method: "DELETE",
       estado: estado
@@ -3231,7 +3231,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isFetching = true;
-      this.$http.get("http://127.0.0.1:8000/api" + "/declaraciones-juramentadas/" + this.numero_declaracion).then(function (_ref) {
+      this.$http.get("https://abg-galapagos.info/api" + "/declaraciones-juramentadas/" + this.numero_declaracion).then(function (_ref) {
         var data = _ref.data;
         _this.form.numero_identificacion = data.numero_identificacion;
         _this.form.direccion = data.direccion_domicilio;
@@ -3297,7 +3297,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmText: this.$t("message.si"),
         message: this.$t("message.confirmar_registro_retencion"),
         onConfirm: function onConfirm() {
-          var path = "http://127.0.0.1:8000/api" + "/registro-retencion";
+          var path = "https://abg-galapagos.info/api" + "/registro-retencion";
 
           if (_this2.form.id != "") {
             _this2.form._method = "PUT";
@@ -3499,7 +3499,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isFetching = true;
-      this.$http.get("http://127.0.0.1:8000/api" + "/productos/search", {
+      this.$http.get("https://abg-galapagos.info/api" + "/productos/search", {
         params: {
           search: name
         }
@@ -3665,7 +3665,7 @@ __webpack_require__.r(__webpack_exports__);
           rolesId.push(roles[i].id);
         }
 
-        this.$http.post("http://127.0.0.1:8000/api" + "/roles", {
+        this.$http.post("https://abg-galapagos.info/api" + "/roles", {
           roles: rolesId,
           _method: "DELETE"
         }).then(function () {
@@ -3700,7 +3700,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.limpiarErrores();
-      var path = "http://127.0.0.1:8000/api" + "/roles";
+      var path = "https://abg-galapagos.info/api" + "/roles";
 
       if (this.form.id !== "") {
         path += "/" + this.form.id;
@@ -3732,7 +3732,7 @@ __webpack_require__.r(__webpack_exports__);
     cargarAcciones: function cargarAcciones() {
       var _this3 = this;
 
-      this.$http.get("http://127.0.0.1:8000/api" + "/acciones").then(function (_ref2) {
+      this.$http.get("https://abg-galapagos.info/api" + "/acciones").then(function (_ref2) {
         var data = _ref2.data;
         _this3.acciones = data;
       });
@@ -3895,7 +3895,7 @@ __webpack_require__.r(__webpack_exports__);
           usuariosId.push(usuarios[i].id);
         }
 
-        this.$http.post("http://127.0.0.1:8000/api" + "/usuario", {
+        this.$http.post("https://abg-galapagos.info/api" + "/usuario", {
           usuarios: usuariosId,
           _method: "DELETE"
         }).then(function () {
@@ -3944,7 +3944,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var path = "http://127.0.0.1:8000/api" + "/usuario";
+      var path = "https://abg-galapagos.info/api" + "/usuario";
 
       if (this.form.id !== "") {
         path += "/" + this.form.id;
@@ -3978,7 +3978,7 @@ __webpack_require__.r(__webpack_exports__);
     cargarRoles: function cargarRoles() {
       var _this3 = this;
 
-      this.$http.get("http://127.0.0.1:8000/api" + "/roles/listado").then(function (_ref2) {
+      this.$http.get("https://abg-galapagos.info/api" + "/roles/listado").then(function (_ref2) {
         var data = _ref2.data;
         _this3.roles = data;
       });
@@ -4045,10 +4045,10 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.$http.post("http://127.0.0.1:8000" + "/oauth/token", {
+      this.$http.post("https://abg-galapagos.info" + "/oauth/token", {
         grant_type: "password",
         client_id: "2",
-        client_secret: "e5r9O4PAtu1C1RswSr0LoD8cWvdN2jiBSYy1RQYh",
+        client_secret: "qEpMAaOAf9TjV9qkuWjNdZ7Zs1VUFtUs7bcF37n0",
         username: this.form.username,
         password: this.form.password
       }).then(function (_ref) {
@@ -4185,7 +4185,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.limpiarErrores();
-      this.$http.post("http://127.0.0.1:8000/api" + "/usuario/perfil", this.form).then(function (_ref) {
+      this.$http.post("https://abg-galapagos.info/api" + "/usuario/perfil", this.form).then(function (_ref) {
         var data = _ref.data;
 
         _this.$buefy.toast.open(_this.$t("message.guardado_generico"));
@@ -4229,7 +4229,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this2 = this;
 
-    this.$http.get("http://127.0.0.1:8000/api" + "/usuario/datos").then(function (_ref3) {
+    this.$http.get("https://abg-galapagos.info/api" + "/usuario/datos").then(function (_ref3) {
       var data = _ref3.data;
       _this2.form.name = data.name;
       _this2.form.email = data.email;
@@ -4289,7 +4289,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.$http.post("http://127.0.0.1:8000/api" + "/reset", this.form).then(function () {
+      this.$http.post("https://abg-galapagos.info/api" + "/reset", this.form).then(function () {
         _this.$buefy.toast.open(_this.$t("message.link_enviado"));
 
         _this.form.email = "";
@@ -4389,7 +4389,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.$http.post("http://127.0.0.1:8000/api" + "/set-password", this.form).then(function () {
+      this.$http.post("https://abg-galapagos.info/api" + "/set-password", this.form).then(function () {
         _this.$buefy.toast.open(_this.$t("message.guardado_generico"));
 
         _this.$router.push("/login");
@@ -4572,7 +4572,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      appName: "Galápagos",
+      appName: "ABG",
       appAuthor: "James Avila",
       linkAuthor: "https://www.ucsg.edu.ec/"
     };
@@ -4680,7 +4680,7 @@ __webpack_require__.r(__webpack_exports__);
     cambiarEmpresa: function cambiarEmpresa(id, nombre) {
       var _this = this;
 
-      this.$http.post("http://127.0.0.1:8000/api" + "/usuario/" + id, {
+      this.$http.post("https://abg-galapagos.info/api" + "/usuario/" + id, {
         _method: "PUT"
       }).then(function () {
         _this.$store.commit("cambiarEmpresaActual", {
@@ -5245,7 +5245,7 @@ __webpack_require__.r(__webpack_exports__);
         declaracionesId.push(declaraciones[i].id);
       }
 
-      this.$http.post("http://127.0.0.1:8000/api" + "/declaraciones-juramentadas", {
+      this.$http.post("https://abg-galapagos.info/api" + "/declaraciones-juramentadas", {
         declaraciones: declaracionesId,
         _method: "DELETE",
         estado: estado
@@ -5680,7 +5680,7 @@ __webpack_require__.r(__webpack_exports__);
     cargarProductos: function cargarProductos(name) {
       var _this = this;
 
-      this.$http.get("http://127.0.0.1:8000/api" + "/productos/search", {
+      this.$http.get("https://abg-galapagos.info/api" + "/productos/search", {
         params: {
           search: name
         }
@@ -5730,7 +5730,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmText: this.$t("message.si"),
         message: this.$t("message.confirmacion_declaracion"),
         onConfirm: function onConfirm() {
-          var path = "http://127.0.0.1:8000/api" + "/declaracion-juramentada";
+          var path = "https://abg-galapagos.info/api" + "/declaracion-juramentada";
 
           _this2.$http.post(path, _this2.form).then(function (_ref2) {
             var data = _ref2.data;
@@ -5917,7 +5917,7 @@ __webpack_require__.r(__webpack_exports__);
     consultar: function consultar() {
       var _this = this;
 
-      this.$http.get("http://127.0.0.1:8000/api" + "/productos", {
+      this.$http.get("https://abg-galapagos.info/api" + "/productos", {
         params: {
           status: "T",
           search: this.consulta,
@@ -57699,7 +57699,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var urlApi = "http://127.0.0.1:8000/api";
+var urlApi = "https://abg-galapagos.info/api";
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     empresas: [],
@@ -57950,8 +57950,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/jamesvinicioavila/Galapagos/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/jamesvinicioavila/Galapagos/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
