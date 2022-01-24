@@ -319,18 +319,22 @@
     </div>
     <b-modal v-model="mostrarQr">
       <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <vue-qr :text="id"></vue-qr>
-          </figure>
-        </div>
         <div class="card-content">
-          <div class="content">
-            <p>
-              <i>
-                <strong>{{ $t("message.qr") }}</strong>
-              </i>
-            </p>
+          <div class="columns">
+            <div class="column">
+              <figure class="image">
+                <vue-qr :text="id"></vue-qr>
+              </figure>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p>
+                  <i>
+                    <strong>{{ $t("message.qr") }}</strong>
+                  </i>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

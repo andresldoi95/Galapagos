@@ -5743,6 +5743,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -34115,20 +34119,24 @@ var render = function () {
         },
         [
           _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c(
-                "figure",
-                { staticClass: "image is-4by3" },
-                [_c("vue-qr", { attrs: { text: _vm.id } })],
-                1
-              ),
-            ]),
-            _vm._v(" "),
             _c("div", { staticClass: "card-content" }, [
-              _c("div", { staticClass: "content" }, [
-                _c("p", [
-                  _c("i", [
-                    _c("strong", [_vm._v(_vm._s(_vm.$t("message.qr")))]),
+              _c("div", { staticClass: "columns" }, [
+                _c("div", { staticClass: "column" }, [
+                  _c(
+                    "figure",
+                    { staticClass: "image" },
+                    [_c("vue-qr", { attrs: { text: _vm.id } })],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c("div", { staticClass: "content" }, [
+                    _c("p", [
+                      _c("i", [
+                        _c("strong", [_vm._v(_vm._s(_vm.$t("message.qr")))]),
+                      ]),
+                    ]),
                   ]),
                 ]),
               ]),
@@ -34295,7 +34303,7 @@ var render = function () {
         [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
+              _c("figure", { staticClass: "image" }, [
                 _c("img", {
                   attrs: {
                     src:
