@@ -1947,6 +1947,131 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -28604,9 +28729,284 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", { staticClass: "section" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("ul", [
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: {
+                    icon: "minus-box",
+                    size: "is-large",
+                    type: "is-primary",
+                  },
+                }),
+                _vm._v(" "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.$t("message.calidad_tecnica"))),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: { icon: "dog", size: "is-large", type: "is-primary" },
+                }),
+                _vm._v(" "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.$t("message.brigada_canina"))),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: {
+                    icon: "airplane",
+                    size: "is-large",
+                    type: "is-primary",
+                  },
+                }),
+                _vm._v(" "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.$t("message.inspeccion_cuarentena"))),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: {
+                    icon: "submarine",
+                    size: "is-large",
+                    type: "is-primary",
+                  },
+                }),
+                _vm._v(" "),
+                _c("strong", [_vm._v(_vm._s(_vm.$t("message.unidad_marina")))]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: {
+                    icon: "flower",
+                    size: "is-large",
+                    type: "is-primary",
+                  },
+                }),
+                _vm._v(" "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.$t("message.vigilancia_fitosanitaria"))),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("b-icon", {
+                  attrs: { icon: "cow", size: "is-large", type: "is-primary" },
+                }),
+                _vm._v(" "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.$t("message.vigilancia_zoosanitaria"))),
+                ]),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "column" },
+          [
+            _c(
+              "b-carousel",
+              { attrs: { "indicator-inside": false } },
+              [
+                _c(
+                  "b-carousel-item",
+                  [
+                    _c("b-image", {
+                      staticClass: "image",
+                      attrs: { ratio: "16by9", src: "/img/galapagos-2.jpg" },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-carousel-item",
+                  [
+                    _c("b-image", {
+                      staticClass: "image",
+                      attrs: { ratio: "16by9", src: "/img/galapagos.jpg" },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ],
+          1
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("section", { staticClass: "hero is-small is-primary" }, [
+            _c("div", { staticClass: "hero-body" }, [
+              _c("p", { staticClass: "title" }, [
+                _vm._v(_vm._s(_vm.$t("title.mision"))),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "subtitle" }, [
+                _vm._v(_vm._s(_vm.$t("message.mision"))),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "mt-2 hero is-small is-info" }, [
+            _c("div", { staticClass: "hero-body" }, [
+              _c("p", { staticClass: "title" }, [
+                _vm._v(_vm._s(_vm.$t("title.vision"))),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "subtitle" }, [
+                _vm._v(_vm._s(_vm.$t("message.vision"))),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "mt-2 hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("p", { staticClass: "title" }, [
+          _vm._v(_vm._s(_vm.$t("title.organigrama"))),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "columns" }, [
+          _c(
+            "div",
+            { staticClass: "column" },
+            [
+              _c("b-image", {
+                attrs: {
+                  src: "/img/organigrama.jpg",
+                  placeholder: "Organigrama",
+                  ratio: "is-square",
+                },
+              }),
+            ],
+            1
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "mt-2 hero" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("p", { staticClass: "title" }, [
+          _vm._v(_vm._s(_vm.$t("title.objetivos"))),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "columns" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "column" }, [
+            _c("ol", [
+              _c("li", [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.$t("message.objetivo1")) +
+                    "\n            "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.$t("message.objetivo2")) +
+                    "\n            "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.$t("message.objetivo3")) +
+                    "\n            "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n              " +
+                    _vm._s(_vm.$t("message.objetivo4")) +
+                    "\n            "
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column" }, [
+      _c("figure", { staticClass: "image" }, [
+        _c("img", {
+          staticClass: "is-rounded",
+          attrs: { src: "/img/mision-y-vision.jpg" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column" }, [
+      _c("figure", { staticClass: "image" }, [
+        _c("img", { attrs: { src: "/img/planificacion-institucional.jpg" } }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -57319,6 +57719,18 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    calidad_tecnica: 'Technical quality',
+    brigada_canina: 'Canine brigade',
+    inspeccion_cuarentena: 'Inspection and quarantine',
+    unidad_marina: 'Marine unit',
+    vigilancia_fitosanitaria: 'Phytosanitary surveillance',
+    vigilancia_zoosanitaria: 'Zoosanitary surveillance',
+    objetivo1: 'Reduce the risk of introduction and dispersal of exotic species to the Galapagos Islands',
+    objetivo2: 'Increase the efficient use of the budget in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+    objetivo3: 'Increase institutional efficiency in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+    objetivo4: 'Increase the development of Human Talent in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+    vision: 'The Insular Biosafety and Quarantine Authority will have national and international recognition for its efficiency and technology in all its processes, for its rapid response to the permanent changes that Galapagos requires, maintaining competent, highly trained and motivated work teams, to maintain to the province of Galapagos with the best sanitary standards in the world in the protection of fragile ecosystems.',
+    mision: "The Agency will be competent to control, regulate, prevent and reduce the risk of the introduction, movement and dispersion of exotic organisms, by any means, that endanger human health and the conservation of the ecological integrity of insular and marine ecosystems and the biodiversity of the Galapagos province.",
     descripcion_catalogo: 'Search allowed, not allowed and restricted products',
     no_results: 'No results',
     qr: 'Present this QR Code to inspectors when they need it',
@@ -57393,6 +57805,10 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
   },
   title: {
+    objetivos: 'Strategic objectives',
+    organigrama: 'Organization chart',
+    vision: 'Vision',
+    mision: 'Mission',
     catalogo: 'Catalog',
     resultados: 'Results',
     retenciones: 'Withholdings/Refuses',
@@ -57506,6 +57922,18 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    calidad_tecnica: 'Calidad técnica',
+    brigada_canina: 'Brigada canina',
+    inspeccion_cuarentena: 'Inspección y cuarentena',
+    unidad_marina: 'Unidad marina',
+    vigilancia_fitosanitaria: 'Vigilancia fitosanitaria',
+    vigilancia_zoosanitaria: 'Vigilancia zoosanitaria',
+    objetivo1: 'Reducir el riesgo de introducción y dispersion de especies exóticas a las Islas Galápagos',
+    objetivo2: 'Incrementar el uso eficiente del presupuesto en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+    objetivo3: 'Incrementar la eficiencia institucional en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+    objetivo4: 'Incrementar el desarrollo del Talento Humano en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+    vision: 'La Autoridad Insular de Bioseguridad y Cuarentena, contará con el reconocimiento nacional e internacional por su eficiencia y tecnología en todos sus procesos, por su rápida respuesta a los permanentes cambios que exige Galápagos, manteniendo equipos de trabajo competentes, altamente capacitados y motivados, para mantener a la provincia de Galápagos con los mejores estándares sanitarios del mundo en la protección de ecosistemas frágiles.',
+    mision: 'La Agencia será competente para controlar, regular, impedir y reducir el riesgo de la introducción, movimiento y dispersión de organismos exóticos, por cualquier medio, que ponga en riesgo la salud humana y la conservación de la integridad ecológica de los ecosistemas insulares y marinos y la biodiversidad de la provincia de Galápagos.',
     descripcion_catalogo: 'Consulte los productos permitidos, no permitidos y restringidos',
     no_results: 'No se ha encontrado resultados',
     qr: 'Presenta este código QR a los inspectores cuando lo soliciten',
@@ -57582,6 +58010,10 @@ __webpack_require__.r(__webpack_exports__);
     equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
   },
   title: {
+    objetivos: 'Objetivos estratégicos',
+    organigrama: 'Organigrama',
+    vision: 'Visión',
+    mision: 'Misión',
     catalogo: 'Catálogo',
     resultados: 'Resultados',
     retenciones: 'Retenciones/Rechazos',

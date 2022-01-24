@@ -11,6 +11,18 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        calidad_tecnica: 'Calidad técnica',
+        brigada_canina: 'Brigada canina',
+        inspeccion_cuarentena: 'Inspección y cuarentena',
+        unidad_marina: 'Unidad marina',
+        vigilancia_fitosanitaria: 'Vigilancia fitosanitaria',
+        vigilancia_zoosanitaria: 'Vigilancia zoosanitaria',
+        objetivo1: 'Reducir el riesgo de introducción y dispersion de especies exóticas a las Islas Galápagos',
+        objetivo2: 'Incrementar el uso eficiente del presupuesto en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+        objetivo3: 'Incrementar la eficiencia institucional en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+        objetivo4: 'Incrementar el desarrollo del Talento Humano en la Agencia de Regulación y Control de la Bioseguridad y Cuarentena de Galápagos (ABG)',
+        vision: 'La Autoridad Insular de Bioseguridad y Cuarentena, contará con el reconocimiento nacional e internacional por su eficiencia y tecnología en todos sus procesos, por su rápida respuesta a los permanentes cambios que exige Galápagos, manteniendo equipos de trabajo competentes, altamente capacitados y motivados, para mantener a la provincia de Galápagos con los mejores estándares sanitarios del mundo en la protección de ecosistemas frágiles.',
+        mision: 'La Agencia será competente para controlar, regular, impedir y reducir el riesgo de la introducción, movimiento y dispersión de organismos exóticos, por cualquier medio, que ponga en riesgo la salud humana y la conservación de la integridad ecológica de los ecosistemas insulares y marinos y la biodiversidad de la provincia de Galápagos.',
         descripcion_catalogo: 'Consulte los productos permitidos, no permitidos y restringidos',
         no_results: 'No se ha encontrado resultados',
         qr: 'Presenta este código QR a los inspectores cuando lo soliciten',
@@ -89,6 +101,10 @@ export default {
         equipos_campamento: 'Traigo equipos de campamento como: carpas, sacos de dormir, calzado de campo u otros'
     },
     title: {
+        objetivos: 'Objetivos estratégicos',
+        organigrama: 'Organigrama',
+        vision: 'Visión',
+        mision: 'Misión',
         catalogo: 'Catálogo',
         resultados: 'Resultados',
         retenciones: 'Retenciones/Rechazos',

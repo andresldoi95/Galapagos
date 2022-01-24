@@ -11,6 +11,18 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        calidad_tecnica: 'Technical quality',
+        brigada_canina: 'Canine brigade',
+        inspeccion_cuarentena: 'Inspection and quarantine',
+        unidad_marina: 'Marine unit',
+        vigilancia_fitosanitaria: 'Phytosanitary surveillance',
+        vigilancia_zoosanitaria: 'Zoosanitary surveillance',
+        objetivo1: 'Reduce the risk of introduction and dispersal of exotic species to the Galapagos Islands',
+        objetivo2: 'Increase the efficient use of the budget in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+        objetivo3: 'Increase institutional efficiency in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+        objetivo4: 'Increase the development of Human Talent in the Galapagos Biosafety and Quarantine Regulation and Control Agency (ABG)',
+        vision: 'The Insular Biosafety and Quarantine Authority will have national and international recognition for its efficiency and technology in all its processes, for its rapid response to the permanent changes that Galapagos requires, maintaining competent, highly trained and motivated work teams, to maintain to the province of Galapagos with the best sanitary standards in the world in the protection of fragile ecosystems.',
+        mision: "The Agency will be competent to control, regulate, prevent and reduce the risk of the introduction, movement and dispersion of exotic organisms, by any means, that endanger human health and the conservation of the ecological integrity of insular and marine ecosystems and the biodiversity of the Galapagos province.",
         descripcion_catalogo: 'Search allowed, not allowed and restricted products',
         no_results: 'No results',
         qr: 'Present this QR Code to inspectors when they need it',
@@ -85,6 +97,10 @@ export default {
         equipos_campamento: 'I am bringing camping equipment, tent, sleeping bag, hiking boots, etc'
     },
     title: {
+        objetivos: 'Strategic objectives',
+        organigrama: 'Organization chart',
+        vision: 'Vision',
+        mision: 'Mission',
         catalogo: 'Catalog',
         resultados: 'Results',
         retenciones: 'Withholdings/Refuses',
