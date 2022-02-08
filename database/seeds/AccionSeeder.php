@@ -65,7 +65,7 @@ class AccionSeeder extends Seeder
         ]);
         Accion::create([
             'id' => 'aprobar_declaraciones_juramentadas',
-            'descripcion' => 'Aprobar declaraciones juramentadas',
+            'descripcion' => 'Consultar declaraciones juramentadas',
             'modulo_id' => 'declar'
         ]);
         Accion::create([
