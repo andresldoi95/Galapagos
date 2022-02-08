@@ -68,6 +68,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     ]);
     Route::prefix('registro-retencion')->group(function () {
         Route::delete('/', 'RegistroRetencionController@destroy');
+        Route::get('/datos', 'RegistroRetencionController@cargarDatos');
     });
     Route::resource('registro-retencion', 'RegistroRetencionController', [
         'only' => ['index', 'store', 'update']

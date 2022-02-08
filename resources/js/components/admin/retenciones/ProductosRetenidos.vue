@@ -5,8 +5,10 @@
         <thead>
           <tr>
             <th width="25%">{{ $t("etiqueta.producto") }}</th>
+            <th>{{ $t("etiqueta.observacion") }}</th>
             <th>{{ $t("etiqueta.cantidad") }}</th>
             <th>{{ $t("etiqueta.peso") }}</th>
+            <th>{{ $t("etiqueta.unidad") }}</th>
             <th>{{ $t("etiqueta.categoria") }}</th>
             <th>{{ $t("etiqueta.razon_retencion") }}</th>
             <th>{{ $t("etiqueta.destino_producto") }}</th>
@@ -69,6 +71,8 @@ export default {
         razon_retencion: "",
         destino_producto: "",
         transportado_en: "",
+        unidad: "",
+        observacion: "",
       });
     },
   },

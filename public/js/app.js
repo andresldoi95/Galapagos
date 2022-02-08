@@ -2765,7 +2765,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         razon_retencion: row.productos[i].razon_retencion,
         destino_producto: row.productos[i].destino_producto,
         transportado_en: row.productos[i].transportado_en,
-        cantidad: row.productos[i].cantidad
+        cantidad: row.productos[i].cantidad,
+        unidad: row.productos[i].unidad,
+        observacion: row.productos[i].observacion
       });
     }
   },
@@ -2850,6 +2852,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2879,7 +2883,9 @@ __webpack_require__.r(__webpack_exports__);
         categoria: "",
         razon_retencion: "",
         destino_producto: "",
-        transportado_en: ""
+        transportado_en: "",
+        unidad: "",
+        observacion: ""
       });
     }
   }
@@ -2897,6 +2903,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductosRetenidos.vue */ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3362,6 +3374,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.form.direccion = data.direccion_domicilio;
         _this.form.procedencia = data.aeropuerto_origen;
         _this.form.nombre_completo = data.apellidos + " " + data.nombres;
+        _this.form.nombre_transporte = data.linea_aerea;
 
         for (var i = 0; i < data.productos.length; i++) {
           _this.form.productos.push({
@@ -3415,6 +3428,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     registrarRetencion: function registrarRetencion() {
       var _this2 = this;
+
+      if (this.form.productos.length === 0) {
+        this.$buefy.toast.open({
+          message: this.$t("message.registrar_items"),
+          type: "is-warning"
+        });
+        return;
+      }
+
+      for (var i = 0; i < this.form.productos.length; i++) {
+        var producto = this.form.productos[i];
+
+        if (producto.producto_id == "" || producto.producto_id == null || producto.cantidad == "" || parseFloat(producto.cantidad) == 0 || producto.peso == "" || parseFloat(producto.peso) == 0 || producto.unidad == "" || producto.razon_retencion == "" || producto.destino_producto == "" || producto.transportado_en == "") {
+          this.$buefy.toast.open({
+            message: this.$t("message.item_requerido"),
+            type: "is-warning"
+          });
+          return;
+        }
+      }
 
       this.errores = {};
       this.$buefy.dialog.confirm({
@@ -3494,6 +3527,16 @@ __webpack_require__.r(__webpack_exports__);
         identificacion_testigo: undefined
       }
     };
+  },
+  mounted: function mounted() {
+    var _this3 = this;
+
+    var path = "http://127.0.0.1:8000/api" + "/registro-retencion/datos";
+    this.$http.get(path).then(function (_ref3) {
+      var data = _ref3.data;
+      _this3.form.nombre_inspector_responsable = data.usuario.name;
+      _this3.form.identificacion_inspector_responsable = data.usuario.numero_identificacion;
+    });
   }
 });
 
@@ -3600,6 +3643,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     value: {
@@ -3614,7 +3667,9 @@ __webpack_require__.r(__webpack_exports__);
           categoria: "",
           razon_retencion: "",
           destino_producto: "",
-          transportado_en: ""
+          transportado_en: "",
+          observacion: "",
+          unidad: ""
         };
       }
     }
@@ -3969,6 +4024,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3983,14 +4074,16 @@ __webpack_require__.r(__webpack_exports__);
         _method: undefined,
         roles: [],
         password: "",
-        password_confirmation: ""
+        password_confirmation: "",
+        numero_identificacion: ""
       },
       roles: [],
       errores: {
         name: undefined,
         email: undefined,
         password: undefined,
-        password_confirmation: undefined
+        password_confirmation: undefined,
+        numero_identificacion: undefined
       }
     };
   },
@@ -4005,6 +4098,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.email = "";
       this.form.password = "";
       this.form.password_confirmation = "";
+      this.form.numero_identificacion = "";
       this.form.roles.splice(0, this.form.roles.length);
     },
     adding: function adding() {
@@ -4040,6 +4134,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     editar: function editar(usuario) {
       this.form.id = usuario.id;
+      this.form.numero_identificacion = usuario.numero_identificacion;
       this.form.name = usuario.name;
       this.form.email = usuario.email;
 
@@ -4051,6 +4146,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.password_confirmation = "";
     },
     limpiarErrores: function limpiarErrores() {
+      this.errores.numero_identificacion = undefined;
       this.errores.name = undefined;
       this.errores.email = undefined;
       this.errores.password = undefined;
@@ -4088,6 +4184,7 @@ __webpack_require__.r(__webpack_exports__);
         var status = response.status;
 
         if (status === 422) {
+          _this2.errores.numero_identificacion = response.data.errors.numero_identificacion;
           _this2.errores.name = response.data.errors.name;
           _this2.errores.email = response.data.errors.email;
           _this2.errores.password = response.data.errors.password;
@@ -5326,7 +5423,8 @@ __webpack_require__.r(__webpack_exports__);
         lugares_concentracion: "N",
         equipos_campamento: "N",
         fecha: new Date(),
-        productos: []
+        productos: [],
+        codigo: ""
       }
     };
   },
@@ -5336,6 +5434,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editar: function editar(row) {
+      this.selectedDeclaracion.codigo = row.codigo;
       this.selectedDeclaracion.nombres = row.nombres;
       this.selectedDeclaracion.apellidos = row.apellidos;
       this.selectedDeclaracion.numero_identificacion = row.numero_identificacion;
@@ -5747,6 +5846,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5763,6 +5864,7 @@ __webpack_require__.r(__webpack_exports__);
       required: false,
       "default": function _default() {
         return {
+          codigo: "",
           apellidos: "",
           nombres: "",
           numero_identificacion: "",
@@ -5833,6 +5935,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errores.fecha = undefined;
     },
     limpiarFormulario: function limpiarFormulario() {
+      this.form.codigo = "";
       this.form.productos.splice(0, this.form.productos.length);
       this.form.apellidos = "";
       this.form.nombres = "";
@@ -5853,6 +5956,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     confirmarDeclaracion: function confirmarDeclaracion() {
       var _this2 = this;
+
+      if (this.form.alimentos_procesados === "S" && this.form.productos.length === 0) {
+        this.$buefy.toast.open({
+          message: this.$t("message.registrar_items"),
+          type: "is-warning"
+        });
+        return;
+      }
 
       this.$buefy.dialog.confirm({
         cancelText: this.$t("message.no"),
@@ -29691,9 +29802,13 @@ var render = function () {
               _vm._v(_vm._s(_vm.$t("etiqueta.producto"))),
             ]),
             _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.observacion")))]),
+            _vm._v(" "),
             _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.cantidad")))]),
             _vm._v(" "),
             _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.peso")))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.unidad")))]),
             _vm._v(" "),
             _c("th", [_vm._v(_vm._s(_vm.$t("etiqueta.categoria")))]),
             _vm._v(" "),
@@ -29784,7 +29899,13 @@ var render = function () {
     _c("section", { staticClass: "hero is-small is-info" }, [
       _c("div", { staticClass: "hero-body" }, [
         _c("h1", { staticClass: "title" }, [
-          _vm._v(_vm._s(_vm.$t("title.registro_retencion"))),
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.$t("title.registro_retencion")) +
+              " " +
+              _vm._s(_vm.form.numero_documento) +
+              "\n      "
+          ),
         ]),
         _vm._v(" "),
         _c("h2", { staticClass: "subtitle" }, [
@@ -30358,212 +30479,36 @@ var render = function () {
           _c("div", { staticClass: "columns" }, [
             _c(
               "div",
-              { staticClass: "column" },
+              { staticClass: "column is-one-third" },
               [
                 _c(
                   "b-field",
-                  { attrs: { label: _vm.$t("etiqueta.inspeccion_origen") } },
+                  {
+                    attrs: {
+                      message: _vm.errores.numero_candado
+                        ? _vm.errores.numero_candado[0]
+                        : "",
+                      type: _vm.errores.numero_candado ? "is-danger" : "",
+                      label: _vm.$t("etiqueta.numero_candado"),
+                    },
+                  },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "block" },
-                      [
-                        _c(
-                          "b-radio",
-                          {
-                            attrs: { "native-value": "S" },
-                            model: {
-                              value: _vm.form.inspeccion_origen,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "inspeccion_origen", $$v)
-                              },
-                              expression: "form.inspeccion_origen",
-                            },
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(_vm.$t("message.si")) +
-                                "\n                "
-                            ),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-radio",
-                          {
-                            attrs: { "native-value": "N" },
-                            model: {
-                              value: _vm.form.inspeccion_origen,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "inspeccion_origen", $$v)
-                              },
-                              expression: "form.inspeccion_origen",
-                            },
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(_vm.$t("message.no")) +
-                                "\n                "
-                            ),
-                          ]
-                        ),
-                      ],
-                      1
-                    ),
-                  ]
+                    _c("b-input", {
+                      model: {
+                        value: _vm.form.numero_candado,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.form, "numero_candado", $$v)
+                        },
+                        expression: "form.numero_candado",
+                      },
+                    }),
+                  ],
+                  1
                 ),
               ],
               1
             ),
           ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.form.inspeccion_origen === "S",
-                  expression: "form.inspeccion_origen === 'S'",
-                },
-              ],
-              staticClass: "columns",
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    {
-                      attrs: {
-                        message: _vm.errores.inspector_responsable
-                          ? _vm.errores.inspector_responsable[0]
-                          : "",
-                        type: _vm.errores.inspector_responsable
-                          ? "is-danger"
-                          : "",
-                        label: _vm.$t("etiqueta.inspector_responsable"),
-                      },
-                    },
-                    [
-                      _c("b-input", {
-                        model: {
-                          value: _vm.form.inspector_responsable,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "inspector_responsable", $$v)
-                          },
-                          expression: "form.inspector_responsable",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: _vm.$t("etiqueta.fecha_inspeccion") } },
-                    [
-                      _c("b-datepicker", {
-                        attrs: {
-                          icon: "calendar-today",
-                          placeholder: "DD/MM/YYYY",
-                          "trap-focus": "",
-                          locale: "es-ES",
-                        },
-                        model: {
-                          value: _vm.form.fecha_inspeccion,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "fecha_inspeccion", $$v)
-                          },
-                          expression: "form.fecha_inspeccion",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    {
-                      attrs: {
-                        message: _vm.errores.numero_guia_sanitaria
-                          ? _vm.errores.numero_guia_sanitaria[0]
-                          : "",
-                        type: _vm.errores.numero_guia_sanitaria
-                          ? "is-danger"
-                          : "",
-                        label: _vm.$t("etiqueta.numero_guia_sanitaria"),
-                      },
-                    },
-                    [
-                      _c("b-input", {
-                        model: {
-                          value: _vm.form.numero_guia_sanitaria,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "numero_guia_sanitaria", $$v)
-                          },
-                          expression: "form.numero_guia_sanitaria",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    {
-                      attrs: {
-                        message: _vm.errores.numero_candado
-                          ? _vm.errores.numero_candado[0]
-                          : "",
-                        type: _vm.errores.numero_candado ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.numero_candado"),
-                      },
-                    },
-                    [
-                      _c("b-input", {
-                        model: {
-                          value: _vm.form.numero_candado,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "numero_candado", $$v)
-                          },
-                          expression: "form.numero_candado",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]
-          ),
         ]),
       ]),
     ]),
@@ -30616,6 +30561,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { readonly: "" },
                       model: {
                         value: _vm.form.nombre_inspector_responsable,
                         callback: function ($$v) {
@@ -30656,6 +30602,7 @@ var render = function () {
                   },
                   [
                     _c("b-input", {
+                      attrs: { readonly: "" },
                       model: {
                         value: _vm.form.identificacion_inspector_responsable,
                         callback: function ($$v) {
@@ -30784,40 +30731,6 @@ var render = function () {
                   "b-field",
                   {
                     attrs: {
-                      message: _vm.errores.numero_guia_transporte
-                        ? _vm.errores.numero_guia_transporte[0]
-                        : "",
-                      type: _vm.errores.numero_guia_transporte
-                        ? "is-danger"
-                        : "",
-                      label: _vm.$t("etiqueta.numero_guia_transporte"),
-                    },
-                  },
-                  [
-                    _c("b-input", {
-                      model: {
-                        value: _vm.form.numero_guia_transporte,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.form, "numero_guia_transporte", $$v)
-                        },
-                        expression: "form.numero_guia_transporte",
-                      },
-                    }),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "column" },
-              [
-                _c(
-                  "b-field",
-                  {
-                    attrs: {
                       message: _vm.errores.porcentaje_mal_estado
                         ? _vm.errores.porcentaje_mal_estado[0]
                         : "",
@@ -30871,70 +30784,6 @@ var render = function () {
                     }),
                   ],
                   1
-                ),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "columns" }, [
-            _c(
-              "div",
-              { staticClass: "column" },
-              [
-                _c(
-                  "b-field",
-                  { attrs: { label: _vm.$t("etiqueta.retencion_patio") } },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "block" },
-                      [
-                        _c(
-                          "b-radio",
-                          {
-                            attrs: { "native-value": "S" },
-                            model: {
-                              value: _vm.form.retencion_patio,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "retencion_patio", $$v)
-                              },
-                              expression: "form.retencion_patio",
-                            },
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(_vm.$t("message.si")) +
-                                "\n                "
-                            ),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-radio",
-                          {
-                            attrs: { "native-value": "N" },
-                            model: {
-                              value: _vm.form.retencion_patio,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "retencion_patio", $$v)
-                              },
-                              expression: "form.retencion_patio",
-                            },
-                          },
-                          [
-                            _vm._v(
-                              "\n                  " +
-                                _vm._s(_vm.$t("message.no")) +
-                                "\n                "
-                            ),
-                          ]
-                        ),
-                      ],
-                      1
-                    ),
-                  ]
                 ),
               ],
               1
@@ -31062,6 +30911,28 @@ var render = function () {
           [
             _c("b-input", {
               model: {
+                value: _vm.modelValue.observacion,
+                callback: function ($$v) {
+                  _vm.$set(_vm.modelValue, "observacion", $$v)
+                },
+                expression: "modelValue.observacion",
+              },
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c("b-input", {
+              model: {
                 value: _vm.modelValue.cantidad,
                 callback: function ($$v) {
                   _vm.$set(_vm.modelValue, "cantidad", $$v)
@@ -31089,6 +30960,28 @@ var render = function () {
                   _vm.$set(_vm.modelValue, "peso", $$v)
                 },
                 expression: "modelValue.peso",
+              },
+            }),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "td",
+      [
+        _c(
+          "b-field",
+          [
+            _c("b-input", {
+              model: {
+                value: _vm.modelValue.unidad,
+                callback: function ($$v) {
+                  _vm.$set(_vm.modelValue, "unidad", $$v)
+                },
+                expression: "modelValue.unidad",
               },
             }),
           ],
@@ -31468,6 +31361,11 @@ var render = function () {
                     sortable: true,
                   },
                   {
+                    label: _vm.$t("message.numero_identificacion"),
+                    field: "numero_identificacion",
+                    sortable: true,
+                  },
+                  {
                     label: _vm.$t("message.email"),
                     field: "email",
                     sortable: true,
@@ -31547,6 +31445,42 @@ var render = function () {
                       "b-field",
                       {
                         attrs: {
+                          message: _vm.errores.numero_identificacion
+                            ? _vm.errores.numero_identificacion[0]
+                            : "",
+                          type: _vm.errores.numero_identificacion
+                            ? "is-danger"
+                            : "",
+                          label: _vm.$t("message.numero_identificacion"),
+                        },
+                      },
+                      [
+                        _c("b-input", {
+                          model: {
+                            value: _vm.form.numero_identificacion,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "numero_identificacion", $$v)
+                            },
+                            expression: "form.numero_identificacion",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "columns" }, [
+                _c(
+                  "div",
+                  { staticClass: "column is-one-third" },
+                  [
+                    _c(
+                      "b-field",
+                      {
+                        attrs: {
                           message: _vm.errores.email
                             ? _vm.errores.email[0]
                             : "",
@@ -31570,9 +31504,7 @@ var render = function () {
                   ],
                   1
                 ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "columns" }, [
+                _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "column is-one-third" },
@@ -31641,7 +31573,9 @@ var render = function () {
                   ],
                   1
                 ),
-                _vm._v(" "),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "columns" }, [
                 _c(
                   "div",
                   { staticClass: "column is-one-third" },
@@ -33290,7 +33224,13 @@ var render = function () {
       _c("section", { staticClass: "hero is-small is-info" }, [
         _c("div", { staticClass: "hero-body" }, [
           _c("h1", { staticClass: "title" }, [
-            _vm._v(_vm._s(_vm.$t("title.declaracion_juramentada"))),
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.$t("title.declaracion_juramentada")) +
+                " " +
+                _vm._s(_vm.form.codigo) +
+                "\n      "
+            ),
           ]),
           _vm._v(" "),
           _c("h2", { staticClass: "subtitle" }, [
@@ -57727,6 +57667,9 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    item_requerido: 'All products fields are required, except observation that can be optional',
+    registrar_items: 'You must register at least one product',
+    numero_identificacion: 'Id',
     calidad_tecnica: 'Technical quality',
     brigada_canina: 'Canine brigade',
     inspeccion_cuarentena: 'Inspection and quarantine',
@@ -57839,6 +57782,8 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'I declare under oath that'
   },
   etiqueta: {
+    observacion: 'Obs.',
+    unidad: 'Unit',
     consulta: 'Search',
     informacion_adicional: 'Additional information',
     numero_declaracion_cedula: '# AFFIDAVIT or ID',
@@ -57854,7 +57799,7 @@ __webpack_require__.r(__webpack_exports__);
     identificacion_testigo: 'Witness Id.',
     producto: 'Product',
     cantidad: 'Quantity',
-    peso: 'Weight (Kg)',
+    peso: 'Weight',
     categoria: 'Category',
     razon_retencion: 'Reason',
     destino_producto: 'Destine',
@@ -57930,6 +57875,9 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    item_requerido: 'Todos los datos del producto deben ser llenados a diferencia de la observación, que puede ser opcional',
+    registrar_items: 'Debes registrar al menos un producto',
+    numero_identificacion: 'Número de identificación',
     calidad_tecnica: 'Calidad técnica',
     brigada_canina: 'Brigada canina',
     inspeccion_cuarentena: 'Inspección y cuarentena',
@@ -58044,6 +57992,8 @@ __webpack_require__.r(__webpack_exports__);
     declaro_que: 'Declaro bajo juramento que'
   },
   etiqueta: {
+    observacion: 'Obs.',
+    unidad: 'Uni.',
     consulta: 'Consulta',
     informacion_adicional: 'Información adicional',
     numero_declaracion_cedula: '# Declaración o Identificación',
@@ -58058,8 +58008,8 @@ __webpack_require__.r(__webpack_exports__);
     nombre_testigo: 'Nombre de testigo',
     identificacion_testigo: 'Id. Testigo',
     producto: 'Producto',
-    cantidad: 'Cantidad',
-    peso: 'Peso (Kg)',
+    cantidad: 'Cant.',
+    peso: 'Peso',
     categoria: 'Categoría',
     razon_retencion: 'Razón',
     destino_producto: 'Destino',

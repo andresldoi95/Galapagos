@@ -83,6 +83,7 @@ export default {
         equipos_campamento: "N",
         fecha: new Date(),
         productos: [],
+        codigo: "",
       },
     };
   },
@@ -92,6 +93,7 @@ export default {
   },
   methods: {
     editar: function (row) {
+      this.selectedDeclaracion.codigo = row.codigo;
       this.selectedDeclaracion.nombres = row.nombres;
       this.selectedDeclaracion.apellidos = row.apellidos;
       this.selectedDeclaracion.numero_identificacion =

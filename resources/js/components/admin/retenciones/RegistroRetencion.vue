@@ -2,7 +2,9 @@
   <div>
     <section class="hero is-small is-info">
       <div class="hero-body">
-        <h1 class="title">{{ $t("title.registro_retencion") }}</h1>
+        <h1 class="title">
+          {{ $t("title.registro_retencion") }} {{ form.numero_documento }}
+        </h1>
         <h2 class="subtitle">{{ $t("message.registro_retencion") }}</h2>
       </div>
     </section>
@@ -182,7 +184,7 @@
               </b-field>
             </div>
           </div>
-          <div class="columns">
+          <!-- <div class="columns">
             <div class="column">
               <b-field :label="$t('etiqueta.inspeccion_origen')">
                 <div class="block">
@@ -195,9 +197,9 @@
                 </div>
               </b-field>
             </div>
-          </div>
-          <div v-show="form.inspeccion_origen === 'S'" class="columns">
-            <div class="column">
+          </div> -->
+          <div class="columns">
+            <!-- <div class="column">
               <b-field
                 :message="
                   errores.inspector_responsable
@@ -209,8 +211,8 @@
               >
                 <b-input v-model="form.inspector_responsable"></b-input>
               </b-field>
-            </div>
-            <div class="column">
+            </div> -->
+            <!-- <div class="column">
               <b-field :label="$t('etiqueta.fecha_inspeccion')">
                 <b-datepicker
                   v-model="form.fecha_inspeccion"
@@ -221,8 +223,8 @@
                 >
                 </b-datepicker>
               </b-field>
-            </div>
-            <div class="column">
+            </div> -->
+            <!-- <div class="column">
               <b-field
                 :message="
                   errores.numero_guia_sanitaria
@@ -234,8 +236,8 @@
               >
                 <b-input v-model="form.numero_guia_sanitaria"></b-input>
               </b-field>
-            </div>
-            <div class="column">
+            </div> -->
+            <div class="column is-one-third">
               <b-field
                 :message="
                   errores.numero_candado ? errores.numero_candado[0] : ''
@@ -277,7 +279,10 @@
                 :type="errores.nombre_inspector_responsable ? 'is-danger' : ''"
                 :label="$t('etiqueta.nombre_inspector_responsable')"
               >
-                <b-input v-model="form.nombre_inspector_responsable"></b-input>
+                <b-input
+                  readonly
+                  v-model="form.nombre_inspector_responsable"
+                ></b-input>
               </b-field>
             </div>
             <div class="column">
@@ -295,6 +300,7 @@
                 :label="$t('etiqueta.identificacion_inspector_responsable')"
               >
                 <b-input
+                  readonly
                   v-model="form.identificacion_inspector_responsable"
                 ></b-input>
               </b-field>
@@ -338,7 +344,7 @@
                 ></b-input>
               </b-field>
             </div>
-            <div class="column">
+            <!-- <div class="column">
               <b-field
                 :message="
                   errores.numero_guia_transporte
@@ -350,7 +356,7 @@
               >
                 <b-input v-model="form.numero_guia_transporte"></b-input>
               </b-field>
-            </div>
+            </div> -->
             <div class="column">
               <b-field
                 :message="
@@ -378,7 +384,7 @@
               </b-field>
             </div>
           </div>
-          <div class="columns">
+          <!-- <div class="columns">
             <div class="column">
               <b-field :label="$t('etiqueta.retencion_patio')">
                 <div class="block">
@@ -391,7 +397,7 @@
                 </div>
               </b-field>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -467,6 +473,7 @@ export default {
           this.form.direccion = data.direccion_domicilio;
           this.form.procedencia = data.aeropuerto_origen;
           this.form.nombre_completo = data.apellidos + " " + data.nombres;
+          this.form.nombre_transporte = data.linea_aerea;
           for (let i = 0; i < data.productos.length; i++) {
             this.form.productos.push({
               producto_id: data.productos[i].id,
@@ -520,6 +527,34 @@ export default {
       this.errores = {};
     },
     registrarRetencion: function () {
+      if (this.form.productos.length === 0) {
+        this.$buefy.toast.open({
+          message: this.$t("message.registrar_items"),
+          type: "is-warning",
+        });
+        return;
+      }
+      for (let i = 0; i < this.form.productos.length; i++) {
+        let producto = this.form.productos[i];
+        if (
+          producto.producto_id == "" ||
+          producto.producto_id == null ||
+          producto.cantidad == "" ||
+          parseFloat(producto.cantidad) == 0 ||
+          producto.peso == "" ||
+          parseFloat(producto.peso) == 0 ||
+          producto.unidad == "" ||
+          producto.razon_retencion == "" ||
+          producto.destino_producto == "" ||
+          producto.transportado_en == ""
+        ) {
+          this.$buefy.toast.open({
+            message: this.$t("message.item_requerido"),
+            type: "is-warning",
+          });
+          return;
+        }
+      }
       this.errores = {};
       this.$buefy.dialog.confirm({
         cancelText: this.$t("message.no"),
@@ -594,6 +629,14 @@ export default {
         identificacion_testigo: undefined,
       },
     };
+  },
+  mounted: function () {
+    let path = process.env.MIX_APP_URL_API + "/registro-retencion/datos";
+    this.$http.get(path).then(({ data }) => {
+      this.form.nombre_inspector_responsable = data.usuario.name;
+      this.form.identificacion_inspector_responsable =
+        data.usuario.numero_identificacion;
+    });
   },
 };
 </script>

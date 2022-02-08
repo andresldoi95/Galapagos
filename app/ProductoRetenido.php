@@ -9,7 +9,7 @@ class ProductoRetenido extends Model
     protected $table = 'productos_retenidos';
     protected $fillable = [
         'id', 'retencion_id', 'producto_id', 'cantidad', 'peso', 'categoria',
-        'razon_retencion', 'destino_producto', 'transportado_en'
+        'razon_retencion', 'destino_producto', 'transportado_en', 'observacion', 'unidad'
     ];
     public $incrementing = false;
     public function producto()

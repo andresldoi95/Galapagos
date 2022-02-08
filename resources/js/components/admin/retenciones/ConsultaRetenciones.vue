@@ -154,6 +154,8 @@ export default {
           destino_producto: row.productos[i].destino_producto,
           transportado_en: row.productos[i].transportado_en,
           cantidad: row.productos[i].cantidad,
+          unidad: row.productos[i].unidad,
+          observacion: row.productos[i].observacion,
         });
       }
     },

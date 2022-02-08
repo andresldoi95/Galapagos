@@ -107,7 +107,7 @@ class DeclaracionJuramentadaApiController extends Controller
     public function show($numeroDeclaracion)
     {
         return DeclaracionJuramentada::active()->where(function ($query) use ($numeroDeclaracion) {
-            return $query->where('numero_identificacion', $numeroDeclaracion)->orWhere('id', $numeroDeclaracion);
+            return $query->where('numero_identificacion', $numeroDeclaracion)->orWhere('id', $numeroDeclaracion)->orWhere('codigo', $numeroDeclaracion);
         })->with('productos')->orderBy('fecha', 'desc')->firstOrFail();
     }
 }

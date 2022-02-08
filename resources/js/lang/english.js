@@ -11,6 +11,9 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        item_requerido: 'All products fields are required, except observation that can be optional',
+        registrar_items: 'You must register at least one product',
+        numero_identificacion: 'Id',
         calidad_tecnica: 'Technical quality',
         brigada_canina: 'Canine brigade',
         inspeccion_cuarentena: 'Inspection and quarantine',
@@ -123,6 +126,8 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        observacion: 'Obs.',
+        unidad: 'Unit',
         consulta: 'Search',
         informacion_adicional: 'Additional information',
         numero_declaracion_cedula: '# AFFIDAVIT or ID',
@@ -138,7 +143,7 @@ export default {
         identificacion_testigo: 'Witness Id.',
         producto: 'Product',
         cantidad: 'Quantity',
-        peso: 'Weight (Kg)',
+        peso: 'Weight',
         categoria: 'Category',
         razon_retencion: 'Reason',
         destino_producto: 'Destine',

@@ -34,12 +34,22 @@
     </td>
     <td>
       <b-field>
+        <b-input v-model="modelValue.observacion"></b-input>
+      </b-field>
+    </td>
+    <td>
+      <b-field>
         <b-input v-model="modelValue.cantidad"></b-input>
       </b-field>
     </td>
     <td>
       <b-field>
         <b-input v-model="modelValue.peso"></b-input>
+      </b-field>
+    </td>
+    <td>
+      <b-field>
+        <b-input v-model="modelValue.unidad"></b-input>
       </b-field>
     </td>
     <td>
@@ -106,6 +116,8 @@ export default {
           razon_retencion: "",
           destino_producto: "",
           transportado_en: "",
+          observacion: "",
+          unidad: "",
         };
       },
     },

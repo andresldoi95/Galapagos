@@ -91,7 +91,9 @@ class RegistroRetencionController extends Controller
                     'categoria' => $producto['categoria'],
                     'razon_retencion' => $producto['razon_retencion'],
                     'destino_producto' => $producto['destino_producto'],
-                    'transportado_en' => $producto['transportado_en']
+                    'transportado_en' => $producto['transportado_en'],
+                    'unidad' => $producto['unidad'],
+                    'observacion' => $producto['observacion']
                 ]);
             }
         });
@@ -171,7 +173,9 @@ class RegistroRetencionController extends Controller
                     'categoria' => $producto['categoria'],
                     'razon_retencion' => $producto['razon_retencion'],
                     'destino_producto' => $producto['destino_producto'],
-                    'transportado_en' => $producto['transportado_en']
+                    'transportado_en' => $producto['transportado_en'],
+                    'unidad' => $producto['unidad'],
+                    'observacion' => $producto['observacion']
                 ]);
             }
         });
@@ -208,5 +212,11 @@ class RegistroRetencionController extends Controller
                 DB::raw('if(estado = "A", "I", "A")'),
                 'modificador_id' => $user->id
             ]);
+    }
+    public function cargarDatos(Request $request)
+    {
+        return [
+            'usuario' => $request->user()
+        ];
     }
 }

@@ -60,7 +60,8 @@ class UsuarioApiController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|max:500|unique:users',
             'roles' => 'required|array',
-            'password' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed',
+            'numero_identificacion' => 'required|max:20|unique:users'
         ]);
         $user = $request->user();
         $usuario = User::create([
@@ -68,7 +69,8 @@ class UsuarioApiController extends Controller
             'email' => $request->input('email'),
             'creador_id' => $user->id,
             'empresa_id' => $user->empresa_id,
-            'password' => bcrypt($request->input('password'))
+            'password' => bcrypt($request->input('password')),
+            'numero_identificacion' => $request->input('numero_identificacion')
         ]);
         $roles = $request->input('roles');
         $usuario->roles()->current($user->empresa_id)->sync($roles);
@@ -81,12 +83,14 @@ class UsuarioApiController extends Controller
                 'required', 'max:500', Rule::unique('users')->ignore($id)
             ],
             'roles' => 'required|array',
-            'password' => 'nullable|min:6|confirmed'
+            'password' => 'nullable|min:6|confirmed',
+            'numero_identificacion' => ['required', 'max:20', Rule::unique('users')->ignore($id)]
         ]);
         $user = $request->user();
         $usuario = User::findOrFail($id);
         $usuario->name = $request->input('name');
         $usuario->email = $request->input('email');
+        $usuario->numero_identificacion = $request->input('numero_identificacion');
         $usuario->modificador_id = $user->id;
         $password = $request->input('password');
         if (isset($password))

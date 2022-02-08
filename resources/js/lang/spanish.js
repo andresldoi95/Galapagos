@@ -11,6 +11,9 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        item_requerido: 'Todos los datos del producto deben ser llenados a diferencia de la observación, que puede ser opcional',
+        registrar_items: 'Debes registrar al menos un producto',
+        numero_identificacion: 'Número de identificación',
         calidad_tecnica: 'Calidad técnica',
         brigada_canina: 'Brigada canina',
         inspeccion_cuarentena: 'Inspección y cuarentena',
@@ -127,6 +130,8 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        observacion: 'Obs.',
+        unidad: 'Uni.',
         consulta: 'Consulta',
         informacion_adicional: 'Información adicional',
         numero_declaracion_cedula: '# Declaración o Identificación',
@@ -141,8 +146,8 @@ export default {
         nombre_testigo: 'Nombre de testigo',
         identificacion_testigo: 'Id. Testigo',
         producto: 'Producto',
-        cantidad: 'Cantidad',
-        peso: 'Peso (Kg)',
+        cantidad: 'Cant.',
+        peso: 'Peso',
         categoria: 'Categoría',
         razon_retencion: 'Razón',
         destino_producto: 'Destino',

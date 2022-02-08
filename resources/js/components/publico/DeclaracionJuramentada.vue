@@ -2,7 +2,9 @@
   <div>
     <section class="hero is-small is-info">
       <div class="hero-body">
-        <h1 class="title">{{ $t("title.declaracion_juramentada") }}</h1>
+        <h1 class="title">
+          {{ $t("title.declaracion_juramentada") }} {{ form.codigo }}
+        </h1>
         <h2 class="subtitle">{{ $t("message.declaracion_juramentada") }}</h2>
       </div>
     </section>
@@ -359,6 +361,7 @@ export default {
       required: false,
       default: function () {
         return {
+          codigo: "",
           apellidos: "",
           nombres: "",
           numero_identificacion: "",
@@ -428,6 +431,7 @@ export default {
       this.errores.fecha = undefined;
     },
     limpiarFormulario: function () {
+      this.form.codigo = "";
       this.form.productos.splice(0, this.form.productos.length);
       this.form.apellidos = "";
       this.form.nombres = "";
@@ -447,6 +451,16 @@ export default {
       this.limpiarErrores();
     },
     confirmarDeclaracion: function () {
+      if (
+        this.form.alimentos_procesados === "S" &&
+        this.form.productos.length === 0
+      ) {
+        this.$buefy.toast.open({
+          message: this.$t("message.registrar_items"),
+          type: "is-warning",
+        });
+        return;
+      }
       this.$buefy.dialog.confirm({
         cancelText: this.$t("message.no"),
         confirmText: this.$t("message.si"),
