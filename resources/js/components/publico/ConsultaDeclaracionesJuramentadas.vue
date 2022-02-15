@@ -4,10 +4,13 @@
       <div class="container">
         <h1 class="title">{{ $t("title.declaraciones_juramentadas") }}</h1>
         <masterForm
+          exportableExcel
+          filterByDate
           @realizarAccion="realizarAccion"
           :createButton="false"
           :editable="false"
           @editar="editar"
+          @exportar="exportar"
           sortOrderDefault="desc"
           sortByDefault="created_at"
           ref="masterForm"
@@ -61,6 +64,7 @@
 </template>
 
 <script>
+import queryString from "query-string";
 import MasterForm from "../layouts/MasterForm.vue";
 import DeclaracionJuramentada from "../publico/DeclaracionJuramentada.vue";
 export default {
@@ -92,6 +96,16 @@ export default {
     DeclaracionJuramentada,
   },
   methods: {
+    exportar: function (form) {
+      form.desde = this.$moment(form.desde).format("YYYY-MM-DD");
+      form.hasta = this.$moment(form.hasta).format("YYYY-MM-DD");
+      let params = queryString.stringify(form);
+      let urlRedirect =
+        process.env.MIX_APP_URL +
+        "/exportar/declaraciones-juramentadas?" +
+        params;
+      window.open(urlRedirect, "_blank");
+    },
     editar: function (row) {
       this.selectedDeclaracion.codigo = row.codigo;
       this.selectedDeclaracion.nombres = row.nombres;

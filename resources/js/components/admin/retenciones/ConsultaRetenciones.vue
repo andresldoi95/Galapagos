@@ -4,6 +4,9 @@
       <div class="container">
         <h1 class="title">{{ $t("title.retenciones") }}</h1>
         <masterForm
+          exportableExcel
+          filterByDate
+          @exportar="exportar"
           @realizarAccion="realizarAccion"
           :createButton="false"
           :editable="false"
@@ -56,6 +59,7 @@
 </template>
 
 <script>
+import queryString from "query-string";
 import MasterForm from "../../layouts/MasterForm.vue";
 import RegistroRetencion from "./RegistroRetencion.vue";
 export default {
@@ -103,6 +107,14 @@ export default {
     RegistroRetencion,
   },
   methods: {
+    exportar: function (form) {
+      form.desde = this.$moment(form.desde).format("YYYY-MM-DD");
+      form.hasta = this.$moment(form.hasta).format("YYYY-MM-DD");
+      let params = queryString.stringify(form);
+      let urlRedirect =
+        process.env.MIX_APP_URL + "/exportar/retenciones?" + params;
+      window.open(urlRedirect, "_blank");
+    },
     inputRetencion: function () {
       this.$refs.masterForm.submit();
     },

@@ -130,6 +130,8 @@ export default {
         declaro_que: 'Declaro bajo juramento que'
     },
     etiqueta: {
+        desde: 'Desde',
+        hasta: 'Hasta',
         observacion: 'Obs.',
         unidad: 'Uni.',
         consulta: 'Consulta',

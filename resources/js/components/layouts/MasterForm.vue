@@ -1,6 +1,34 @@
 <template>
   <section>
     <form @submit.prevent="submit">
+      <div class="row mb-2">
+        <div class="columns">
+          <div class="column">
+            <b-field :label="$t('etiqueta.desde')">
+              <b-datepicker
+                v-model="form.desde"
+                icon="calendar-today"
+                placeholder="DD/MM/YYYY"
+                trap-focus
+                locale="es-ES"
+              >
+              </b-datepicker>
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field :label="$t('etiqueta.hasta')">
+              <b-datepicker
+                v-model="form.hasta"
+                icon="calendar-today"
+                placeholder="DD/MM/YYYY"
+                trap-focus
+                locale="es-ES"
+              >
+              </b-datepicker>
+            </b-field>
+          </div>
+        </div>
+      </div>
       <b-field v-show="tipo_formulario === 'C'" grouped group-multiline>
         <div v-show="createButton" class="control">
           <b-button @click="add" icon-left="plus">{{
@@ -44,6 +72,15 @@
             native-type="submit"
             type="is-info"
             icon-left="magnify"
+          ></b-button>
+        </div>
+        <div v-show="exportableExcel" class="control">
+          <b-button
+            native-type="button"
+            name="exportar"
+            @click="exportar"
+            type="is-success"
+            icon-left="file-excel"
           ></b-button>
         </div>
         <b-select v-model="form.per_page" v-show="isPaginated">
@@ -106,6 +143,16 @@
 <script>
 export default {
   props: {
+    exportableExcel: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    filterByDate: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     editable: {
       type: Boolean,
       required: false,
@@ -208,6 +255,8 @@ export default {
         current_page: 1,
         sort_by: this.sortByDefault,
         sort_order: this.sortOrderDefault,
+        desde: new Date(),
+        hasta: new Date(),
       },
       registros: [],
       sortIcon: "arrow-up",
@@ -216,6 +265,9 @@ export default {
     };
   },
   methods: {
+    exportar: function () {
+      this.$emit("exportar", this.form);
+    },
     onSort(field, order) {
       if (
         this.isPaginated &&

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RegistroRetencionExport;
 use App\RegistroRetencion;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Excel;
 
 class RegistroRetencionController extends Controller
 {
@@ -180,11 +182,41 @@ class RegistroRetencionController extends Controller
             }
         });
     }
-    public function index(Request $request)
+    public function excel(Request $request)
     {
+        $request->validate([
+            'desde' => 'nullable|date',
+            'hasta' => 'nullable|date'
+        ]);
         $sortBy = $request->input('sort_by');
         $status = $request->input('status');
         $search = $request->input('search');
+        $desde = $request->input('desde');
+        $hasta = $request->input('hasta');
+        $declaraciones = RegistroRetencion::with('productos.producto')->where(function ($query) use ($search) {
+            return $query->where('numero_identificacion', $search)->orWhere('numero_documento', 'like', "%$search");
+        });
+        if (isset($desde))
+            $declaraciones->where('fecha', '>=', new Carbon($desde));
+        if (isset($hasta))
+            $declaraciones->where('fecha', '<=', new Carbon($hasta));
+        if (isset($sortBy) && $sortBy !== '')
+            $declaraciones->orderBy($sortBy, $request->input('sort_order'));
+        if ($status !== 'T')
+            $declaraciones->where('estado', $status);
+        return Excel::download(new RegistroRetencionExport($declaraciones->get()), 'retenciones' . date('YmdHis') . '.xlsx');
+    }
+    public function index(Request $request)
+    {
+        $request->validate([
+            'desde' => 'nullable|date',
+            'hasta' => 'nullable|date'
+        ]);
+        $sortBy = $request->input('sort_by');
+        $status = $request->input('status');
+        $search = $request->input('search');
+        $desde = $request->input('desde');
+        $hasta = $request->input('hasta');
         $currentPage = $request->input('current_page');
         Paginator::currentPageResolver(function () use ($currentPage) {
             return $currentPage;
@@ -192,6 +224,10 @@ class RegistroRetencionController extends Controller
         $declaraciones = RegistroRetencion::with('productos.producto')->where(function ($query) use ($search) {
             return $query->where('numero_identificacion', $search)->orWhere('numero_documento', 'like', "%$search");
         });
+        if (isset($desde))
+            $declaraciones->where('fecha', '>=', new Carbon($desde));
+        if (isset($hasta))
+            $declaraciones->where('fecha', '<=', new Carbon($hasta));
         if (isset($sortBy) && $sortBy !== '')
             $declaraciones->orderBy($sortBy, $request->input('sort_order'));
         if ($status !== 'T')

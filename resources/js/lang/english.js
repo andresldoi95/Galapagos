@@ -126,6 +126,8 @@ export default {
         declaro_que: 'I declare under oath that'
     },
     etiqueta: {
+        desde: 'From',
+        hasta: 'To',
         observacion: 'Obs.',
         unidad: 'Unit',
         consulta: 'Search',
