@@ -6,10 +6,19 @@ use Illuminate\Http\Request;
 use App\DeclaracionJuramentada;
 use App\Exports\DeclaracionJuramentadaExport;
 use Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Carbon;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class DeclaracionJuramentadaController extends Controller
 {
+    public function show($id)
+    {
+        return PDF::loadView('exports.declaracion-juramentada', [
+            'declaracion' => DeclaracionJuramentada::findOrFail($id),
+            'qrcode' => QrCode::format('svg')->size(100)->generate(route('declaracion-juramentada', $id))
+        ])->stream();
+    }
     public function index(Request $request)
     {
         $request->validate([

@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Withholdings/refuses'
     },
     message: {
+        imprimir: 'Print',
         item_requerido: 'All products fields are required, except observation that can be optional',
         registrar_items: 'You must register at least one product',
         numero_identificacion: 'Id',

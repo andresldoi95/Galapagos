@@ -88,6 +88,7 @@ export default {
         fecha: new Date(),
         productos: [],
         codigo: "",
+        id: "",
       },
     };
   },
@@ -107,6 +108,7 @@ export default {
       window.open(urlRedirect, "_blank");
     },
     editar: function (row) {
+      this.selectedDeclaracion.id = row.id;
       this.selectedDeclaracion.codigo = row.codigo;
       this.selectedDeclaracion.nombres = row.nombres;
       this.selectedDeclaracion.apellidos = row.apellidos;

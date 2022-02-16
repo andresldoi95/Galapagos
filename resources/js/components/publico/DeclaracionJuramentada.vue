@@ -8,6 +8,19 @@
         <h2 class="subtitle">{{ $t("message.declaracion_juramentada") }}</h2>
       </div>
     </section>
+    <section>
+      <div v-show="form.id != null && form.id != ''" class="container mt-2">
+        <div class="row">
+          <div class="columns">
+            <div class="column">
+              <b-button type="is-danger" @click="imprimir">
+                {{ $t("message.imprimir") }}
+              </b-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="hero">
       <div class="hero-body">
         <h3 class="title">I. {{ $t("title.identificacion") }}</h3>
@@ -245,6 +258,24 @@
                       </template>
                     </b-taginput>
                   </b-field>
+                  <b-notification
+                    v-for="producto in form.productos"
+                    :key="producto.codigo"
+                    has-icon
+                    :type="
+                      producto.categoria === 'R' ? 'is-warning' : 'is-danger'
+                    "
+                    v-show="
+                      producto.categoria === 'R' || producto.categoria === 'NP'
+                    "
+                    :closable="false"
+                  >
+                    {{ producto.descripcion }} ({{
+                      producto.categoria === "R"
+                        ? $t("message.restringido")
+                        : $t("message.no_permitido")
+                    }})
+                  </b-notification>
                 </div>
               </div>
             </div>
@@ -361,6 +392,7 @@ export default {
       required: false,
       default: function () {
         return {
+          id: "",
           codigo: "",
           apellidos: "",
           nombres: "",
@@ -405,6 +437,14 @@ export default {
     };
   },
   methods: {
+    imprimir: function () {
+      let url =
+        process.env.MIX_APP_URL +
+        "/exportar/" +
+        this.form.id +
+        "/declaracion-juramentada";
+      window.open(url, "_blank");
+    },
     cargarProductos: function (name) {
       this.$http
         .get(process.env.MIX_APP_URL_API + "/productos/search", {
@@ -474,8 +514,10 @@ export default {
                 message: this.$t("message.guardado_generico"),
                 type: "is-success",
               });
-              this.mostrarQr = true;
+              //this.mostrarQr = true;
               this.id = data.id;
+              this.form.id = data.id;
+              this.imprimir();
               this.limpiarFormulario();
             })
             .catch(({ response }) => {

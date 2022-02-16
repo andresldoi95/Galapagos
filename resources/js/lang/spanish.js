@@ -11,6 +11,7 @@ export default {
         registro_retenciones: ' Retenciones/rechazos'
     },
     message: {
+        imprimir: 'Imprimir',
         item_requerido: 'Todos los datos del producto deben ser llenados a diferencia de la observación, que puede ser opcional',
         registrar_items: 'Debes registrar al menos un producto',
         numero_identificacion: 'Número de identificación',

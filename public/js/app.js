@@ -5495,7 +5495,8 @@ __webpack_require__.r(__webpack_exports__);
         equipos_campamento: "N",
         fecha: new Date(),
         productos: [],
-        codigo: ""
+        codigo: "",
+        id: ""
       }
     };
   },
@@ -5512,6 +5513,7 @@ __webpack_require__.r(__webpack_exports__);
       window.open(urlRedirect, "_blank");
     },
     editar: function editar(row) {
+      this.selectedDeclaracion.id = row.id;
       this.selectedDeclaracion.codigo = row.codigo;
       this.selectedDeclaracion.nombres = row.nombres;
       this.selectedDeclaracion.apellidos = row.apellidos;
@@ -5926,6 +5928,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5942,6 +5975,7 @@ __webpack_require__.r(__webpack_exports__);
       required: false,
       "default": function _default() {
         return {
+          id: "",
           codigo: "",
           apellidos: "",
           nombres: "",
@@ -5986,6 +6020,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    imprimir: function imprimir() {
+      var url = "http://127.0.0.1:8000" + "/exportar/" + this.form.id + "/declaracion-juramentada";
+      window.open(url, "_blank");
+    },
     cargarProductos: function cargarProductos(name) {
       var _this = this;
 
@@ -6056,10 +6094,13 @@ __webpack_require__.r(__webpack_exports__);
             _this2.$buefy.toast.open({
               message: _this2.$t("message.guardado_generico"),
               type: "is-success"
-            });
+            }); //this.mostrarQr = true;
 
-            _this2.mostrarQr = true;
+
             _this2.id = data.id;
+            _this2.form.id = data.id;
+
+            _this2.imprimir();
 
             _this2.limpiarFormulario();
           })["catch"](function (_ref3) {
@@ -34097,6 +34138,50 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
+      _c("section", [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.form.id != null && _vm.form.id != "",
+                expression: "form.id != null && form.id != ''",
+              },
+            ],
+            staticClass: "container mt-2",
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "columns" }, [
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { type: "is-danger" },
+                        on: { click: _vm.imprimir },
+                      },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.$t("message.imprimir")) +
+                            "\n            "
+                        ),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
       _c("section", { staticClass: "hero" }, [
         _c("div", { staticClass: "hero-body" }, [
           _c("h3", { staticClass: "title" }, [
@@ -34703,8 +34788,49 @@ var render = function () {
                           ],
                           1
                         ),
+                        _vm._v(" "),
+                        _vm._l(_vm.form.productos, function (producto) {
+                          return _c(
+                            "b-notification",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value:
+                                    producto.categoria === "R" ||
+                                    producto.categoria === "NP",
+                                  expression:
+                                    "\n                    producto.categoria === 'R' || producto.categoria === 'NP'\n                  ",
+                                },
+                              ],
+                              key: producto.codigo,
+                              attrs: {
+                                "has-icon": "",
+                                type:
+                                  producto.categoria === "R"
+                                    ? "is-warning"
+                                    : "is-danger",
+                                closable: false,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(producto.descripcion) +
+                                  " (" +
+                                  _vm._s(
+                                    producto.categoria === "R"
+                                      ? _vm.$t("message.restringido")
+                                      : _vm.$t("message.no_permitido")
+                                  ) +
+                                  ")\n                "
+                              ),
+                            ]
+                          )
+                        }),
                       ],
-                      1
+                      2
                     ),
                   ]
                 ),
@@ -58525,6 +58651,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Withholdings/refuses'
   },
   message: {
+    imprimir: 'Print',
     item_requerido: 'All products fields are required, except observation that can be optional',
     registrar_items: 'You must register at least one product',
     numero_identificacion: 'Id',
@@ -58735,6 +58862,7 @@ __webpack_require__.r(__webpack_exports__);
     registro_retenciones: ' Retenciones/rechazos'
   },
   message: {
+    imprimir: 'Imprimir',
     item_requerido: 'Todos los datos del producto deben ser llenados a diferencia de la observación, que puede ser opcional',
     registrar_items: 'Debes registrar al menos un producto',
     numero_identificacion: 'Número de identificación',
