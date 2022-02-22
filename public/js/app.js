@@ -3331,6 +3331,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -3377,6 +3390,10 @@ __webpack_require__.r(__webpack_exports__);
     ProductosRetenidos: _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
+    imprimir: function imprimir() {
+      var url = "http://127.0.0.1:8000" + "/exportar/" + this.form.id + "/retencion";
+      window.open(url, "_blank");
+    },
     consultarDeclaracion: function consultarDeclaracion() {
       var _this = this;
 
@@ -30714,6 +30731,50 @@ var render = function () {
           _vm._v(_vm._s(_vm.$t("message.registro_retencion"))),
         ]),
       ]),
+    ]),
+    _vm._v(" "),
+    _c("section", [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.form.id != null && _vm.form.id != "",
+              expression: "form.id != null && form.id != ''",
+            },
+          ],
+          staticClass: "container mt-2",
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "columns" }, [
+              _c(
+                "div",
+                { staticClass: "column" },
+                [
+                  _c(
+                    "b-button",
+                    {
+                      attrs: { type: "is-danger" },
+                      on: { click: _vm.imprimir },
+                    },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.$t("message.imprimir")) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ]),
+          ]),
+        ]
+      ),
     ]),
     _vm._v(" "),
     _c("section", { staticClass: "hero" }, [

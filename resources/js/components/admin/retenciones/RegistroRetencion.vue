@@ -8,6 +8,19 @@
         <h2 class="subtitle">{{ $t("message.registro_retencion") }}</h2>
       </div>
     </section>
+    <section>
+      <div v-show="form.id != null && form.id != ''" class="container mt-2">
+        <div class="row">
+          <div class="columns">
+            <div class="column">
+              <b-button type="is-danger" @click="imprimir">
+                {{ $t("message.imprimir") }}
+              </b-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="hero">
       <div class="hero-body">
         <div class="container">
@@ -460,6 +473,11 @@ export default {
     ProductosRetenidos,
   },
   methods: {
+    imprimir: function () {
+      let url =
+        process.env.MIX_APP_URL + "/exportar/" + this.form.id + "/retencion";
+      window.open(url, "_blank");
+    },
     consultarDeclaracion: function () {
       this.isFetching = true;
       this.$http

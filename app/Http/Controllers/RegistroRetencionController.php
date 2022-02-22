@@ -9,9 +9,16 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Excel;
+use PDF;
 
 class RegistroRetencionController extends Controller
 {
+    public function show($id)
+    {
+        return PDF::loadView('exports.retencion', [
+            'retencion' => RegistroRetencion::findOrFail($id)
+        ])->stream();
+    }
     private function obtenerNumeroDocumento()
     {
         $ultimoRegistro = RegistroRetencion::orderByRaw('cast(numero_documento as unsigned) desc')->select(['numero_documento'])->first();

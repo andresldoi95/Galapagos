@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class RegistroRetencion extends Model
 {
     protected $table = 'registro_retenciones';
+    protected $dates = [
+        'fecha'
+    ];
     protected $fillable = [
         'id', 'empresa_id', 'lugar', 'tipo_transporte', 'nombre_transporte', 'destino',
         'procedencia', 'numero_documento', 'fecha', 'retencion', 'rechazo',
