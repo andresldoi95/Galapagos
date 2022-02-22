@@ -20,6 +20,10 @@ class RegistroRetencion extends Model
         'identificacion_inspector_responsable', 'nombre_testigo', 'identificacion_testigo',
         'creador_id', 'modificador_id', 'estado'
     ];
+    public function scopeActive($query)
+    {
+        return $query->where('estado', 'A');
+    }
     public $incrementing = false;
     public function creador()
     {

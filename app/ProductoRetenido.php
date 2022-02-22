@@ -16,4 +16,8 @@ class ProductoRetenido extends Model
     {
         return $this->belongsTo('App\Producto');
     }
+    public function retencion()
+    {
+        return $this->belongsTo('App\RegistroRetencion');
+    }
 }

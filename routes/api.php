@@ -73,6 +73,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('registro-retencion', 'RegistroRetencionController', [
         'only' => ['index', 'store', 'update']
     ]);
+    Route::get('dashboard', 'DashboardApiController@index');
 });
 
 Route::post('/reset', 'UsuarioApiController@reset');

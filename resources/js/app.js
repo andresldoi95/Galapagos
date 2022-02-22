@@ -7,10 +7,14 @@ import VueAxios from "vue-axios";
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
 import VueSession from "vue-session";
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+
 //Importando componentes globales
 import App from "./components/App";
 //Instalando plugins
 Vue.use(Buefy);
+Vue.use(Chartkick.use(Chart))
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
