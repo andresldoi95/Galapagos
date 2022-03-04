@@ -67,8 +67,8 @@ class RegistroRetencionController extends Controller
             $registroRetencion->destino = $request->input('destino');
             $registroRetencion->procedencia = $request->input('procedencia');
             $registroRetencion->fecha = new Carbon($request->input('fecha'));
-            $registroRetencion->retencion = $request->input('retencion') ? 'S' : 'N';
-            $registroRetencion->rechazo = $request->input('rechazo') ? 'S' : 'N';
+            $registroRetencion->retencion = $request->input('retencion') == 'true' ? 'S' : 'N';
+            $registroRetencion->rechazo = $request->input('rechazo') == 'true' ? 'S' : 'N';
             $registroRetencion->inspeccion_origen = $request->input('inspeccion_origen');
             $registroRetencion->inspector_responsable = $request->input('inspector_responsable');
             $registroRetencion->fecha_inspeccion = new Carbon($request->input('fecha_inspeccion'));
@@ -159,8 +159,8 @@ class RegistroRetencionController extends Controller
                 'destino' => $request->input('destino'),
                 'procedencia' => $request->input('procedencia'),
                 'fecha' => new Carbon($request->input('fecha')),
-                'retencion' => $request->input('retencion') ? 'S' : 'N',
-                'rechazo' => $request->input('rechazo') ? 'S' : 'N',
+                'retencion' => $request->input('retencion') == 'true' ? 'S' : 'N',
+                'rechazo' => $request->input('rechazo') == 'true' ? 'S' : 'N',
                 'inspeccion_origen' => $request->input('inspeccion_origen'),
                 'inspector_responsable' => $request->input('inspector_responsable'),
                 'fecha_inspeccion' => new Carbon($request->input('fecha_inspeccion')),
