@@ -1,7 +1,7 @@
 <template>
   <section>
     <form @submit.prevent="submit">
-      <div class="row mb-2">
+      <div v-show="filterByDate" class="row mb-2">
         <div class="columns">
           <div class="column">
             <b-field :label="$t('etiqueta.desde')">

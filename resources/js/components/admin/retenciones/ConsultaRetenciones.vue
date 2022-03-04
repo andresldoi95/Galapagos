@@ -49,6 +49,7 @@
           ]"
         >
           <registro-retencion
+            ref="registroRetencion"
             @input="inputRetencion"
             v-model="selectedRetencion"
           ></registro-retencion>
@@ -69,6 +70,8 @@ export default {
   data: function () {
     return {
       selectedRetencion: {
+        foto: null,
+        foto2: null,
         fecha_inspeccion: null,
         retencion: false,
         rechazo: false,
@@ -119,6 +122,12 @@ export default {
       this.$refs.masterForm.submit();
     },
     editar: function (row) {
+      if (row.url_foto != null)
+        this.$refs.registroRetencion.imagenActual = row.url_foto;
+      else this.$refs.registroRetencion.imagenActual = "/img/sin-imagen.jpg";
+      if (row.url_foto2 != null)
+        this.$refs.registroRetencion.imagenActual2 = row.url_foto2;
+      else this.$refs.registroRetencion.imagenActual2 = "/img/sin-imagen.jpg";
       this.selectedRetencion._method = "PUT";
       this.selectedRetencion.id = row.id;
       this.selectedRetencion.numero_documento = row.numero_documento;

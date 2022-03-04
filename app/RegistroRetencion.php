@@ -10,6 +10,25 @@ class RegistroRetencion extends Model
     protected $dates = [
         'fecha'
     ];
+    protected $appends = [
+        'url_foto', 'url_foto2'
+    ];
+    public function getUrlFotoAttribute()
+    {
+        $path_foto = $this->path_foto;
+        if (isset($path_foto))
+            return url('/storage/' . $this->path_foto);
+        else
+            return null;
+    }
+    public function getUrlFoto2Attribute()
+    {
+        $path_foto2 = $this->path_foto2;
+        if (isset($path_foto2))
+            return url('/storage/' . $this->path_foto2);
+        else
+            return null;
+    }
     protected $fillable = [
         'id', 'empresa_id', 'lugar', 'tipo_transporte', 'nombre_transporte', 'destino',
         'procedencia', 'numero_documento', 'fecha', 'retencion', 'rechazo',
@@ -18,7 +37,7 @@ class RegistroRetencion extends Model
         'numero_identificacion', 'tipo_residencia', 'observaciones', 'numero_guia_transporte',
         'porcentaje_mal_estado', 'porcentaje_plagados', 'retencion_patio', 'nombre_inspector_responsable',
         'identificacion_inspector_responsable', 'nombre_testigo', 'identificacion_testigo',
-        'creador_id', 'modificador_id', 'estado'
+        'creador_id', 'modificador_id', 'estado', 'path_foto', 'path_foto2'
     ];
     public function scopeActive($query)
     {

@@ -411,6 +411,74 @@
               </b-field>
             </div>
           </div> -->
+          <div class="columns">
+            <div class="column">
+              <b-field>
+                <b-upload
+                  @input="inputFoto"
+                  accept="image/*"
+                  v-model="form.foto"
+                  drag-drop
+                  expanded
+                >
+                  <section class="section">
+                    <div class="content has-text-centered">
+                      <p>
+                        <b-icon icon="upload" size="is-large"></b-icon>
+                      </p>
+                      <p>{{ $t("message.arrastra_archivo") }}</p>
+                    </div>
+                  </section>
+                </b-upload>
+              </b-field>
+              <div v-if="form.foto != null" class="tags">
+                <span class="tag is-primary">
+                  {{ form.foto.name }}
+                  <button
+                    class="delete is-small"
+                    type="button"
+                    @click="quitarArchivo"
+                  ></button>
+                </span>
+              </div>
+            </div>
+            <div class="column">
+              <b-image :src="imagenActual" alt="Imagen" ratio="6by4"></b-image>
+            </div>
+            <div class="column">
+              <b-field>
+                <b-upload
+                  @input="inputFoto2"
+                  accept="image/*"
+                  v-model="form.foto2"
+                  drag-drop
+                  expanded
+                >
+                  <section class="section">
+                    <div class="content has-text-centered">
+                      <p>
+                        <b-icon icon="upload" size="is-large"></b-icon>
+                      </p>
+                      <p>{{ $t("message.arrastra_archivo") }}</p>
+                    </div>
+                  </section>
+                </b-upload>
+              </b-field>
+              <div v-if="form.foto2 != null" class="tags">
+                <span class="tag is-primary">
+                  {{ form.foto2.name }}
+                  <button
+                    class="delete is-small"
+                    type="button"
+                    @click="quitarArchivo2"
+                  ></button>
+                </span>
+              </div>
+            </div>
+            <div class="column">
+              <b-image :src="imagenActual2" alt="Imagen" ratio="6by4"></b-image>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -428,6 +496,7 @@
 
 <script>
 import ProductosRetenidos from "./ProductosRetenidos.vue";
+import { serialize } from 'object-to-formdata';
 export default {
   props: {
     value: {
@@ -435,6 +504,7 @@ export default {
       required: false,
       default: function () {
         return {
+            foto2: null,
           fecha_inspeccion: null,
           retencion: false,
           rechazo: false,
@@ -465,6 +535,7 @@ export default {
           numero_documento: "",
           id: "",
           _method: undefined,
+          foto: null,
         };
       },
     },
@@ -473,6 +544,34 @@ export default {
     ProductosRetenidos,
   },
   methods: {
+    quitarArchivo: function () {
+      this.form.foto = null;
+      this.imagenActual = "/img/sin-imagen.jpg";
+    },
+    quitarArchivo2: function () {
+      this.form.foto2 = null;
+      this.imagenActual2 = "/img/sin-imagen.jpg";
+    },
+    inputFoto: function () {
+      if (this.form.foto != null) {
+        let reader = new FileReader();
+        reader.readAsDataURL(this.form.foto);
+        let that = this;
+        reader.onload = function () {
+          that.imagenActual = reader.result;
+        };
+      } else this.imagenActual = "/img/sin-imagen.jpg";
+    },
+    inputFoto2: function () {
+      if (this.form.foto2 != null) {
+        let reader = new FileReader();
+        reader.readAsDataURL(this.form.foto2);
+        let that = this;
+        reader.onload = function () {
+          that.imagenActual2 = reader.result;
+        };
+      } else this.imagenActual2 = "/img/sin-imagen.jpg";
+    },
     imprimir: function () {
       let url =
         process.env.MIX_APP_URL + "/exportar/" + this.form.id + "/retencion";
@@ -586,8 +685,14 @@ export default {
           } else {
             this.form._method = undefined;
           }
-          this.$http
-            .post(path, this.form)
+          this.$http({
+                method: "post",
+                url: path,
+                data: serialize(this.form, {
+                    indices: true
+                }),
+                headers: { "Content-Type": "multipart/form-data" },
+            })
             .then(() => {
               this.$buefy.toast.open({
                 message: this.$t("message.guardado_generico"),
@@ -617,6 +722,8 @@ export default {
   },
   data: function () {
     return {
+      imagenActual: "/img/sin-imagen.jpg",
+      imagenActual2: "/img/sin-imagen.jpg",
       numero_declaracion: "",
       form: this.value,
       errores: {

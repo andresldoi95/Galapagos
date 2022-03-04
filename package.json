@@ -24,6 +24,7 @@
         "@mdi/font": "^5.9.55",
         "buefy": "^0.9.13",
         "chart.js": "^2.9.4",
+        "object-to-formdata": "^4.4.2",
         "query-string": "^7.1.1",
         "vue": "^2.6.14",
         "vue-axios": "^2.1.5",

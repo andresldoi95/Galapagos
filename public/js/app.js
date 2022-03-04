@@ -2766,6 +2766,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2776,6 +2777,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       selectedRetencion: {
+        foto: null,
+        foto2: null,
         fecha_inspeccion: null,
         retencion: false,
         rechazo: false,
@@ -2824,6 +2827,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.$refs.masterForm.submit();
   },
   editar: function editar(row) {
+    if (row.url_foto != null) this.$refs.registroRetencion.imagenActual = row.url_foto;else this.$refs.registroRetencion.imagenActual = "/img/sin-imagen.jpg";
+    if (row.url_foto2 != null) this.$refs.registroRetencion.imagenActual2 = row.url_foto2;else this.$refs.registroRetencion.imagenActual2 = "/img/sin-imagen.jpg";
     this.selectedRetencion._method = "PUT";
     this.selectedRetencion.id = row.id;
     this.selectedRetencion.numero_documento = row.numero_documento;
@@ -3002,6 +3007,76 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductosRetenidos.vue */ "./resources/js/components/admin/retenciones/ProductosRetenidos.vue");
+/* harmony import */ var object_to_formdata__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! object-to-formdata */ "./node_modules/object-to-formdata/src/index.js");
+/* harmony import */ var object_to_formdata__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(object_to_formdata__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3431,6 +3506,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     value: {
@@ -3438,6 +3514,7 @@ __webpack_require__.r(__webpack_exports__);
       required: false,
       "default": function _default() {
         return {
+          foto2: null,
           fecha_inspeccion: null,
           retencion: false,
           rechazo: false,
@@ -3467,7 +3544,8 @@ __webpack_require__.r(__webpack_exports__);
           productos: [],
           numero_documento: "",
           id: "",
-          _method: undefined
+          _method: undefined,
+          foto: null
         };
       }
     }
@@ -3476,6 +3554,36 @@ __webpack_require__.r(__webpack_exports__);
     ProductosRetenidos: _ProductosRetenidos_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
+    quitarArchivo: function quitarArchivo() {
+      this.form.foto = null;
+      this.imagenActual = "/img/sin-imagen.jpg";
+    },
+    quitarArchivo2: function quitarArchivo2() {
+      this.form.foto2 = null;
+      this.imagenActual2 = "/img/sin-imagen.jpg";
+    },
+    inputFoto: function inputFoto() {
+      if (this.form.foto != null) {
+        var reader = new FileReader();
+        reader.readAsDataURL(this.form.foto);
+        var that = this;
+
+        reader.onload = function () {
+          that.imagenActual = reader.result;
+        };
+      } else this.imagenActual = "/img/sin-imagen.jpg";
+    },
+    inputFoto2: function inputFoto2() {
+      if (this.form.foto2 != null) {
+        var reader = new FileReader();
+        reader.readAsDataURL(this.form.foto2);
+        var that = this;
+
+        reader.onload = function () {
+          that.imagenActual2 = reader.result;
+        };
+      } else this.imagenActual2 = "/img/sin-imagen.jpg";
+    },
     imprimir: function imprimir() {
       var url = "http://127.0.0.1:8000" + "/exportar/" + this.form.id + "/retencion";
       window.open(url, "_blank");
@@ -3580,7 +3688,16 @@ __webpack_require__.r(__webpack_exports__);
             _this2.form._method = undefined;
           }
 
-          _this2.$http.post(path, _this2.form).then(function () {
+          _this2.$http({
+            method: "post",
+            url: path,
+            data: Object(object_to_formdata__WEBPACK_IMPORTED_MODULE_1__["serialize"])(_this2.form, {
+              indices: true
+            }),
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          }).then(function () {
             _this2.$buefy.toast.open({
               message: _this2.$t("message.guardado_generico"),
               type: "is-success"
@@ -3613,6 +3730,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      imagenActual: "/img/sin-imagen.jpg",
+      imagenActual2: "/img/sin-imagen.jpg",
       numero_declaracion: "",
       form: this.value,
       errores: {
@@ -4386,7 +4505,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.post("http://127.0.0.1:8000" + "/oauth/token", {
         grant_type: "password",
         client_id: "2",
-        client_secret: "e5r9O4PAtu1C1RswSr0LoD8cWvdN2jiBSYy1RQYh",
+        client_secret: "kP1ILKb910FeUh5TraeKzCSMTq1McobfOI3D5DzA",
         username: this.form.username,
         password: this.form.password
       }).then(function (_ref) {
@@ -4890,7 +5009,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
+/* WEBPACK VAR INJECTION */(function(process) {//
 //
 //
 //
@@ -4910,12 +5029,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      appName: "Galápagos",
-      appAuthor: "James Avila",
-      linkAuthor: "https://www.ucsg.edu.ec/"
+      appName: process.env.MIX_APP_NAME,
+      appAuthor: process.env.MIX_APP_AUTHOR,
+      linkAuthor: process.env.MIX_LINK_AUTHOR
     };
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -66107,6 +66227,131 @@ module.exports = function isArguments(value) {
 
 /***/ }),
 
+/***/ "./node_modules/object-to-formdata/src/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/object-to-formdata/src/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function isUndefined(value) {
+  return value === undefined;
+}
+
+function isNull(value) {
+  return value === null;
+}
+
+function isBoolean(value) {
+  return typeof value === 'boolean';
+}
+
+function isObject(value) {
+  return value === Object(value);
+}
+
+function isArray(value) {
+  return Array.isArray(value);
+}
+
+function isDate(value) {
+  return value instanceof Date;
+}
+
+function isBlob(value, isReactNative) {
+  return isReactNative
+    ? isObject(value) && !isUndefined(value.uri)
+    : isObject(value) &&
+        typeof value.size === 'number' &&
+        typeof value.type === 'string' &&
+        typeof value.slice === 'function';
+}
+
+function isFile(value, isReactNative) {
+  return (
+    isBlob(value, isReactNative) &&
+    typeof value.name === 'string' &&
+    (isObject(value.lastModifiedDate) || typeof value.lastModified === 'number')
+  );
+}
+
+function initCfg(value) {
+  return isUndefined(value) ? false : value;
+}
+
+function serialize(obj, cfg, fd, pre) {
+  cfg = cfg || {};
+  fd = fd || new FormData();
+
+  cfg.indices = initCfg(cfg.indices);
+  cfg.nullsAsUndefineds = initCfg(cfg.nullsAsUndefineds);
+  cfg.booleansAsIntegers = initCfg(cfg.booleansAsIntegers);
+  cfg.allowEmptyArrays = initCfg(cfg.allowEmptyArrays);
+  cfg.noFilesWithArrayNotation = initCfg(cfg.noFilesWithArrayNotation);
+  cfg.dotsForObjectNotation = initCfg(cfg.dotsForObjectNotation);
+
+  const isReactNative = typeof fd.getParts === 'function';
+
+  if (isUndefined(obj)) {
+    return fd;
+  } else if (isNull(obj)) {
+    if (!cfg.nullsAsUndefineds) {
+      fd.append(pre, '');
+    }
+  } else if (isBoolean(obj)) {
+    if (cfg.booleansAsIntegers) {
+      fd.append(pre, obj ? 1 : 0);
+    } else {
+      fd.append(pre, obj);
+    }
+  } else if (isArray(obj)) {
+    if (obj.length) {
+      obj.forEach((value, index) => {
+        let key = pre + '[' + (cfg.indices ? index : '') + ']';
+
+        if (cfg.noFilesWithArrayNotation && isFile(value, isReactNative)) {
+          key = pre;
+        }
+
+        serialize(value, cfg, fd, key);
+      });
+    } else if (cfg.allowEmptyArrays) {
+      fd.append(pre + '[]', '');
+    }
+  } else if (isDate(obj)) {
+    fd.append(pre, obj.toISOString());
+  } else if (isObject(obj) && !isBlob(obj, isReactNative)) {
+    Object.keys(obj).forEach((prop) => {
+      const value = obj[prop];
+
+      if (isArray(value)) {
+        while (prop.length > 2 && prop.lastIndexOf('[]') === prop.length - 2) {
+          prop = prop.substring(0, prop.length - 2);
+        }
+      }
+
+      const key = pre
+        ? cfg.dotsForObjectNotation
+          ? pre + '.' + prop
+          : pre + '[' + prop + ']'
+        : prop;
+
+      serialize(value, cfg, fd, key);
+    });
+  } else {
+    fd.append(pre, obj);
+  }
+
+  return fd;
+}
+
+module.exports = {
+  serialize,
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -72352,6 +72597,7 @@ var render = function () {
             },
             [
               _c("registro-retencion", {
+                ref: "registroRetencion",
                 on: { input: _vm.inputRetencion },
                 model: {
                   value: _vm.selectedRetencion,
@@ -73428,6 +73674,186 @@ var render = function () {
                   ],
                   1
                 ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  [
+                    _c(
+                      "b-upload",
+                      {
+                        attrs: {
+                          accept: "image/*",
+                          "drag-drop": "",
+                          expanded: "",
+                        },
+                        on: { input: _vm.inputFoto },
+                        model: {
+                          value: _vm.form.foto,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "foto", $$v)
+                          },
+                          expression: "form.foto",
+                        },
+                      },
+                      [
+                        _c("section", { staticClass: "section" }, [
+                          _c(
+                            "div",
+                            { staticClass: "content has-text-centered" },
+                            [
+                              _c(
+                                "p",
+                                [
+                                  _c("b-icon", {
+                                    attrs: { icon: "upload", size: "is-large" },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  _vm._s(_vm.$t("message.arrastra_archivo"))
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.form.foto != null
+                  ? _c("div", { staticClass: "tags" }, [
+                      _c("span", { staticClass: "tag is-primary" }, [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.form.foto.name) +
+                            "\n                "
+                        ),
+                        _c("button", {
+                          staticClass: "delete is-small",
+                          attrs: { type: "button" },
+                          on: { click: _vm.quitarArchivo },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c("b-image", {
+                  attrs: {
+                    src: _vm.imagenActual,
+                    alt: "Imagen",
+                    ratio: "6by4",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  [
+                    _c(
+                      "b-upload",
+                      {
+                        attrs: {
+                          accept: "image/*",
+                          "drag-drop": "",
+                          expanded: "",
+                        },
+                        on: { input: _vm.inputFoto2 },
+                        model: {
+                          value: _vm.form.foto2,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "foto2", $$v)
+                          },
+                          expression: "form.foto2",
+                        },
+                      },
+                      [
+                        _c("section", { staticClass: "section" }, [
+                          _c(
+                            "div",
+                            { staticClass: "content has-text-centered" },
+                            [
+                              _c(
+                                "p",
+                                [
+                                  _c("b-icon", {
+                                    attrs: { icon: "upload", size: "is-large" },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  _vm._s(_vm.$t("message.arrastra_archivo"))
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.form.foto2 != null
+                  ? _c("div", { staticClass: "tags" }, [
+                      _c("span", { staticClass: "tag is-primary" }, [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.form.foto2.name) +
+                            "\n                "
+                        ),
+                        _c("button", {
+                          staticClass: "delete is-small",
+                          attrs: { type: "button" },
+                          on: { click: _vm.quitarArchivo2 },
+                        }),
+                      ]),
+                    ])
+                  : _vm._e(),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c("b-image", {
+                  attrs: {
+                    src: _vm.imagenActual2,
+                    alt: "Imagen",
+                    ratio: "6by4",
+                  },
+                }),
               ],
               1
             ),
@@ -75229,69 +75655,83 @@ var render = function () {
           },
         },
         [
-          _c("div", { staticClass: "row mb-2" }, [
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: _vm.$t("etiqueta.desde") } },
-                    [
-                      _c("b-datepicker", {
-                        attrs: {
-                          icon: "calendar-today",
-                          placeholder: "DD/MM/YYYY",
-                          "trap-focus": "",
-                          locale: "es-ES",
-                        },
-                        model: {
-                          value: _vm.form.desde,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "desde", $$v)
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.filterByDate,
+                  expression: "filterByDate",
+                },
+              ],
+              staticClass: "row mb-2",
+            },
+            [
+              _c("div", { staticClass: "columns" }, [
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [
+                    _c(
+                      "b-field",
+                      { attrs: { label: _vm.$t("etiqueta.desde") } },
+                      [
+                        _c("b-datepicker", {
+                          attrs: {
+                            icon: "calendar-today",
+                            placeholder: "DD/MM/YYYY",
+                            "trap-focus": "",
+                            locale: "es-ES",
                           },
-                          expression: "form.desde",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: _vm.$t("etiqueta.hasta") } },
-                    [
-                      _c("b-datepicker", {
-                        attrs: {
-                          icon: "calendar-today",
-                          placeholder: "DD/MM/YYYY",
-                          "trap-focus": "",
-                          locale: "es-ES",
-                        },
-                        model: {
-                          value: _vm.form.hasta,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "hasta", $$v)
+                          model: {
+                            value: _vm.form.desde,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "desde", $$v)
+                            },
+                            expression: "form.desde",
                           },
-                          expression: "form.hasta",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-          ]),
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [
+                    _c(
+                      "b-field",
+                      { attrs: { label: _vm.$t("etiqueta.hasta") } },
+                      [
+                        _c("b-datepicker", {
+                          attrs: {
+                            icon: "calendar-today",
+                            placeholder: "DD/MM/YYYY",
+                            "trap-focus": "",
+                            locale: "es-ES",
+                          },
+                          model: {
+                            value: _vm.form.hasta,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "hasta", $$v)
+                            },
+                            expression: "form.hasta",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "b-field",
@@ -101175,8 +101615,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrés León\Documents\GitHub\Galápagos\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Personal\Galapagos\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Personal\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -37,6 +37,7 @@
         footer {
             font-size: 9px;
         }
+        .page_break { page-break-before: always; }
     </style>
 </head>
 <body>
@@ -342,5 +343,25 @@
             </tbody>
         </table>
     </footer>
+    @if ($retencion->path_foto != null || $retencion->path_foto2 != null)
+        <div class="page_break"></div>
+        <h2>Fotos</h3>
+        <table class="bordered">
+            <tbody>
+                <tr>
+                    @if ($retencion->path_foto != null)
+                        <td width="50%">
+                            <img src="{{ storage_path('/app/public/' . $retencion->path_foto) }}" alt="Foto principal" width="100%">
+                        </td>
+                    @endif
+                    @if ($retencion->path_foto2 != null)
+                        <td width="50%">
+                            <img src="{{ storage_path('/app/public/' . $retencion->path_foto2) }}" alt="Foto adicional" width="100%">
+                        </td>
+                    @endif
+                </tr>
+            </tbody>
+        </table>
+    @endif
 </body>
 </html>

@@ -88,6 +88,12 @@ class RegistroRetencionController extends Controller
             $registroRetencion->nombre_testigo = $request->input('nombre_testigo');
             $registroRetencion->identificacion_testigo = $request->input('identificacion_testigo');
             $registroRetencion->modificador_id = $request->user()->id;
+            if ($request->hasFile('foto')) {
+                $registroRetencion->path_foto = $request->file('foto')->storeAs('/registros-retenciones', $registroRetencion->numero_documento . '-' . date('YmdHis') . '.' . $request->file('foto2')->extension());
+            }
+            if ($request->hasFile('foto2')) {
+                $registroRetencion->path_foto2 = $request->file('foto2')->storeAs('/registros-retenciones', $registroRetencion->numero_documento . '-2-' . date('YmdHis') . '.' . $request->file('foto2')->extension());
+            }
             $registroRetencion->save();
             $registroRetencion->productos()->delete();
             $productos = $request->input('productos');
@@ -110,6 +116,8 @@ class RegistroRetencionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'foto' => 'nullable|image',
+            'foto2' => 'nullable|image',
             'lugar' => 'required|max:2',
             'tipo_transporte' => 'required|max:2',
             'nombre_transporte' => 'required|max:500',
@@ -140,10 +148,11 @@ class RegistroRetencionController extends Controller
         ]);
         DB::transaction(function () use ($request) {
             $user = $request->user();
+            $numDoc = $this->obtenerNumeroDocumento();
             $registroRetencion = RegistroRetencion::create([
                 'id' => uniqid('r' . date('ymdHis'), true),
                 'empresa_id' => $user->empresa_id,
-                'numero_documento' => $this->obtenerNumeroDocumento(),
+                'numero_documento' => $numDoc,
                 'lugar' => $request->input('lugar'),
                 'tipo_transporte' => $request->input('tipo_transporte'),
                 'nombre_transporte' => $request->input('nombre_transporte'),
@@ -171,6 +180,8 @@ class RegistroRetencionController extends Controller
                 'nombre_testigo' => $request->input('nombre_testigo'),
                 'identificacion_testigo' => $request->input('identificacion_testigo'),
                 'creador_id' => $user->id,
+                'path_foto' => $request->hasFile('foto') ? $request->file('foto')->storeAs('/registros-retenciones', $numDoc . '-' . date('YmdHis') . '.' . $request->file('foto')->extension()) : null,
+                'path_foto2' => $request->hasFile('foto2') ? $request->file('foto2')->storeAs('/registros-retenciones', $numDoc . '-2-' . date('YmdHis') . '.' . $request->file('foto2')->extension()) : null
             ]);
             $productos = $request->input('productos');
             foreach ($productos as $producto) {
