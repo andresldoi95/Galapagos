@@ -29,9 +29,9 @@ class DeclaracionJuramentadaApiController extends Controller
             return $query->where('numero_identificacion', $search)->orWhere('codigo', 'like', "%$search%");
         })->with('productos');
         if (isset($desde))
-            $declaraciones->where('fecha', '>=', new Carbon($desde));
+            $declaraciones->where('fecha', '>=', (new Carbon($desde))->startOfDay());
         if (isset($hasta))
-            $declaraciones->where('fecha', '<=', new Carbon($hasta));
+            $declaraciones->where('fecha', '<=', (new Carbon($hasta))->endOfDay());
         if (isset($sortBy) && $sortBy !== '')
             $declaraciones->orderBy($sortBy, $request->input('sort_order'));
         if ($status !== 'T')

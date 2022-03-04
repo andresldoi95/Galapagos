@@ -243,9 +243,9 @@ class RegistroRetencionController extends Controller
             return $query->where('numero_identificacion', $search)->orWhere('numero_documento', 'like', "%$search");
         });
         if (isset($desde))
-            $declaraciones->where('fecha', '>=', new Carbon($desde));
+            $declaraciones->where('fecha', '>=', (new Carbon($desde))->startOfDay());
         if (isset($hasta))
-            $declaraciones->where('fecha', '<=', new Carbon($hasta));
+            $declaraciones->where('fecha', '<=', (new Carbon($hasta))->endOfDay());
         if (isset($sortBy) && $sortBy !== '')
             $declaraciones->orderBy($sortBy, $request->input('sort_order'));
         if ($status !== 'T')
