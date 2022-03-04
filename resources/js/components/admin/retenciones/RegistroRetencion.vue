@@ -53,7 +53,7 @@
               <b-field
                 :message="errores.lugar ? errores.lugar[0] : ''"
                 :type="errores.lugar ? 'is-danger' : ''"
-                :label="$t('etiqueta.lugar')"
+                :label="$t('etiqueta.lugar') + '*'"
               >
                 <b-select
                   v-model="form.lugar"
@@ -76,7 +76,7 @@
                   errores.tipo_transporte ? errores.tipo_transporte[0] : ''
                 "
                 :type="errores.tipo_transporte ? 'is-danger' : ''"
-                :label="$t('etiqueta.tipo_transporte')"
+                :label="$t('etiqueta.tipo_transporte') + '*'"
               >
                 <b-select
                   v-model="form.tipo_transporte"
@@ -108,7 +108,7 @@
                   errores.nombre_transporte ? errores.nombre_transporte[0] : ''
                 "
                 :type="errores.nombre_transporte ? 'is-danger' : ''"
-                :label="$t('etiqueta.nombre_transporte')"
+                :label="$t('etiqueta.nombre_transporte') + '*'"
               >
                 <b-input v-model="form.nombre_transporte"></b-input>
               </b-field>
@@ -119,7 +119,7 @@
               <b-field
                 :message="errores.destino ? errores.destino[0] : ''"
                 :type="errores.destino ? 'is-danger' : ''"
-                :label="$t('etiqueta.destino')"
+                :label="$t('etiqueta.destino') + '*'"
               >
                 <b-input v-model="form.destino"></b-input>
               </b-field>
@@ -128,7 +128,7 @@
               <b-field
                 :message="errores.procedencia ? errores.procedencia[0] : ''"
                 :type="errores.procedencia ? 'is-danger' : ''"
-                :label="$t('etiqueta.procedencia')"
+                :label="$t('etiqueta.procedencia') + '*'"
               >
                 <b-input v-model="form.procedencia"></b-input>
               </b-field>
@@ -141,7 +141,7 @@
                     : ''
                 "
                 :type="errores.numero_identificacion ? 'is-danger' : ''"
-                :label="$t('etiqueta.numero_identificacion')"
+                :label="$t('etiqueta.numero_identificacion') + '*'"
               >
                 <b-input v-model="form.numero_identificacion"></b-input>
               </b-field>
@@ -152,7 +152,7 @@
                   errores.nombre_completo ? errores.nombre_completo[0] : ''
                 "
                 :type="errores.nombre_completo ? 'is-danger' : ''"
-                :label="$t('etiqueta.nombre_completo')"
+                :label="$t('etiqueta.nombre_completo') + '*'"
               >
                 <b-input v-model="form.nombre_completo"></b-input>
               </b-field>
@@ -163,13 +163,13 @@
               <b-field
                 :message="errores.direccion ? errores.direccion[0] : ''"
                 :type="errores.direccion ? 'is-danger' : ''"
-                :label="$t('etiqueta.direccion')"
+                :label="$t('etiqueta.direccion') + '*'"
               >
                 <b-input v-model="form.direccion"></b-input>
               </b-field>
             </div>
             <div class="column">
-              <b-field :label="$t('etiqueta.tipo_residencia')">
+              <b-field :label="$t('etiqueta.tipo_residencia') + '*'">
                 <div class="block">
                   <b-radio native-value="R" v-model="form.tipo_residencia">
                     {{ $t("etiqueta.residente") }}
@@ -184,7 +184,7 @@
               </b-field>
             </div>
             <div class="column">
-              <b-field :label="$t('etiqueta.fecha_hora')">
+              <b-field :label="$t('etiqueta.fecha_hora') + '*'">
                 <b-datetimepicker
                   v-model="form.fecha"
                   :placeholder="$t('message.seleccione')"
@@ -290,7 +290,7 @@
                     : ''
                 "
                 :type="errores.nombre_inspector_responsable ? 'is-danger' : ''"
-                :label="$t('etiqueta.nombre_inspector_responsable')"
+                :label="$t('etiqueta.nombre_inspector_responsable') + '*'"
               >
                 <b-input
                   readonly
@@ -310,7 +310,7 @@
                     ? 'is-danger'
                     : ''
                 "
-                :label="$t('etiqueta.identificacion_inspector_responsable')"
+                :label="$t('etiqueta.identificacion_inspector_responsable') + '*'"
               >
                 <b-input
                   readonly
@@ -324,7 +324,7 @@
                   errores.nombre_testigo ? errores.nombre_testigo[0] : ''
                 "
                 :type="errores.nombre_testigo ? 'is-danger' : ''"
-                :label="$t('etiqueta.nombre_testigo')"
+                :label="$t('etiqueta.nombre_testigo') + '*'"
               >
                 <b-input v-model="form.nombre_testigo"></b-input>
               </b-field>
@@ -337,7 +337,7 @@
                     : ''
                 "
                 :type="errores.identificacion_testigo ? 'is-danger' : ''"
-                :label="$t('etiqueta.identificacion_testigo')"
+                :label="$t('etiqueta.identificacion_testigo') + '*'"
               >
                 <b-input v-model="form.identificacion_testigo"></b-input>
               </b-field>
@@ -378,7 +378,7 @@
                     : ''
                 "
                 :type="errores.porcentaje_mal_estado ? 'is-danger' : ''"
-                :label="$t('etiqueta.porcentaje_mal_estado')"
+                :label="$t('etiqueta.porcentaje_mal_estado') + '*'"
               >
                 <b-input v-model="form.porcentaje_mal_estado"></b-input>
               </b-field>
@@ -391,7 +391,7 @@
                     : ''
                 "
                 :type="errores.porcentaje_plagados ? 'is-danger' : ''"
-                :label="$t('etiqueta.porcentaje_plagados')"
+                :label="$t('etiqueta.porcentaje_plagados') + '*'"
               >
                 <b-input v-model="form.porcentaje_plagados"></b-input>
               </b-field>

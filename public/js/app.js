@@ -72922,7 +72922,7 @@ var render = function () {
                     attrs: {
                       message: _vm.errores.lugar ? _vm.errores.lugar[0] : "",
                       type: _vm.errores.lugar ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.lugar"),
+                      label: _vm.$t("etiqueta.lugar") + "*",
                     },
                   },
                   [
@@ -72980,7 +72980,7 @@ var render = function () {
                         ? _vm.errores.tipo_transporte[0]
                         : "",
                       type: _vm.errores.tipo_transporte ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.tipo_transporte"),
+                      label: _vm.$t("etiqueta.tipo_transporte") + "*",
                     },
                   },
                   [
@@ -73064,7 +73064,7 @@ var render = function () {
                         ? _vm.errores.nombre_transporte[0]
                         : "",
                       type: _vm.errores.nombre_transporte ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.nombre_transporte"),
+                      label: _vm.$t("etiqueta.nombre_transporte") + "*",
                     },
                   },
                   [
@@ -73098,7 +73098,7 @@ var render = function () {
                         ? _vm.errores.destino[0]
                         : "",
                       type: _vm.errores.destino ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.destino"),
+                      label: _vm.$t("etiqueta.destino") + "*",
                     },
                   },
                   [
@@ -73130,7 +73130,7 @@ var render = function () {
                         ? _vm.errores.procedencia[0]
                         : "",
                       type: _vm.errores.procedencia ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.procedencia"),
+                      label: _vm.$t("etiqueta.procedencia") + "*",
                     },
                   },
                   [
@@ -73164,7 +73164,7 @@ var render = function () {
                       type: _vm.errores.numero_identificacion
                         ? "is-danger"
                         : "",
-                      label: _vm.$t("etiqueta.numero_identificacion"),
+                      label: _vm.$t("etiqueta.numero_identificacion") + "*",
                     },
                   },
                   [
@@ -73196,7 +73196,7 @@ var render = function () {
                         ? _vm.errores.nombre_completo[0]
                         : "",
                       type: _vm.errores.nombre_completo ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.nombre_completo"),
+                      label: _vm.$t("etiqueta.nombre_completo") + "*",
                     },
                   },
                   [
@@ -73230,7 +73230,7 @@ var render = function () {
                         ? _vm.errores.direccion[0]
                         : "",
                       type: _vm.errores.direccion ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.direccion"),
+                      label: _vm.$t("etiqueta.direccion") + "*",
                     },
                   },
                   [
@@ -73256,7 +73256,9 @@ var render = function () {
               [
                 _c(
                   "b-field",
-                  { attrs: { label: _vm.$t("etiqueta.tipo_residencia") } },
+                  {
+                    attrs: { label: _vm.$t("etiqueta.tipo_residencia") + "*" },
+                  },
                   [
                     _c(
                       "div",
@@ -73339,7 +73341,7 @@ var render = function () {
               [
                 _c(
                   "b-field",
-                  { attrs: { label: _vm.$t("etiqueta.fecha_hora") } },
+                  { attrs: { label: _vm.$t("etiqueta.fecha_hora") + "*" } },
                   [
                     _c("b-datetimepicker", {
                       attrs: {
@@ -73445,7 +73447,8 @@ var render = function () {
                       type: _vm.errores.nombre_inspector_responsable
                         ? "is-danger"
                         : "",
-                      label: _vm.$t("etiqueta.nombre_inspector_responsable"),
+                      label:
+                        _vm.$t("etiqueta.nombre_inspector_responsable") + "*",
                     },
                   },
                   [
@@ -73484,9 +73487,10 @@ var render = function () {
                       type: _vm.errores.identificacion_inspector_responsable
                         ? "is-danger"
                         : "",
-                      label: _vm.$t(
-                        "etiqueta.identificacion_inspector_responsable"
-                      ),
+                      label:
+                        _vm.$t(
+                          "etiqueta.identificacion_inspector_responsable"
+                        ) + "*",
                     },
                   },
                   [
@@ -73523,7 +73527,7 @@ var render = function () {
                         ? _vm.errores.nombre_testigo[0]
                         : "",
                       type: _vm.errores.nombre_testigo ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.nombre_testigo"),
+                      label: _vm.$t("etiqueta.nombre_testigo") + "*",
                     },
                   },
                   [
@@ -73557,7 +73561,7 @@ var render = function () {
                       type: _vm.errores.identificacion_testigo
                         ? "is-danger"
                         : "",
-                      label: _vm.$t("etiqueta.identificacion_testigo"),
+                      label: _vm.$t("etiqueta.identificacion_testigo") + "*",
                     },
                   },
                   [
@@ -73626,7 +73630,7 @@ var render = function () {
                       type: _vm.errores.porcentaje_mal_estado
                         ? "is-danger"
                         : "",
-                      label: _vm.$t("etiqueta.porcentaje_mal_estado"),
+                      label: _vm.$t("etiqueta.porcentaje_mal_estado") + "*",
                     },
                   },
                   [
@@ -73658,7 +73662,7 @@ var render = function () {
                         ? _vm.errores.porcentaje_plagados[0]
                         : "",
                       type: _vm.errores.porcentaje_plagados ? "is-danger" : "",
-                      label: _vm.$t("etiqueta.porcentaje_plagados"),
+                      label: _vm.$t("etiqueta.porcentaje_plagados") + "*",
                     },
                   },
                   [
@@ -76485,7 +76489,7 @@ var render = function () {
                         type: _vm.errores.numero_identificacion
                           ? "is-danger"
                           : "",
-                        label: _vm.$t("etiqueta.numero_identificacion"),
+                        label: _vm.$t("etiqueta.numero_identificacion") + "*",
                       },
                     },
                     [
@@ -76518,7 +76522,7 @@ var render = function () {
                           ? _vm.errores.apellidos[0]
                           : "",
                         type: _vm.errores.apellidos ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.apellidos"),
+                        label: _vm.$t("etiqueta.apellidos") + "*",
                       },
                     },
                     [
@@ -76551,7 +76555,7 @@ var render = function () {
                           ? _vm.errores.nombres[0]
                           : "",
                         type: _vm.errores.nombres ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.nombres"),
+                        label: _vm.$t("etiqueta.nombres") + "*",
                       },
                     },
                     [
@@ -76586,7 +76590,7 @@ var render = function () {
                           ? _vm.errores.nacionalidad[0]
                           : "",
                         type: _vm.errores.nacionalidad ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.nacionalidad"),
+                        label: _vm.$t("etiqueta.nacionalidad") + "*",
                       },
                     },
                     [
@@ -76687,7 +76691,7 @@ var render = function () {
                           ? _vm.errores.lugar_residencia[0]
                           : "",
                         type: _vm.errores.lugar_residencia ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.lugar_residencia"),
+                        label: _vm.$t("etiqueta.lugar_residencia") + "*",
                       },
                     },
                     [
@@ -76722,7 +76726,7 @@ var render = function () {
                         type: _vm.errores.direccion_domicilio
                           ? "is-danger"
                           : "",
-                        label: _vm.$t("etiqueta.direccion_domicilio"),
+                        label: _vm.$t("etiqueta.direccion_domicilio") + "*",
                       },
                     },
                     [
@@ -76755,7 +76759,7 @@ var render = function () {
                           ? _vm.errores.linea_aerea[0]
                           : "",
                         type: _vm.errores.linea_aerea ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.linea_aerea"),
+                        label: _vm.$t("etiqueta.linea_aerea") + "*",
                       },
                     },
                     [
@@ -76790,7 +76794,7 @@ var render = function () {
                           ? _vm.errores.numero_vuelo[0]
                           : "",
                         type: _vm.errores.numero_vuelo ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.numero_vuelo"),
+                        label: _vm.$t("etiqueta.numero_vuelo") + "*",
                       },
                     },
                     [
@@ -76823,7 +76827,7 @@ var render = function () {
                           ? _vm.errores.aeropuerto_origen[0]
                           : "",
                         type: _vm.errores.aeropuerto_origen ? "is-danger" : "",
-                        label: _vm.$t("etiqueta.aeropuerto_origen"),
+                        label: _vm.$t("etiqueta.aeropuerto_origen") + "*",
                       },
                     },
                     [
@@ -76850,7 +76854,7 @@ var render = function () {
                 [
                   _c(
                     "b-field",
-                    { attrs: { label: _vm.$t("etiqueta.fecha") } },
+                    { attrs: { label: _vm.$t("etiqueta.fecha") + "*" } },
                     [
                       _c("b-datepicker", {
                         attrs: {

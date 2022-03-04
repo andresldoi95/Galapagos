@@ -34,7 +34,7 @@
                     : ''
                 "
                 :type="errores.numero_identificacion ? 'is-danger' : ''"
-                :label="$t('etiqueta.numero_identificacion')"
+                :label="$t('etiqueta.numero_identificacion') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -46,7 +46,7 @@
               <b-field
                 :message="errores.apellidos ? errores.apellidos[0] : ''"
                 :type="errores.apellidos ? 'is-danger' : ''"
-                :label="$t('etiqueta.apellidos')"
+                :label="$t('etiqueta.apellidos') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -58,7 +58,7 @@
               <b-field
                 :message="errores.nombres ? errores.nombres[0] : ''"
                 :type="errores.nombres ? 'is-danger' : ''"
-                :label="$t('etiqueta.nombres')"
+                :label="$t('etiqueta.nombres') + '*'"
               >
                 <b-input :disabled="!editable" v-model="form.nombres"></b-input>
               </b-field>
@@ -69,7 +69,7 @@
               <b-field
                 :message="errores.nacionalidad ? errores.nacionalidad[0] : ''"
                 :type="errores.nacionalidad ? 'is-danger' : ''"
-                :label="$t('etiqueta.nacionalidad')"
+                :label="$t('etiqueta.nacionalidad') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -113,7 +113,7 @@
                   errores.lugar_residencia ? errores.lugar_residencia[0] : ''
                 "
                 :type="errores.lugar_residencia ? 'is-danger' : ''"
-                :label="$t('etiqueta.lugar_residencia')"
+                :label="$t('etiqueta.lugar_residencia') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -129,7 +129,7 @@
                     : ''
                 "
                 :type="errores.direccion_domicilio ? 'is-danger' : ''"
-                :label="$t('etiqueta.direccion_domicilio')"
+                :label="$t('etiqueta.direccion_domicilio') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -141,7 +141,7 @@
               <b-field
                 :message="errores.linea_aerea ? errores.linea_aerea[0] : ''"
                 :type="errores.linea_aerea ? 'is-danger' : ''"
-                :label="$t('etiqueta.linea_aerea')"
+                :label="$t('etiqueta.linea_aerea') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -155,7 +155,7 @@
               <b-field
                 :message="errores.numero_vuelo ? errores.numero_vuelo[0] : ''"
                 :type="errores.numero_vuelo ? 'is-danger' : ''"
-                :label="$t('etiqueta.numero_vuelo')"
+                :label="$t('etiqueta.numero_vuelo') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -169,7 +169,7 @@
                   errores.aeropuerto_origen ? errores.aeropuerto_origen[0] : ''
                 "
                 :type="errores.aeropuerto_origen ? 'is-danger' : ''"
-                :label="$t('etiqueta.aeropuerto_origen')"
+                :label="$t('etiqueta.aeropuerto_origen') + '*'"
               >
                 <b-input
                   :disabled="!editable"
@@ -178,7 +178,7 @@
               </b-field>
             </div>
             <div class="column">
-              <b-field :label="$t('etiqueta.fecha')">
+              <b-field :label="$t('etiqueta.fecha') + '*'">
                 <b-datepicker
                   :disabled="!editable"
                   v-model="form.fecha"
