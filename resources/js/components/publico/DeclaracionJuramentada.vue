@@ -83,10 +83,12 @@
                 :type="errores.telefono ? 'is-danger' : ''"
                 :label="$t('etiqueta.telefono')"
               >
-                <b-input
-                  :disabled="!editable"
-                  v-model="form.telefono"
-                ></b-input>
+                <vue-phone-number-input :translations="{
+                    countrySelectorLabel: 'Cod.',
+                    countrySelectorError: 'Error',
+                    phoneNumberLabel: '',
+                    example: 'E. :'
+                }" :disabled="!editable" default-country-code="EC" id="telefono" v-model="form.telefono" />
               </b-field>
             </div>
             <div class="column">

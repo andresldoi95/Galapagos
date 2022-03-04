@@ -7,8 +7,11 @@ import VueAxios from "vue-axios";
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
 import VueSession from "vue-session";
-import Chartkick from 'vue-chartkick'
-import Chart from 'chart.js'
+import Chartkick from 'vue-chartkick';
+import Chart from 'chart.js';
+
+import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 
 //Importando componentes globales
 import App from "./components/App";
@@ -22,6 +25,7 @@ Vue.use(VueI18n);
 Vue.use(VueSession);
 Vue.use(require("vue-moment"));
 Vue.use(require("vue-cookies"));
+Vue.component('vue-phone-number-input', VuePhoneNumberInput);
 //Importando configuraciones de los diferentes plugins
 const store = new Vuex.Store(require("./plugins/store").default);
 const routes = require("./routes/router").default;
