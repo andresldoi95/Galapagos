@@ -12,8 +12,8 @@ class DashboardApiController extends Controller
 {
     public function index(Request $request)
     {
-        $desde = new Carbon($request->input('desde'));
-        $hasta = new Carbon($request->input('hasta'));
+        $desde = (new Carbon($request->input('desde')))->startOfDay();
+        $hasta = (new Carbon($request->input('hasta')))->endOfDay();
         $declaracionesB = DeclaracionJuramentada::active()->whereBetween('fecha', [$desde, $hasta]);
         $cantidadDeclaraciones = (clone $declaracionesB)->count();
         $retencionesB = RegistroRetencion::active()->whereBetween('fecha', [$desde, $hasta]);
