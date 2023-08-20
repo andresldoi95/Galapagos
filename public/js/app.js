@@ -4505,7 +4505,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.post("http://127.0.0.1:8000" + "/oauth/token", {
         grant_type: "password",
         client_id: "2",
-        client_secret: "kP1ILKb910FeUh5TraeKzCSMTq1McobfOI3D5DzA",
+        client_secret: "lwITVXb3GLAYMkzAyjSZh57N27ebOXh2HWIvRTbN",
         username: this.form.username,
         password: this.form.password
       }).then(function (_ref) {
@@ -116439,8 +116439,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Personal\Galapagos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Personal\Galapagos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Otros\GalapagosABG\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Otros\GalapagosABG\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
